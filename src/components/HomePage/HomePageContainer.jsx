@@ -9,7 +9,8 @@ function HomePageContainer(){
     {name: "Entretenimiento", description: "Cosas divertidas"},
     {name: "Música", description: "Musica para tus oidos"},
     {name: "Música", description: "Musica para tus oidos"},
-    {name: "Música", description: "Musica para tus oidos"}]
+    {name: "Música", description: "Musica para tus oidos"},
+    {name: "Ropa", description: "Lookeate a la moda"}]
 
     return (
       <HomePageComponent arrayProducts={arrayProducts} />
