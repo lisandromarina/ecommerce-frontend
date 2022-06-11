@@ -1,35 +1,30 @@
 import React from 'react';
-import { Card, Button, Container } from 'react-bootstrap';
+import { Form, Card, Button, Container } from 'react-bootstrap';
 
 function RegisterComponent() {
     return (
-        <Container className='d-flex justify-content-center'>
-            <div className="form">
-                <div className="form-body">
-                    <div className="username">
-                        <label className="form__label" for="firstName">First Name </label>
-                        <input className="form__input" type="text" id="firstName" placeholder="First Name" />
+        <Container>
+            <h1 className="text-center text-white fw-semibold">Registration</h1>
+            <div className="d-flex justify-content-center">
+                <Form className="row w-50">
+                    <label className="text-white" style={{ marginTop: "10px" }} htmlFor="name">Name</label>
+                    <input type="text" class="form-control" placeholder="First name" />
+                    <label className="text-white" style={{ marginTop: "10px" }} htmlFor="last name">Last Name</label>
+                    <input type="text" class="form-control" placeholder="Last name" />
+                    <label className="text-white" style={{ marginTop: "10px" }} htmlFor="email">Email address</label>
+                    <input type="email" class="form-control" placeholder="example@hotmail.com" />
+                    <label className="text-white" style={{ marginTop: "10px" }} htmlFor="password">Password</label>
+                    <input type="password" class="form-control" placeholder="***" />
+                    <div className="row">
+                        <div className="d-flex justify-content-center">
+                            <Button className="d-flex justify-content-center w-50" style={{ marginTop: "30px" }}>Create Account</Button>
+                        </div>
+                        <p style={{ marginTop: "10px" }} className="d-flex justify-content-center text-white">
+                            Do you already have an account?<a href='login'>Log in</a>
+                        </p>
                     </div>
-                    <div className="lastname">
-                        <label className="form__label" for="lastName">Last Name </label>
-                        <input type="text" name="" id="lastName" className="form__input" placeholder="LastName" />
-                    </div>
-                    <div className="email">
-                        <label className="form__label" for="email">Email </label>
-                        <input type="email" id="email" className="form__input" placeholder="Email" />
-                    </div>
-                    <div className="password">
-                        <label className="form__label" for="password">Password </label>
-                        <input className="form__input" type="password" id="password" placeholder="Password" />
-                    </div>
-                    <div className="confirm-password">
-                        <label className="form__label" for="confirmPassword">Confirm Password </label>
-                        <input className="form__input" type="password" id="confirmPassword" placeholder="Confirm Password" />
-                    </div>
-                </div>
-                <div class="footer">
-                    <button type="submit" class="btn">Register</button>
-                </div>
+
+                </Form>
             </div>
         </Container>
     )
