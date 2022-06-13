@@ -11,10 +11,12 @@ function RegisterComponent() {
                     <input type="text" class="form-control" placeholder="First name" />
                     <label className="text-white" style={{ marginTop: "10px" }} htmlFor="last name">Last Name</label>
                     <input type="text" class="form-control" placeholder="Last name" />
+                    <label className="text-white" style={{ marginTop: "10px" }} htmlFor="username">Username</label>
+                    <input type="text" class="form-control" placeholder="Username" />
                     <label className="text-white" style={{ marginTop: "10px" }} htmlFor="email">Email address</label>
                     <input type="email" class="form-control" placeholder="example@hotmail.com" />
                     <label className="text-white" style={{ marginTop: "10px" }} htmlFor="password">Password</label>
-                    <input type="password" class="form-control" placeholder="***" />
+                    <input type="password" class="form-control" placeholder="*****" />
                     <div className="row">
                         <div className="d-flex justify-content-center">
                             <Button className="d-flex justify-content-center w-50" style={{ marginTop: "30px" }}>Create Account</Button>
