@@ -11,6 +11,8 @@ function RegisterComponent() {
                     <input type="text" class="form-control" placeholder="First name" />
                     <label className="text-white" style={{ marginTop: "10px" }} htmlFor="last name">Last Name</label>
                     <input type="text" class="form-control" placeholder="Last name" />
+                    <label className="text-white" style={{ marginTop: "10px" }} htmlFor="username">Username</label>
+                    <input type="text" class="form-control" placeholder="Username" />
                     <label className="text-white" style={{ marginTop: "10px" }} htmlFor="email">Email address</label>
                     <input type="email" class="form-control" placeholder="example@hotmail.com" />
                     <label className="text-white" style={{ marginTop: "10px" }} htmlFor="password">Password</label>

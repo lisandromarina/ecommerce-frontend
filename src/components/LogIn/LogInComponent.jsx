@@ -7,8 +7,8 @@ function RegisterComponent() {
             <h1 className="text-center text-white fw-semibold">Log In</h1>
             <div className="d-flex justify-content-center">
                 <Form className="row w-50">
-                    <label className="text-white" style={{ marginTop: "10px" }} htmlFor="email">Email address</label>
-                    <input type="email" class="form-control" placeholder="example@hotmail.com" />
+                    <label className="text-white" style={{ marginTop: "10px" }} htmlFor="username">Username</label>
+                    <input type="text" class="form-control" placeholder="Username" />
                     <label className="text-white" style={{ marginTop: "10px" }} htmlFor="password">Password</label>
                     <input type="password" class="form-control" placeholder="*****" />
                     <div className="row">
