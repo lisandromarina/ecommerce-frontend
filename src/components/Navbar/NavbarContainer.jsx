@@ -5,9 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { parseJwt } from '../../utils/tokenUtils';
 
 function NavbarContainer() {
-    const [search, setSearch] = useState("");
     const dispatch = useDispatch();
     const userState = useSelector(state => state.user.user)
+    const [search, setSearch] = useState("");
 
     function handleOnChange(text) {
         setSearch(text)
