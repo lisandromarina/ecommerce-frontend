@@ -35,5 +35,21 @@ export const login = (user) => async (dispatch) => {
     }
 };
 
+export const register = (user) => async (dispatch) => {
+    try {
+        const response = await api.post(
+            `${process.env.PUBLIC_URL}/authentication/register`,
+            user
+        );
+        window.localStorage.setItem("token", response.data.token);
+
+        let tokenDecoded = parseJwt(response.data.token)
+        dispatch(loggedIn(tokenDecoded.sub))
+
+    } catch (err) {
+        console.log(err);
+    }
+};
+
 export const { loggedIn, logOut } = userSlice.actions
 export default userSlice.reducer;
