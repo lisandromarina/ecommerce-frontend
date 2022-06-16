@@ -10,7 +10,8 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        loggedIn: (state, actions) => { state.user.username = actions.payload }
+        loggedIn: (state, actions) => { state.user.username = actions.payload },
+        logOut: (state) => { state.user = {}}
     }
 })
 
@@ -20,7 +21,7 @@ export const login = (user) => async (dispatch) => {
             `${process.env.PUBLIC_URL}/authentication/login`,
             user
         );
-        window.sessionStorage.setItem("token", response.data.token);
+        window.localStorage.setItem("token", response.data.token);
     
         let tokenDecoded = parseJwt(response.data.token)
         dispatch(loggedIn(tokenDecoded.sub))
@@ -30,5 +31,5 @@ export const login = (user) => async (dispatch) => {
     }
 };
 
-export const { loggedIn } = userSlice.actions
+export const { loggedIn, logOut } = userSlice.actions
 export default userSlice.reducer;

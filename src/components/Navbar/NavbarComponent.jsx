@@ -1,8 +1,12 @@
 import React from 'react';
-import { Image, Container, Navbar, Nav, Form, FormControl, Button, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, NavDropdown } from 'react-bootstrap';
 
 
-function NavbarComponent() {
+function NavbarComponent(props) {
+    const {
+        userState,
+        handleOnLogOut
+    } = props;
 
     return (
         <Navbar bg="light" expand="lg">
@@ -16,10 +20,19 @@ function NavbarComponent() {
                         aria-label="Search"
                     />
                 </Form>
-                <NavDropdown title="My Account">
-                    <NavDropdown.Item href="register">Sign Up</NavDropdown.Item>
-                    <NavDropdown.Item href="login">Login</NavDropdown.Item>
-                </NavDropdown>
+                {
+                    userState.username ?
+                        <NavDropdown title={userState.username}>
+                            <NavDropdown.Item>my profile</NavDropdown.Item>
+                            <NavDropdown.Item >settings</NavDropdown.Item>
+                            <NavDropdown.Item onClick={handleOnLogOut}>log out</NavDropdown.Item>
+                        </NavDropdown>
+                        :
+                        <NavDropdown title={"My Account"}>
+                            <NavDropdown.Item href="register">Sign Up</NavDropdown.Item>
+                            <NavDropdown.Item href="login">Login</NavDropdown.Item>
+                        </NavDropdown>
+                }
             </Nav>
         </Navbar>
     )
