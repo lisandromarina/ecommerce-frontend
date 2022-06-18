@@ -23,7 +23,7 @@ function LogInContainer() {
     dispatch(login(userLoged))
   }
 
-  //if userState changed and is not null, redirect because isLoggedIn
+  //if userState changed and is not null, redirect because isLogged
   useEffect(() => {
     if (Object.keys(userState).length !== 0) navigate("/")
   }, [userState]);

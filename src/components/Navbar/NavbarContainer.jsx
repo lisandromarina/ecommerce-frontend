@@ -22,13 +22,14 @@ function NavbarContainer() {
         dispatch(logOut())
     };
 
+    //the useEffect 
     useEffect(() => {
         let token = localStorage.getItem("token")
         if(token && !userState.usename){
             let tokenParsed = parseJwt(token)
             dispatch(loggedIn(tokenParsed.sub))
         }
-      }, []);
+      });
 
     return (
         <NavbarComponent
