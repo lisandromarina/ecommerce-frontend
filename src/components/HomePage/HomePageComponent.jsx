@@ -12,8 +12,8 @@ function HomePageComponent(props) {
     <div>
       <Carousel />
       <Container>
-        <div>
-          <Row md={4} xs={2} className='d-flex'>
+        <div className='pt-5'>
+          <Row md={4} xs={2} className='d-flex align-item-around'>
             {
               arrayProducts.map(product => (
                 <CardHomePage title={product.name} description={product.description} />

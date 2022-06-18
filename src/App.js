@@ -1,8 +1,8 @@
+import React from 'react';
 import './App.css';
 import Router from "./components/Router";
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./components/Navbar"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

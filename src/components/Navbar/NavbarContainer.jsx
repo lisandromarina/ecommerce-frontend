@@ -5,9 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { parseJwt } from '../../utils/tokenUtils';
 
 function NavbarContainer() {
+    const [search, setSearch] = useState("");
     const dispatch = useDispatch();
     const userState = useSelector(state => state.user.user)
-    const [search, setSearch] = useState("");
 
     function handleOnChange(text) {
         setSearch(text)
@@ -22,13 +22,14 @@ function NavbarContainer() {
         dispatch(logOut())
     };
 
+    //the useEffect 
     useEffect(() => {
         let token = localStorage.getItem("token")
         if(token && !userState.usename){
             let tokenParsed = parseJwt(token)
             dispatch(loggedIn(tokenParsed.sub))
         }
-      }, []);
+      });
 
     return (
         <NavbarComponent

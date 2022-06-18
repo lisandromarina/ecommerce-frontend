@@ -3,7 +3,7 @@ import { Carousel, Image } from 'react-bootstrap';
 
 function CarouselComponent() {
     let INTERVAL_TIME = 10000; 
-    let IMAGE_HEIGHT = 300;
+    let IMAGE_HEIGHT = 350;
 
     return (
         <Carousel>
