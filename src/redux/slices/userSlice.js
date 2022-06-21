@@ -13,7 +13,11 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        loggedIn: (state, actions) => { state.user.username = actions.payload },
+        setUserState: (state, actions) => {
+            state.user = {
+                ...state.user, ...actions.payload
+            }
+        },
         logOut: (state) => { state.user = {} }
     }
 })
@@ -26,9 +30,9 @@ export const login = (user) => async (dispatch) => {
             user
         );
         window.localStorage.setItem("token", response.data.token);
-
         let tokenDecoded = parseJwt(response.data.token)
-        dispatch(loggedIn(tokenDecoded.sub))
+        console.log(tokenDecoded)
+        dispatch(setUserState({ id: tokenDecoded.userId, username: tokenDecoded.sub}))
 
     } catch (err) {
         console.log(err);
@@ -44,12 +48,13 @@ export const register = (user) => async (dispatch) => {
         window.localStorage.setItem("token", response.data.token);
 
         let tokenDecoded = parseJwt(response.data.token)
-        dispatch(loggedIn(tokenDecoded.sub))
+        console.log(tokenDecoded)
+        dispatch(setUserState({ id: tokenDecoded.userId}))
 
     } catch (err) {
         console.log(err);
     }
 };
 
-export const { loggedIn, logOut } = userSlice.actions
+export const { setUserState, logOut } = userSlice.actions
 export default userSlice.reducer;

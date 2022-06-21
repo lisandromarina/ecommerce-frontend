@@ -9,7 +9,7 @@ function CardComponent(props) {
 
     return (
         <div className='p-2'>
-            <Card style={{ width: '18rem' }}>
+            <Card>
                 <Card.Img variant="top" src="holder.js/100px180" />
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>

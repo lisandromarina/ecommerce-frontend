@@ -1,38 +1,48 @@
 import React from 'react';
 import { Navbar, Nav, Form, FormControl, NavDropdown, Container } from 'react-bootstrap';
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg"
 
 
 function NavbarComponent(props) {
     const {
-        userState
+        userState,
+        handleOnLogout,
+        handleOnClick
     } = props;
 
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" className='w-100'>
             <Container>
-                <Nav className="flex-row justify-content-md-around w-100">
-                    <Navbar.Brand className="" href="/">Mercado Licha</Navbar.Brand>
-                    <Form className="d-flex col-6">
-                        <FormControl
-                            type="search"
-                            placeholder="Busca tu producto..."
-                            className="me-3"
-                            aria-label="Search"
-                        />
-                    </Form>
-                    {
-                        userState.username ?
-                            <NavDropdown title={userState.username}>
-                                <NavDropdown.Item href="profile">my profile</NavDropdown.Item>
-                                <NavDropdown.Item href="login">settings</NavDropdown.Item>
-                            </NavDropdown>
-                            :
-                            <NavDropdown title={"My Account"}>
-                                <NavDropdown.Item href="register">Sign Up</NavDropdown.Item>
-                                <NavDropdown.Item href="login">Login</NavDropdown.Item>
-                            </NavDropdown>
-                    }
-                </Nav>
+                <Navbar.Brand className="text-center col-3" href="/">Mercado Licha</Navbar.Brand>
+                <Form className="d-flex col-md-6 col-4">
+                    <FormControl
+                        type="search"
+                        placeholder="Busca tu producto..."
+                        aria-label="Search"
+                    />
+                </Form>
+                {
+                    userState.username ?
+                        <div className='d-flex align-items-center col-4 col-md-2'>
+                            <div className='d-flex align-items-center'>
+                                <CgProfile size={23} className="d-none d-lg-block"/>
+                                <NavDropdown title={userState.username}>
+                                    <NavDropdown.Item >my profile</NavDropdown.Item>
+                                    <NavDropdown.Item >settings</NavDropdown.Item>
+                                    <NavDropdown.Item onClick={handleOnLogout}>Logout</NavDropdown.Item>
+                                </NavDropdown>
+
+                            </div>
+                            <AiOutlineShoppingCart onClick={handleOnClick} size={25} />
+                        </div>
+                        :
+                        <Nav className='d-flex flex-row justify-content-around col-3 col-md-2'>
+                            <Nav.Link href="/register">Register</Nav.Link>
+                            <Navbar.Text className="d-none d-lg-block"> or </Navbar.Text>
+                            <Nav.Link href="/login">Sign in</Nav.Link>
+                        </Nav>
+                }
             </Container>
         </Navbar>
     )
