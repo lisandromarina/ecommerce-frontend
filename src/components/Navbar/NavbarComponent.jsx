@@ -8,11 +8,11 @@ function NavbarComponent(props) {
     const {
         userState,
         handleOnLogout,
-        handleOnClick
+        handleOnClickShoppingCart
     } = props;
 
     return (
-        <Navbar bg="light" expand="lg" className='w-100'>
+        <Navbar bg="warning" expand="lg" className='w-100'>
             <Container>
                 <Navbar.Brand className="text-center col-3" href="/">Mercado Licha</Navbar.Brand>
                 <Form className="d-flex col-md-6 col-4">
@@ -25,16 +25,20 @@ function NavbarComponent(props) {
                 {
                     userState.username ?
                         <div className='d-flex align-items-center col-4 col-md-2'>
-                            <div className='d-flex align-items-center'>
-                                <CgProfile size={23} className="d-none d-lg-block"/>
-                                <NavDropdown title={userState.username}>
+                            <div className='d-flex align-items-center text-dark'>
+                                <CgProfile size={23} className="d-none d-lg-block" />
+                                <NavDropdown menuVariant='dark' title={
+                                    <span className="text-dark my-auto">
+                                        {userState.username}
+                                    </span>
+                                }>
                                     <NavDropdown.Item >my profile</NavDropdown.Item>
                                     <NavDropdown.Item >settings</NavDropdown.Item>
                                     <NavDropdown.Item onClick={handleOnLogout}>Logout</NavDropdown.Item>
                                 </NavDropdown>
 
                             </div>
-                            <AiOutlineShoppingCart onClick={handleOnClick} size={25} />
+                            <AiOutlineShoppingCart onClick={handleOnClickShoppingCart} size={25} />
                         </div>
                         :
                         <Nav className='d-flex flex-row justify-content-around col-3 col-md-2'>
