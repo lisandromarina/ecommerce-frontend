@@ -8,7 +8,9 @@ import CartProduct from './ShoppingCartProduct';
 
 function ShoppingCartComponent(props) {
   const {
-    shoppingCartState
+    shoppingCartState,
+    handleOnChange,
+    handleOnCheck
   } = props;
 
   return (
@@ -16,21 +18,23 @@ function ShoppingCartComponent(props) {
       <Card className='mt-5'>
         <Card.Body className='m-5'>
           <Card.Title>Shopping Cart</Card.Title>
-          <hr/>
+          <hr />
           {
-            shoppingCartState.cartProducts.map(oneCartProduct => (
+            shoppingCartState.cartProducts?.map(oneCartProduct => (
               <div>
                 <CartProduct
                   key={oneCartProduct.idProduct}
-                  productName={oneCartProduct.nameProduct}
-                  productPrice={oneCartProduct.sellPrice}
-                  quantity={oneCartProduct.quantity}
+                  handleOnChange={handleOnChange}
+                  {...oneCartProduct}
                 />
-                <hr/>
+                <hr />
               </div>
             ))
           }
-          <Button onClick={() => console.log(shoppingCartState)}>click me</Button>
+          <div className='d-flex justify-content-end m-5'>
+            <h5>Total of your purchase: </h5>
+          </div>
+          <Button onClick={handleOnCheck}>Continue purchase</Button>
         </Card.Body>
       </Card>
     </Container>

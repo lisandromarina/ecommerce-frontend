@@ -4,7 +4,7 @@ import api from "../../api/axios";
 const initialState = {
     idShoppingCart: "",
     dateCreated: "",
-    cartProducts: []
+    cartProducts: [],
 }
 
 export const shoppingCartSlice = createSlice({
@@ -13,15 +13,15 @@ export const shoppingCartSlice = createSlice({
     reducers: {
         setShoppingCart: (state, actions) => state = {
             ...state, ...actions.payload
-        }
+        },
     }
 })
 
-export const fetchShoppingCart = (shoppingCartId) => async (dispatch) => {
+export const fetchShoppingCart = (userId) => async (dispatch) => {
     try {
-        
+
         const response = await api.get(
-            `${process.env.PUBLIC_URL}/shoppingCart/findById/${shoppingCartId}`
+            `${process.env.PUBLIC_URL}/shoppingCart/findByUserId/${userId}`
         );
 
         dispatch(setShoppingCart({
@@ -29,6 +29,18 @@ export const fetchShoppingCart = (shoppingCartId) => async (dispatch) => {
             dateCreated: response.data.dateCreated,
             cartProducts: response.data.shoppingCartProductsDTO
         }))
+
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+export const updateCartProduct = (cartProduct) => async (dispatch) => {
+    try {
+        await api.post(
+            `${process.env.PUBLIC_URL}/shoppingCartProduct/create`,
+            cartProduct
+        )
 
     } catch (err) {
         console.log(err);
