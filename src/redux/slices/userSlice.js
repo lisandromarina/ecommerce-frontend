@@ -31,7 +31,7 @@ export const login = (user) => async (dispatch) => {
         );
         window.localStorage.setItem("token", response.data.token);
         let tokenDecoded = parseJwt(response.data.token)
-        console.log(tokenDecoded)
+        console.log(response.data.token)
         dispatch(setUserState({ id: tokenDecoded.userId, username: tokenDecoded.sub}))
 
     } catch (err) {
@@ -48,7 +48,6 @@ export const register = (user) => async (dispatch) => {
         window.localStorage.setItem("token", response.data.token);
 
         let tokenDecoded = parseJwt(response.data.token)
-        console.log(tokenDecoded)
         dispatch(setUserState({ id: tokenDecoded.userId}))
 
     } catch (err) {

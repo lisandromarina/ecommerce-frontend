@@ -6,11 +6,18 @@ function CardContainer(props){
     const{
         title, 
         description,
+        productId,
+        handleOnClick
     } = props;
     
 
     return (
-      <CardComponent title={title} description={description} />
+      <CardComponent 
+        title={title} 
+        productId={productId}
+        description={description}  
+        handleOnClick={handleOnClick}
+      />
     )
   };
   

@@ -5,18 +5,19 @@ function CardComponent(props) {
     const {
         title,
         description,
+        productId,
+        handleOnClick
     } = props;
 
     return (
         <div className='p-2'>
-            <Card>
-                <Card.Img variant="top" src="holder.js/100px180" />
+            <Card onClick={() => handleOnClick(productId)}>
+                <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/cocacola.jpeg`} />
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
                     <Card.Text>
                         {description}
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
             </Card>
         </div>
