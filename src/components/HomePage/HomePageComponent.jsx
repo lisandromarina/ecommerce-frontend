@@ -5,7 +5,7 @@ import Carousel from "./Carouseles";
 
 function HomePageComponent(props) {
 
-  const { arrayProducts } = props;
+  const { arrayProducts, handleOnClick } = props;
 
   return (
     //Div Padre
@@ -16,7 +16,12 @@ function HomePageComponent(props) {
           <Row md={4} xs={2} className='d-flex align-item-around'>
             {
               arrayProducts.map(product => (
-                <CardHomePage title={product.name} description={product.description} />
+                <CardHomePage 
+                  title={product.name}
+                  productId={product.id} 
+                  description={product.description} 
+                  handleOnClick={handleOnClick}
+                  />
               ))
             }
           </Row>
