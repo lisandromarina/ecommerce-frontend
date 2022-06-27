@@ -2,6 +2,8 @@ import React from 'react';
 import { Navbar, Nav, Form, FormControl, NavDropdown, Container } from 'react-bootstrap';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg"
+import { Link } from "react-router-dom";
+
 
 
 function NavbarComponent(props) {

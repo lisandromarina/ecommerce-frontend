@@ -5,6 +5,7 @@ import Register from "../Register";
 import LogIn from "../LogIn";
 import AbmProducts from "../AbmProducts"
 import ShoppingCart from '../ShoppingCart';
+import ProductPage from '../Product';
 
 function RouterContainer() {
     return (
@@ -19,6 +20,8 @@ function RouterContainer() {
             <Route path='/abm' element={<AbmProducts />} />
 
             <Route path='/shoppingCart' element={<ShoppingCart />} />
+
+            <Route path='/product/:idProduct' element={<ProductPage />} />
 
         </Routes>
     );
