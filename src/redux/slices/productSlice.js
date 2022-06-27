@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import api from "../../api/axios";
+import { getAxios } from "../../api/axios";
 
 const initialState = {
     allProducts: [],
-    productSelected : {}
+    productSelected: {}
 }
 
 export const productSlice = createSlice({
@@ -22,7 +22,7 @@ export const productSlice = createSlice({
 export const fetchAllProducts = () => async (dispatch) => {
     try {
 
-        const response = await api.get(
+        const response = await getAxios().get(
             `${process.env.PUBLIC_URL}/product/findAll`
         );
 
@@ -38,14 +38,14 @@ export const fetchAllProducts = () => async (dispatch) => {
 export const fetchProductById = (idProduct) => async (dispatch) => {
     try {
 
-        const response = await api.get(
+        const response = await getAxios().get(
             `${process.env.PUBLIC_URL}/product/findById/${idProduct}`
         );
 
         dispatch(setProductSelected({
             productSelected: response.data
         }))
-        
+
 
     } catch (err) {
         console.log(err);
