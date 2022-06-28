@@ -1,15 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
-import api from "../../api/axios";
+import { getAxios } from "../../api/axios";
 
 const initialState = {
     allProducts: [],
+    productSelected: {}
 }
 
 export const productSlice = createSlice({
     name: 'productSlice',
     initialState,
     reducers: {
-        setProducts: (state, actions) => state = {
+        setAllProducts: (state, actions) => state = {
+            ...state, ...actions.payload
+        },
+        setProductSelected: (state, actions) => state = {
             ...state, ...actions.payload
         },
     }
@@ -18,11 +22,11 @@ export const productSlice = createSlice({
 export const fetchAllProducts = () => async (dispatch) => {
     try {
 
-        const response = await api.get(
+        const response = await getAxios().get(
             `${process.env.PUBLIC_URL}/product/findAll`
         );
 
-        dispatch(setProducts({
+        dispatch(setAllProducts({
             allProducts: response.data
         }))
 
@@ -31,5 +35,22 @@ export const fetchAllProducts = () => async (dispatch) => {
     }
 };
 
-export const { setProducts } = productSlice.actions
+export const fetchProductById = (idProduct) => async (dispatch) => {
+    try {
+
+        const response = await getAxios().get(
+            `${process.env.PUBLIC_URL}/product/findById/${idProduct}`
+        );
+
+        dispatch(setProductSelected({
+            productSelected: response.data
+        }))
+
+
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+export const { setAllProducts, setProductSelected } = productSlice.actions
 export default productSlice.reducer;

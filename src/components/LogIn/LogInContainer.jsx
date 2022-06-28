@@ -5,9 +5,9 @@ import { login } from "../../redux/slices/userSlice"
 import { useNavigate } from 'react-router-dom';
 
 function LogInContainer() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userState = useSelector(state => state.user.user)
+  const userState = useSelector(state => state.user.user);
 
   const [userLoged, setUserLoged] = useState({
     username: "",
@@ -25,8 +25,10 @@ function LogInContainer() {
 
   //if userState changed and is not null, redirect because isLogged
   useEffect(() => {
-    if (Object.keys(userState).length !== 0) navigate("/")
-  }, [userState]);
+    if (Object.keys(userState).length > 0){
+      navigate(-1)
+    }
+  }, [userState.username]);
 
   return (
     <LogInComponent

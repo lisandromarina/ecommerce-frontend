@@ -9,7 +9,8 @@ function CartProductContainer(props) {
     nameProduct,
     sellPrice,
     quantity,
-    handleOnChange
+    handleOnChange,
+    handleOnRemove
   } = props;
 
   function calculateTotal() {
@@ -30,6 +31,11 @@ function CartProductContainer(props) {
     }
   }
 
+  function handleOnClickRemove(){
+    handleOnRemove(idProduct)
+  }
+
+
   useEffect(() => {
     if (quantityProduct === -1 || quantityProduct != quantity) {
       setQuantityProduct(quantity);
@@ -48,6 +54,7 @@ function CartProductContainer(props) {
       totalPrice={totalPrice}
       calculateTotal={calculateTotal}
       handleOnClickCount={handleOnClickCount}
+      handleOnClickRemove={handleOnClickRemove}
     />
   )
 };

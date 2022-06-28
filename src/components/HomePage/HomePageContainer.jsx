@@ -2,14 +2,15 @@ import React, { useEffect } from 'react';
 import HomePageComponent from "./HomePageComponent";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllProducts } from "../../redux/slices/productSlice";
+import { useNavigate } from "react-router-dom";
 
 function HomePageContainer() {
   const allProducts = useSelector(state => state.products.allProducts);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   function handleOnClick(productId) {
-    console.log("ea")
-    //navigate to productPage
+    navigate(`/product/${productId}`)
   }
 
   useEffect(() => {

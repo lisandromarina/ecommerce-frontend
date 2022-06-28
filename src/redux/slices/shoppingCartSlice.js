@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import api from "../../api/axios";
+import { getAxios } from "../../api/axios";
 
 const initialState = {
     idShoppingCart: "",
@@ -20,7 +20,7 @@ export const shoppingCartSlice = createSlice({
 export const fetchShoppingCart = (userId) => async (dispatch) => {
     try {
 
-        const response = await api.get(
+        const response = await getAxios().get(
             `${process.env.PUBLIC_URL}/shoppingCart/findByUserId/${userId}`
         );
 
@@ -37,10 +37,22 @@ export const fetchShoppingCart = (userId) => async (dispatch) => {
 
 export const updateCartProduct = (cartProduct) => async (dispatch) => {
     try {
-        await api.post(
+        await getAxios().post(
             `${process.env.PUBLIC_URL}/shoppingCartProduct/create`,
             cartProduct
         )
+
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+export const removeShoppingCartProduct = (shoppingCartId, productId) => async (dispatch) => {
+    try {
+
+        await getAxios().delete(
+            `${process.env.PUBLIC_URL}/shoppingCartProduct/delete/${shoppingCartId}/${productId}`
+        );
 
     } catch (err) {
         console.log(err);

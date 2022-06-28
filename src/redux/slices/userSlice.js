@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import api from "../../api/axios";
+import { getAxios } from "../../api/axios";
 import { parseJwt } from "../../utils/tokenUtils";
 
 //here is the state of this reducer (now it is slice)
@@ -25,14 +25,14 @@ export const userSlice = createSlice({
 //this is an asyncrhonos action, but it doesn`t modify the satate, but it calls loggedIn to modify the state
 export const login = (user) => async (dispatch) => {
     try {
-        const response = await api.post(
+        const response = await getAxios().post(
             `${process.env.PUBLIC_URL}/authentication/login`,
             user
         );
         window.localStorage.setItem("token", response.data.token);
         let tokenDecoded = parseJwt(response.data.token)
         console.log(response.data.token)
-        dispatch(setUserState({ id: tokenDecoded.userId, username: tokenDecoded.sub}))
+        dispatch(setUserState({ id: tokenDecoded.userId, username: tokenDecoded.sub }))
 
     } catch (err) {
         console.log(err);
@@ -41,14 +41,14 @@ export const login = (user) => async (dispatch) => {
 
 export const register = (user) => async (dispatch) => {
     try {
-        const response = await api.post(
+        const response = await getAxios().post(
             `${process.env.PUBLIC_URL}/authentication/register`,
             user
         );
         window.localStorage.setItem("token", response.data.token);
 
         let tokenDecoded = parseJwt(response.data.token)
-        dispatch(setUserState({ id: tokenDecoded.userId}))
+        dispatch(setUserState({ id: tokenDecoded.userId }))
 
     } catch (err) {
         console.log(err);

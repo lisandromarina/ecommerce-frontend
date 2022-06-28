@@ -10,13 +10,14 @@ function ShoppingCartComponent(props) {
   const {
     shoppingCartState,
     handleOnChange,
-    handleOnCheck
+    handleOnCheck,
+    handleOnRemove
   } = props;
 
   return (
     <Container>
       <Card className='mt-5'>
-        <Card.Body className='m-5'>
+        <Card.Body className='m-2'>
           <Card.Title>Shopping Cart</Card.Title>
           <hr />
           {
@@ -25,6 +26,7 @@ function ShoppingCartComponent(props) {
                 <CartProduct
                   key={oneCartProduct.idProduct}
                   handleOnChange={handleOnChange}
+                  handleOnRemove={handleOnRemove}
                   {...oneCartProduct}
                 />
                 <hr />
