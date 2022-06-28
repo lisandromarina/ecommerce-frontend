@@ -47,5 +47,17 @@ export const updateCartProduct = (cartProduct) => async (dispatch) => {
     }
 };
 
+export const removeShoppingCartProduct = (shoppingCartId, productId) => async (dispatch) => {
+    try {
+
+        await getAxios().delete(
+            `${process.env.PUBLIC_URL}/shoppingCartProduct/delete/${shoppingCartId}/${productId}`
+        );
+
+    } catch (err) {
+        console.log(err);
+    }
+};
+
 export const { setShoppingCart } = shoppingCartSlice.actions
 export default shoppingCartSlice.reducer;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ShoppingCartComponent from "./ShoppingCartComponent";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchShoppingCart, updateCartProduct } from "../../redux/slices/shoppingCartSlice";
+import { fetchShoppingCart, updateCartProduct, removeShoppingCartProduct } from "../../redux/slices/shoppingCartSlice";
 
 function ShoppingCartContainer() {
   const shoppingCartState = useSelector(state => state.shoppingCart);
@@ -12,8 +12,13 @@ function ShoppingCartContainer() {
 
   async function handleOnChange(cartProduct) {
     cartProduct = { ...cartProduct, userId: userState.id };
-    await dispatch(updateCartProduct(cartProduct));
-    await dispatch(fetchShoppingCart(userState.id));
+    dispatch(updateCartProduct(cartProduct));
+    dispatch(fetchShoppingCart(userState.id));
+  }
+
+  async function handleOnRemove(idProduct) {
+    dispatch(removeShoppingCartProduct(shoppingCartState.id, idProduct));
+    dispatch(fetchShoppingCart(userState.id));
   }
 
   function handleOnCheck() {
@@ -35,6 +40,7 @@ function ShoppingCartContainer() {
       shoppingCartState={cartProduct}
       handleOnChange={handleOnChange}
       handleOnCheck={handleOnCheck}
+      handleOnRemove={handleOnRemove}
     />
   )
 };
