@@ -12,13 +12,13 @@ function ShoppingCartContainer() {
 
   async function handleOnChange(cartProduct) {
     cartProduct = { ...cartProduct, userId: userState.id };
-    dispatch(updateCartProduct(cartProduct));
-    dispatch(fetchShoppingCart(userState.id));
+    await dispatch(updateCartProduct(cartProduct));
+    await dispatch(fetchShoppingCart(userState.id));
   }
 
   async function handleOnRemove(idProduct) {
-    dispatch(removeShoppingCartProduct(shoppingCartState.id, idProduct));
-    dispatch(fetchShoppingCart(userState.id));
+    await dispatch(removeShoppingCartProduct(shoppingCartState.id, idProduct));
+    await dispatch(fetchShoppingCart(userState.id));
   }
 
   function handleOnCheck() {
@@ -33,7 +33,7 @@ function ShoppingCartContainer() {
     if (shoppingCartState) {
       setCartProduct(shoppingCartState)
     }
-  }, [shoppingCartState, userState]);
+  }, [shoppingCartState]);
 
   return (
     <ShoppingCartComponent

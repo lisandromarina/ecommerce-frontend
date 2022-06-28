@@ -39,10 +39,10 @@ function ShoppingCartComponent(props) {
                 <div className='d-flex justify-content-end m-5'>
                   <h5>Total of your purchase: </h5>
                 </div>
-                <Button onClick={handleOnCheck}>Continue purchase</Button>
               </div>
               : null
-          }
+            }
+            <Button onClick={handleOnCheck}>Continue purchase</Button>
         </Card.Body>
       </Card>
     </Container>
