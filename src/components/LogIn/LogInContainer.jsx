@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import LogInComponent from "./LogInComponent";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "../../redux/slices/userSlice"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function LogInContainer() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userState = useSelector(state => state.user.user);
+  const location = useLocation();
 
   const [userLoged, setUserLoged] = useState({
     username: "",
@@ -20,15 +20,9 @@ function LogInContainer() {
   };
 
   const handleOnSubmit = () => {
-    dispatch(login(userLoged))
+    const prevPath = location.state.prevPath;
+    dispatch(login(userLoged)).then(() => navigate(prevPath));
   }
-
-  //if userState changed and is not null, redirect because isLogged
-  useEffect(() => {
-    if (Object.keys(userState).length > 0){
-      navigate(-1)
-    }
-  }, [userState.username]);
 
   return (
     <LogInComponent

@@ -5,7 +5,7 @@ import Carousel from "./Carouseles";
 
 function HomePageComponent(props) {
 
-  const { arrayProducts, handleOnClick } = props;
+  const { arrayProducts, handleOnClick, handleOnCheck } = props;
 
   return (
     //Div Padre
@@ -26,6 +26,7 @@ function HomePageComponent(props) {
             }
           </Row>
         </div>
+        <button onClick={handleOnCheck}>check</button>
       </Container>
     </div>
   )

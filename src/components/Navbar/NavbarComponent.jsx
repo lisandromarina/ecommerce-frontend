@@ -10,13 +10,15 @@ function NavbarComponent(props) {
     const {
         userState,
         handleOnLogout,
-        handleOnClickShoppingCart
+        handleOnClickShoppingCart,
+        handleOnNavigateLogin,
+        handleOnNavigateHomePage
     } = props;
 
     return (
         <Navbar bg="warning" expand="lg" className='w-100'>
             <Container>
-                <Navbar.Brand className="text-center col-3" href="/">Mercado Licha</Navbar.Brand>
+                <Navbar.Brand className="text-center col-3" onClick={handleOnNavigateHomePage}>Mercado Licha</Navbar.Brand>
                 <Form className="d-flex col-md-6 col-4">
                     <FormControl
                         type="search"
@@ -46,7 +48,7 @@ function NavbarComponent(props) {
                         <Nav className='d-flex flex-row justify-content-around col-3 col-md-2'>
                             <Nav.Link href="/register">Register</Nav.Link>
                             <Navbar.Text className="d-none d-lg-block"> or </Navbar.Text>
-                            <Nav.Link href="/login">Sign in</Nav.Link>
+                            <Navbar.Text onClick={handleOnNavigateLogin}>Sign in</Navbar.Text>
                         </Nav>
                 }
             </Container>
