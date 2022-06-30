@@ -2,9 +2,6 @@ import React from 'react';
 import { Navbar, Nav, Form, FormControl, NavDropdown, Container } from 'react-bootstrap';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg"
-import { Link } from "react-router-dom";
-
-
 
 function NavbarComponent(props) {
     const {
@@ -48,7 +45,7 @@ function NavbarComponent(props) {
                         <Nav className='d-flex flex-row justify-content-around col-3 col-md-2'>
                             <Nav.Link href="/register">Register</Nav.Link>
                             <Navbar.Text className="d-none d-lg-block"> or </Navbar.Text>
-                            <Navbar.Text onClick={handleOnNavigateLogin}>Sign in</Navbar.Text>
+                            <Nav.Link onClick={handleOnNavigateLogin}>Sign in</Nav.Link>
                         </Nav>
                 }
             </Container>
