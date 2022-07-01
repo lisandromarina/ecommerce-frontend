@@ -6,6 +6,8 @@ import LogIn from "../LogIn";
 import AbmProducts from "../AbmProducts"
 import ShoppingCart from '../ShoppingCart';
 import ProductPage from '../Product';
+import PrivateRoute from "./PrivateRoute"
+import PublicRoute from './PublicRoute';
 
 function RouterContainer() {
     return (
@@ -13,13 +15,15 @@ function RouterContainer() {
 
             <Route exact path='/' element={<HomePage />} />
 
-            <Route path='/register' element={<Register />} />
+            <Route path="/" element={<PublicRoute />}>
+                <Route path='/register' element={<Register />} />
+                <Route path='/login' element={<LogIn />} />
+            </Route>
 
-            <Route path='/login' element={<LogIn />} />
-
-            <Route path='/abm' element={<AbmProducts />} />
-
-            <Route path='/shoppingCart' element={<ShoppingCart />} />
+            <Route path="/" element={<PrivateRoute />}>
+                <Route path='/abmProducts' element={<AbmProducts />} />
+                <Route path="/shoppingCart" element={<ShoppingCart />} />
+            </Route>
 
             <Route path='/product/:idProduct' element={<ProductPage />} />
 

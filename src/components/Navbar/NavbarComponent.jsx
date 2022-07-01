@@ -1,22 +1,29 @@
 import React from 'react';
-import { Navbar, Nav, Form, FormControl, NavDropdown, Container } from 'react-bootstrap';
+import {
+    Navbar,
+    Nav,
+    Form,
+    FormControl,
+    NavDropdown,
+    Container,
+} from 'react-bootstrap';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg"
-import { Link } from "react-router-dom";
-
-
+import { BsFillCircleFill } from "react-icons/bs"
 
 function NavbarComponent(props) {
     const {
         userState,
         handleOnLogout,
-        handleOnClickShoppingCart
+        handleOnClickShoppingCart,
+        handleOnNavigateLogin,
+        handleOnNavigateHomePage
     } = props;
 
     return (
         <Navbar bg="warning" expand="lg" className='w-100'>
             <Container>
-                <Navbar.Brand className="text-center col-3" href="/">Mercado Licha</Navbar.Brand>
+                <Navbar.Brand className="text-center col-3" onClick={handleOnNavigateHomePage}>Mercado Licha</Navbar.Brand>
                 <Form className="d-flex col-md-6 col-4">
                     <FormControl
                         type="search"
@@ -40,13 +47,16 @@ function NavbarComponent(props) {
                                 </NavDropdown>
 
                             </div>
-                            <AiOutlineShoppingCart onClick={handleOnClickShoppingCart} size={25} />
+                            <div className='d-flex align-items-start'>
+                                <AiOutlineShoppingCart  onClick={handleOnClickShoppingCart} size={25} title="your cart"/>
+                                <BsFillCircleFill size={10} color='blue' />
+                            </div>
                         </div>
                         :
                         <Nav className='d-flex flex-row justify-content-around col-3 col-md-2'>
                             <Nav.Link href="/register">Register</Nav.Link>
                             <Navbar.Text className="d-none d-lg-block"> or </Navbar.Text>
-                            <Nav.Link href="/login">Sign in</Nav.Link>
+                            <Nav.Link onClick={handleOnNavigateLogin}>Sign in</Nav.Link>
                         </Nav>
                 }
             </Container>

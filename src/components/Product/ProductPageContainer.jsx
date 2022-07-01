@@ -12,6 +12,7 @@ function ProductPageContainer() {
     const userState = useSelector(state => state.user.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    
 
     let { idProduct } = useParams();
 
@@ -41,7 +42,7 @@ function ProductPageContainer() {
                 idProduct: idProduct
             }))
         } else {
-            navigate("/login")
+            navigate("/login", { state: { prevPath: "/product/" + idProduct } })
         }
     }
 

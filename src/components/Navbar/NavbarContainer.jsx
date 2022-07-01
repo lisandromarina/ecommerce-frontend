@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { logOut, setUserState } from "../../redux/slices/userSlice"
+import React, { useState } from 'react';
+import { logOut } from "../../redux/slices/userSlice";
 import NavbarComponent from "./NavbarComponent";
 import { useSelector, useDispatch } from "react-redux";
-import { parseJwt } from '../../utils/tokenUtils';
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function NavbarContainer() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [search, setSearch] = useState("");
     const userState = useSelector(state => state.user.user)
+    const location = useLocation();
 
 
     function handleOnChange(text) {
@@ -26,14 +25,13 @@ function NavbarContainer() {
         dispatch(logOut())
     };
 
-    //the useEffect, when the user id changes, i reload the user if i have token
-    useEffect(() => {
-        let token = localStorage.getItem("token")
-        if (token && !userState.usename) {
-            let tokenParsed = parseJwt(token)
-            dispatch(setUserState({ id: tokenParsed.userId, username: tokenParsed.sub }))
-        }
-    }, [userState.id]);
+    function handleOnNavigateLogin() {
+        navigate("/login", { state: { prevPath: location.pathname } })
+    }
+
+    function handleOnNavigateHomePage(){
+        navigate("/")
+    }
 
     return (
         <NavbarComponent
@@ -41,6 +39,8 @@ function NavbarContainer() {
             handleOnLogout={handleOnLogout}
             handleOnChange={handleOnChange}
             handleOnClickShoppingCart={handleOnClickShoppingCart}
+            handleOnNavigateLogin={handleOnNavigateLogin}
+            handleOnNavigateHomePage={handleOnNavigateHomePage}
         />
     );
 }

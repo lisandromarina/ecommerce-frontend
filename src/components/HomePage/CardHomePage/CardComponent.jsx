@@ -1,22 +1,24 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
+import "./card.css"
 
 function CardComponent(props) {
     const {
-        title,
-        description,
-        productId,
+        product,
         handleOnClick
     } = props;
 
     return (
         <div className='p-2'>
-            <Card onClick={() => handleOnClick(productId)}>
+            <Card id="cardHome" onClick={() => handleOnClick(product.id)}>
                 <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/cocacola.jpeg`} />
                 <Card.Body>
-                    <Card.Title>{title}</Card.Title>
+                    <Card.Title>{product.name}</Card.Title>
                     <Card.Text>
-                        {description}
+                        ${product.price}
+                    </Card.Text>
+                    <Card.Text id="productDescription">
+                        {product.description}
                     </Card.Text>
                 </Card.Body>
             </Card>

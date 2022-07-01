@@ -5,6 +5,7 @@ import { parseJwt } from "../../utils/tokenUtils";
 //here is the state of this reducer (now it is slice)
 const initialState = {
     user: {},
+    isAuth: false
 }
 
 //here we set the name of the slice, after that we set the state, and after that
@@ -18,7 +19,8 @@ export const userSlice = createSlice({
                 ...state.user, ...actions.payload
             }
         },
-        logOut: (state) => { state.user = {} }
+        logOut: (state) => { state.user = {}; state.isAuth = false },
+        setIsAuth: (state, actions) => { state.isAuth = actions.payload }
     }
 })
 
@@ -30,10 +32,10 @@ export const login = (user) => async (dispatch) => {
             user
         );
         window.localStorage.setItem("token", response.data.token);
-        let tokenDecoded = parseJwt(response.data.token)
-        console.log(response.data.token)
-        dispatch(setUserState({ id: tokenDecoded.userId, username: tokenDecoded.sub }))
-
+        let tokenDecoded = parseJwt(response.data.token);
+        dispatch(setIsAuth(true))
+        dispatch(setUserState({ id: tokenDecoded.userId, username: tokenDecoded.sub }));
+        return response
     } catch (err) {
         console.log(err);
     }
@@ -49,11 +51,12 @@ export const register = (user) => async (dispatch) => {
 
         let tokenDecoded = parseJwt(response.data.token)
         dispatch(setUserState({ id: tokenDecoded.userId }))
+        dispatch(setIsAuth(true));
 
     } catch (err) {
         console.log(err);
     }
 };
 
-export const { setUserState, logOut } = userSlice.actions
+export const { setUserState, logOut, setIsAuth } = userSlice.actions
 export default userSlice.reducer;

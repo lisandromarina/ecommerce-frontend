@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function HomePageContainer() {
   const allProducts = useSelector(state => state.products.allProducts);
+  const user = useSelector(state => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate()
 
@@ -17,10 +18,14 @@ function HomePageContainer() {
     dispatch(fetchAllProducts())
   }, []);
 
+  function handleOnCheck(){
+    console.log(allProducts)
+  }
   return (
     <HomePageComponent
       arrayProducts={allProducts}
       handleOnClick={handleOnClick}
+      handleOnCheck={handleOnCheck}
     />
   )
 };
