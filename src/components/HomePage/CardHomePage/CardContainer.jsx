@@ -4,18 +4,13 @@ import CardComponent from "./CardComponent";
 function CardContainer(props){
 
     const{
-        title, 
-        description,
-        productId,
+       product,
         handleOnClick
     } = props;
     
-
     return (
       <CardComponent 
-        title={title} 
-        productId={productId}
-        description={description}  
+        product={product} 
         handleOnClick={handleOnClick}
       />
     )

@@ -1,7 +1,15 @@
 import React from 'react';
-import { Navbar, Nav, Form, FormControl, NavDropdown, Container } from 'react-bootstrap';
+import {
+    Navbar,
+    Nav,
+    Form,
+    FormControl,
+    NavDropdown,
+    Container,
+} from 'react-bootstrap';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg"
+import { BsFillCircleFill } from "react-icons/bs"
 
 function NavbarComponent(props) {
     const {
@@ -39,7 +47,10 @@ function NavbarComponent(props) {
                                 </NavDropdown>
 
                             </div>
-                            <AiOutlineShoppingCart onClick={handleOnClickShoppingCart} size={25} />
+                            <div className='d-flex align-items-start'>
+                                <AiOutlineShoppingCart  onClick={handleOnClickShoppingCart} size={25} title="your cart"/>
+                                <BsFillCircleFill size={10} color='blue' />
+                            </div>
                         </div>
                         :
                         <Nav className='d-flex flex-row justify-content-around col-3 col-md-2'>

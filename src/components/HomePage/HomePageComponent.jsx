@@ -13,13 +13,11 @@ function HomePageComponent(props) {
       <Carousel />
       <Container>
         <div className='pt-5'>
-          <Row md={4} xs={2} className='d-flex align-item-around'>
+          <Row md={4} xs={2} className='d-flex align-item-around' >
             {
               arrayProducts.map(product => (
                 <CardHomePage 
-                  title={product.name}
-                  productId={product.id} 
-                  description={product.description} 
+                  product={product}
                   handleOnClick={handleOnClick}
                   />
               ))

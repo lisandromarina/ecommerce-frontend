@@ -19,7 +19,7 @@ function HomePageContainer() {
   }, []);
 
   function handleOnCheck(){
-    console.log(user)
+    console.log(allProducts)
   }
   return (
     <HomePageComponent
