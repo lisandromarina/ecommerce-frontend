@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
-import "./card.css"
+import { Card } from 'react-bootstrap';
+import "../../../styles/cardHomePage.css"
 
 function CardComponent(props) {
     const {

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { logOut } from "../../redux/slices/userSlice";
-import NavbarComponent from "./NavbarComponent";
+import { cleanShoppingCartState } from "../../redux/slices/shoppingCartSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from 'react-router-dom';
+import NavbarComponent from "./NavbarComponent";
 
 function NavbarContainer() {
     const dispatch = useDispatch();
@@ -10,7 +11,7 @@ function NavbarContainer() {
     const [search, setSearch] = useState("");
     const userState = useSelector(state => state.user.user)
     const location = useLocation();
-
+    const cartProductQuantity = useSelector(state => state.shoppingCart.cartProducts)
 
     function handleOnChange(text) {
         setSearch(text)
@@ -22,8 +23,13 @@ function NavbarContainer() {
 
     function handleOnLogout() {
         localStorage.clear();
+        dispatch(cleanShoppingCartState());
         dispatch(logOut())
     };
+
+    function handleOnNavigateRegister() {
+        navigate("/register", { state: { prevPath: location.pathname } })
+    }
 
     function handleOnNavigateLogin() {
         navigate("/login", { state: { prevPath: location.pathname } })
@@ -41,6 +47,8 @@ function NavbarContainer() {
             handleOnClickShoppingCart={handleOnClickShoppingCart}
             handleOnNavigateLogin={handleOnNavigateLogin}
             handleOnNavigateHomePage={handleOnNavigateHomePage}
+            handleOnNavigateRegister={handleOnNavigateRegister}
+            cartProductQuantity={cartProductQuantity}
         />
     );
 }

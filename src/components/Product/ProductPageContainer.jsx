@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ProductPageComponent from "./ProductPageComponent";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProductById } from "../../redux/slices/productSlice";
 import { updateCartProduct } from "../../redux/slices/shoppingCartSlice";
-
+import { fetchShoppingCart } from "../../redux/slices/shoppingCartSlice";
 
 function ProductPageContainer() {
     const [quantity, setQuantity] = useState(1);
@@ -12,7 +12,7 @@ function ProductPageContainer() {
     const userState = useSelector(state => state.user.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    
+    const location = useLocation();
 
     let { idProduct } = useParams();
 
@@ -23,10 +23,8 @@ function ProductPageContainer() {
     function handleOnClickCount(event) {
         if (event.target.value === "+") {
             setQuantity(quantity + 1);
-        } else {
-            if (quantity > 1) {
-                setQuantity(quantity - 1)
-            }
+        } else if (quantity > 1) {
+            setQuantity(quantity - 1)
         }
     }
 
@@ -34,15 +32,17 @@ function ProductPageContainer() {
         fetchProduct();
     }, [])
 
-    function handleOnSubmit() {
+    async function handleOnSubmit() {
         if (localStorage.getItem("token")) {
-            dispatch(updateCartProduct({
+            await dispatch(updateCartProduct({
                 userId: userState.id,
                 quantity: quantity,
                 idProduct: idProduct
             }))
+            await dispatch(fetchShoppingCart(userState.id));
         } else {
-            navigate("/login", { state: { prevPath: "/product/" + idProduct } })
+            const prevPath = location.pathname;
+            navigate("/login", { state: { prevPath: prevPath } })
         }
     }
 

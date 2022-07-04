@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { parseJwt } from './utils/tokenUtils';
 import { useDispatch } from "react-redux";
 import { setUserState, setIsAuth } from "./redux/slices/userSlice";
+import { fetchShoppingCart } from "./redux/slices/shoppingCartSlice";
 import { Spinner } from 'react-bootstrap';
 
 function App() {
@@ -15,9 +16,9 @@ function App() {
   async function validateToken() {
     let token = localStorage.getItem("token")
     if (token) {
-      console.log("entro")
       let tokenParsed = parseJwt(token)
       await dispatch(setUserState({ id: tokenParsed.userId, username: tokenParsed.sub }))
+      await dispatch(fetchShoppingCart(tokenParsed.userId));
       await dispatch(setIsAuth(true));
     }
     setIsLoading(false);

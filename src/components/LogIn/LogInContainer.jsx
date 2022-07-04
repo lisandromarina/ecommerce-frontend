@@ -3,6 +3,7 @@ import LogInComponent from "./LogInComponent";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/slices/userSlice"
 import { useNavigate, useLocation } from 'react-router-dom';
+import { fetchShoppingCart } from "../../redux/slices/shoppingCartSlice";
 
 function LogInContainer() {
   const navigate = useNavigate();
@@ -19,9 +20,13 @@ function LogInContainer() {
     setUserLoged((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const handleOnSubmit = () => {
+  async function handleOnSubmit() {
     const prevPath = location.state.prevPath;
-    dispatch(login(userLoged)).then(() => navigate(prevPath));
+    dispatch(login(userLoged)).then((response) => {
+      dispatch(fetchShoppingCart(response));
+      navigate(prevPath)
+    }
+    );
   }
 
   return (

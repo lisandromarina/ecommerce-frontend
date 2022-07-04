@@ -17,7 +17,9 @@ function NavbarComponent(props) {
         handleOnLogout,
         handleOnClickShoppingCart,
         handleOnNavigateLogin,
-        handleOnNavigateHomePage
+        handleOnNavigateHomePage,
+        handleOnNavigateRegister,
+        cartProductQuantity
     } = props;
 
     return (
@@ -48,13 +50,17 @@ function NavbarComponent(props) {
 
                             </div>
                             <div className='d-flex align-items-start'>
-                                <AiOutlineShoppingCart  onClick={handleOnClickShoppingCart} size={25} title="your cart"/>
-                                <BsFillCircleFill size={10} color='blue' />
+                                <AiOutlineShoppingCart onClick={handleOnClickShoppingCart} size={25} title="your cart" />
+                                {
+                                    cartProductQuantity?.length > 0
+                                        ? <BsFillCircleFill size={10} color='blue' />
+                                        : null
+                                }
                             </div>
                         </div>
                         :
                         <Nav className='d-flex flex-row justify-content-around col-3 col-md-2'>
-                            <Nav.Link href="/register">Register</Nav.Link>
+                            <Nav.Link onClick={handleOnNavigateRegister}>Register</Nav.Link>
                             <Navbar.Text className="d-none d-lg-block"> or </Navbar.Text>
                             <Nav.Link onClick={handleOnNavigateLogin}>Sign in</Nav.Link>
                         </Nav>
