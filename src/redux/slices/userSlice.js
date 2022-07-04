@@ -35,7 +35,7 @@ export const login = (user) => async (dispatch) => {
         let tokenDecoded = parseJwt(response.data.token);
         dispatch(setIsAuth(true))
         dispatch(setUserState({ id: tokenDecoded.userId, username: tokenDecoded.sub }));
-        return response
+        return tokenDecoded.userId
     } catch (err) {
         console.log(err);
     }
@@ -49,10 +49,10 @@ export const register = (user) => async (dispatch) => {
         );
         window.localStorage.setItem("token", response.data.token);
 
-        let tokenDecoded = parseJwt(response.data.token)
-        dispatch(setUserState({ id: tokenDecoded.userId }))
+        let tokenDecoded = parseJwt(response.data.token);
+        dispatch(setUserState({ id: tokenDecoded.userId }));
         dispatch(setIsAuth(true));
-
+        return response;
     } catch (err) {
         console.log(err);
     }

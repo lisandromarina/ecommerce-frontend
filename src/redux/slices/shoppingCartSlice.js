@@ -14,6 +14,7 @@ export const shoppingCartSlice = createSlice({
         setShoppingCart: (state, actions) => state = {
             ...state, ...actions.payload
         },
+        cleanShoppingCartState: (state) => state = { ...state, ...initialState }
     }
 })
 
@@ -59,5 +60,5 @@ export const removeShoppingCartProduct = (shoppingCartId, productId) => async (d
     }
 };
 
-export const { setShoppingCart } = shoppingCartSlice.actions
+export const { setShoppingCart, cleanShoppingCartState } = shoppingCartSlice.actions
 export default shoppingCartSlice.reducer;

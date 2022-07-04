@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function HomePageContainer() {
   const allProducts = useSelector(state => state.products.allProducts);
+  const sh = useSelector(state => state.shoppingCart);
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate()
@@ -19,7 +20,7 @@ function HomePageContainer() {
   }, []);
 
   function handleOnCheck(){
-    console.log(allProducts)
+    console.log(sh)
   }
   return (
     <HomePageComponent
