@@ -9,7 +9,7 @@ function HomePageContainer() {
   const sh = useSelector(state => state.shoppingCart);
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function handleOnClick(productId) {
     navigate(`/product/${productId}`)

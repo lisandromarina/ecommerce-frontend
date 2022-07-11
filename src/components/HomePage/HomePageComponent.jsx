@@ -9,7 +9,7 @@ function HomePageComponent(props) {
 
   return (
     //Div Padre
-    <div>
+    <div className='pb-5'>
       <Carousel />
       <Container>
         <div className='pt-5'>
@@ -24,7 +24,6 @@ function HomePageComponent(props) {
             }
           </Row>
         </div>
-        <button onClick={handleOnCheck}>check</button>
       </Container>
     </div>
   )

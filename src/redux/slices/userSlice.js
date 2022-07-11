@@ -33,6 +33,7 @@ export const login = (user) => async (dispatch) => {
         );
         window.localStorage.setItem("token", response.data.token);
         let tokenDecoded = parseJwt(response.data.token);
+        console.log(response.data.token)
         dispatch(setIsAuth(true))
         dispatch(setUserState({ id: tokenDecoded.userId, username: tokenDecoded.sub }));
         return tokenDecoded.userId

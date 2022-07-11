@@ -30,9 +30,14 @@ function NavbarContainer() {
     function handleOnNavigateRegister() {
         navigate("/register", { state: { prevPath: location.pathname } })
     }
+    
 
     function handleOnNavigateLogin() {
         navigate("/login", { state: { prevPath: location.pathname } })
+    }
+
+    function handleOnNavigateCreateProduct() {
+        navigate("/abmProducts", { state: { prevPath: location.pathname } })
     }
 
     function handleOnNavigateHomePage(){
@@ -48,6 +53,7 @@ function NavbarContainer() {
             handleOnNavigateLogin={handleOnNavigateLogin}
             handleOnNavigateHomePage={handleOnNavigateHomePage}
             handleOnNavigateRegister={handleOnNavigateRegister}
+            handleOnNavigateCreateProduct={handleOnNavigateCreateProduct}
             cartProductQuantity={cartProductQuantity}
         />
     );

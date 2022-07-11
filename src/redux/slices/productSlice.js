@@ -52,5 +52,22 @@ export const fetchProductById = (idProduct) => async (dispatch) => {
     }
 };
 
+export const saveProduct = (product) => async (dispatch) => {
+    try {
+        console.log("guardando")
+        const response = await getAxios().post(
+            `${process.env.PUBLIC_URL}/product/save`, product
+        );
+        console.log(response)
+        // dispatch(setProductSelected({
+        //     productSelected: response.data
+        // }))
+
+
+    } catch (err) {
+        console.log(err);
+    }
+};
+
 export const { setAllProducts, setProductSelected } = productSlice.actions
 export default productSlice.reducer;
