@@ -19,6 +19,7 @@ function NavbarComponent(props) {
         handleOnNavigateLogin,
         handleOnNavigateHomePage,
         handleOnNavigateRegister,
+        handleOnNavigateCreateProduct,
         cartProductQuantity
     } = props;
 
@@ -43,7 +44,7 @@ function NavbarComponent(props) {
                                         {userState.username}
                                     </span>
                                 }>
-                                    <NavDropdown.Item >my profile</NavDropdown.Item>
+                                    <NavDropdown.Item onClick={handleOnNavigateCreateProduct}>Add Product</NavDropdown.Item>
                                     <NavDropdown.Item >settings</NavDropdown.Item>
                                     <NavDropdown.Item onClick={handleOnLogout}>Logout</NavDropdown.Item>
                                 </NavDropdown>

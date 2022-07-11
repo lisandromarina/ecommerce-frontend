@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import LogInComponent from "./LogInComponent";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/slices/userSlice"
