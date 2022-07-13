@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import Router from "./components/Router";
 import Navbar from "./components/Navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
