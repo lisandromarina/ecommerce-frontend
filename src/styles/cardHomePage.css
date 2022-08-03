@@ -1,5 +1,5 @@
 #cardHome:hover {
-    transform: scale(1.05);
+    transform: scale(1,01);
     box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
 }
 
@@ -7,11 +7,16 @@
     display: none;
 }
 
-#cardHome:hover #productDescription {
+/* #cardHome:hover #productDescription {
     display: block;
-}
+} */
 
 #cardHome:hover #cardHomeImage {
     border-bottom: 4px solid orange;
+    border-radius: 5%;
+}
+
+#cardHomeImage{
+    border-bottom: 4px solid white;
     border-radius: 5%;
 }

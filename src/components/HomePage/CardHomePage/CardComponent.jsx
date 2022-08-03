@@ -9,8 +9,8 @@ function CardComponent(props) {
     } = props;
 
     return (
-        <div className='p-2'>
-            <Card id="cardHome" onClick={() => handleOnClick(product.id)}>
+        <div className='p-2' >
+            <Card id="cardHome" className='position-relative' onClick={() => handleOnClick(product.id)}>
                 <Card.Img 
                     src={`${process.env.PUBLIC_URL}/assets/cocacola.jpeg`} 
                     id="cardHomeImage"
@@ -21,7 +21,7 @@ function CardComponent(props) {
                     <Card.Title style={{color: "#e77800"}}>
                         ${product.price}
                     </Card.Title>
-                    <Card.Text id="productDescription">
+                    <Card.Text id="productDescription" className='mb-2' >
                         {product.description}
                     </Card.Text>
                 </Card.Body>
