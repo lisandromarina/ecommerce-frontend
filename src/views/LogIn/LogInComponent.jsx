@@ -8,7 +8,7 @@ function RegisterComponent(props) {
     } = props
     return (
         <Container>
-            <h1 className="text-center text-white fw-semibold">Log In</h1>
+            <h1 className="text-center text-white fw-semibold ">Log In</h1>
             <div className="d-flex justify-content-center">
                 <Form className="row w-50">
                     <label className="text-white" style={{ marginTop: "10px" }}>Username</label>
