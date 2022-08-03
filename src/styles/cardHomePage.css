@@ -10,3 +10,8 @@
 #cardHome:hover #productDescription {
     display: block;
 }
+
+#cardHome:hover #cardHomeImage {
+    border-bottom: 4px solid orange;
+    border-radius: 5%;
+}

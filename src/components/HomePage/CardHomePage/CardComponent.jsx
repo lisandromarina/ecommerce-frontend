@@ -11,12 +11,16 @@ function CardComponent(props) {
     return (
         <div className='p-2'>
             <Card id="cardHome" onClick={() => handleOnClick(product.id)}>
-                <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/cocacola.jpeg`} />
-                <Card.Body>
-                    <Card.Title>{product.name}</Card.Title>
-                    <Card.Text>
+                <Card.Img 
+                    src={`${process.env.PUBLIC_URL}/assets/cocacola.jpeg`} 
+                    id="cardHomeImage"
+                    variant="top" 
+                />
+                <Card.Body className='d-flex flex-column align-items-center'>
+                    <Card.Text>{product.name}</Card.Text>
+                    <Card.Title style={{color: "#e77800"}}>
                         ${product.price}
-                    </Card.Text>
+                    </Card.Title>
                     <Card.Text id="productDescription">
                         {product.description}
                     </Card.Text>
