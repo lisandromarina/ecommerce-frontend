@@ -35,7 +35,7 @@ function AbmProductsComponent(props) {
                             value={product.categoryDTO.id}
                             onChange={handleOnSelect}
                         >
-                            <option value={0}>select category...</option>
+                            <option value={0}>Select category...</option>
                             {
                                 categoryState.map(category => (
                                     <option value={category.id}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AbmProductsComponent from "./AbmProductsComponent";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchAllCategory } from "../../redux/slices/categorySlice";
 import { saveProduct } from "../../redux/slices/productSlice";
 
 function AbmProductsContainer() {
@@ -15,10 +14,6 @@ function AbmProductsContainer() {
   const categoryState = useSelector(state => state.category.allCategory);
   const userIdState = useSelector(state => state.user.user.id);
   const dispatch = useDispatch();
-
-  async function fetchCategory() {
-    await dispatch(fetchAllCategory());
-  }
 
   const handleOnChangeCategory = (e) => {
     const { name, value } = e.target;
@@ -39,10 +34,6 @@ function AbmProductsContainer() {
     let productWithUserId = { ... product, userId: userIdState}
     dispatch(saveProduct(productWithUserId));
   }
-
-  useEffect(() => {
-    fetchCategory();
-  }, []);
 
   return (
     <AbmProductsComponent
