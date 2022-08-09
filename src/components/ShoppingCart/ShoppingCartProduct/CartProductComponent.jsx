@@ -17,7 +17,7 @@ function CartProductComponent(props) {
         className='col-4 col-md-3'
         width={"100%"}
         fluid={true}
-        src={`${process.env.PUBLIC_URL}/assets/television.jpeg`}
+        src={`${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
       />
       <div className='w-100 d-flex flex-column justify-content-around'>
         <div className='d-flex'>
