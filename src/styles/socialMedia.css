@@ -14,7 +14,7 @@
    overflow: hidden;
 }
 
-.wrapper .button:nth-child(1):hover .icon{
+/* .wrapper .button:nth-child(1):hover .icon{
     background: #4267B2;
 }
 
@@ -25,7 +25,7 @@
 
 .wrapper .button:nth-child(3):hover .icon{
     background: #1DA1f2;
-}
+} */
 
 .wrapper .button .icon{
     display: inline-block;

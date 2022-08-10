@@ -29,7 +29,7 @@ function App() {
   }, []);
 
   return (
-    <div className='bg-dark bg-gradient min-vh-100'>
+    <div className='bg-light bg-gradient min-vh-100'>
       {
         isLoading ?
           <div className='d-flex justify-content-center align-items-center vh-100'>
