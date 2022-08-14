@@ -28,7 +28,7 @@ function NavbarComponent(props) {
 	return (
 		<Navbar expand="lg" className='d-flex flex-column'>
 			<div className='w-100 d-flex align-items-center justify-content-around'>
-				<Image className="col-4 col-lg-2"
+				<Image role="button" className="col-4 col-lg-2"
 					src={`${process.env.PUBLIC_URL}/assets/mercadoLichaLogo.jpeg`}
 					onClick={handleOnNavigateHomePage}>
 				</Image>
@@ -55,6 +55,7 @@ function NavbarComponent(props) {
 
 							</div>
 							<div
+								role="button"
 								onClick={handleOnClickShoppingCart}
 								className='d-flex flex-column align-items-center justify-content-center text-white'
 							>
@@ -87,11 +88,11 @@ function NavbarComponent(props) {
 					{
 						allCategory.map(oneCategory => (
 							<div className="mt-1">
-								<div onClick={handleOnClickCategory} className='m-auto d-none d-lg-block'>{oneCategory.name}</div>
+								<div onClick={handleOnClickCategory} role="button" className='m-auto d-none d-lg-block'>{oneCategory.name}</div>
 								{
 									oneCategory.name !== "Entretenimiento" && <span onClick={handleOnClickCategory} className='d-block d-sm-block d-md-block d-lg-none'>{oneCategory.name}</span>
 								}
-								
+
 							</div>
 						))
 					}

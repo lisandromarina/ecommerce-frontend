@@ -35,6 +35,22 @@ export const fetchAllProducts = () => async (dispatch) => {
     }
 };
 
+export const fetchAllProductsByCategory = (categoryId) => async (dispatch) => {
+    try {
+
+        const response = await getAxios().get(
+            `${process.env.PUBLIC_URL}/product/findProductByIdCategory/${categoryId}`
+        );
+
+        dispatch(setAllProducts({
+            allProducts: response.data
+        }))
+
+    } catch (err) {
+        console.log(err);
+    }
+};
+
 export const fetchProductById = (idProduct) => async (dispatch) => {
     try {
 
