@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import { parseJwt } from './utils/tokenUtils';
 import { useDispatch } from "react-redux";
 import { setUserState, setIsAuth } from "./redux/slices/userSlice";
-import { fetchShoppingCart } from "./redux/slices/shoppingCartSlice";
+import { fetchShoppingCart } from "./redux/actions/shoppingCartAction";
 import { Spinner } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

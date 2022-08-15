@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Row, Image } from 'react-bootstrap';
-import SocialMedia from '../SocialMedia';
-import CardHomePage from "./CardHomePage";
-import Carousel from "./Carouseles";
+import SocialMedia from '../../components/SocialMedia';
+import CardHomePage from "../../components/CardHomePage";
+import Carousel from "../../components/Carouseles";
 
 function HomePageComponent(props) {
 

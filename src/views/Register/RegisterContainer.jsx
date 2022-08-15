@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import RegisterComponent from "./RegisterComponent";
 import { useDispatch } from "react-redux";
-import { register } from "../../redux/slices/userSlice"
+import { register } from "../../redux/actions/userAction"
 import { useNavigate, useLocation } from 'react-router-dom';
 
 function RegisterContainer() {

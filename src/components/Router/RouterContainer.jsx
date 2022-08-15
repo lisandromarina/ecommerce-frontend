@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import HomePage from "../HomePage";
+import HomePage from "../../views/HomePage";
 import Register from "../../views/Register";
 import LogIn from "../../views/LogIn";
 import AbmProducts from "../../views/AbmProducts"
-import ShoppingCart from '../ShoppingCart';
-import ProductPage from '../Product';
+import ShoppingCart from '../../views/ShoppingCart';
+import ProductPage from '../../views/Product';
 import PrivateRoute from "./PrivateRoute"
 import PublicRoute from './PublicRoute';
 

@@ -4,7 +4,7 @@ import { cleanShoppingCartState } from "../../redux/slices/shoppingCartSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from 'react-router-dom';
 import NavbarComponent from "./NavbarComponent";
-import { fetchAllCategory, fetchCategoryByName } from '../../redux/slices/categorySlice';
+import { fetchAllCategory, fetchCategoryByName } from '../../redux/actions/categoryAction';
 
 function NavbarContainer() {
     const [allCategory, setAllCategory] = useState([]);
