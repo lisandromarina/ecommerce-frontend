@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import LogInComponent from "./LogInComponent";
-import { useDispatch } from "react-redux";
-import { login } from "../../redux/slices/userSlice"
 import { useNavigate, useLocation } from 'react-router-dom';
-import { fetchShoppingCart } from "../../redux/slices/shoppingCartSlice";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/actions/userAction"
+import { fetchShoppingCart } from "../../redux/actions/shoppingCartAction";
+import LogInComponent from "./LogInComponent";
 
 function LogInContainer() {
   const navigate = useNavigate();

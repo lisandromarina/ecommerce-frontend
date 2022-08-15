@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ShoppingCartComponent from "./ShoppingCartComponent";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchShoppingCart, updateCartProduct, removeShoppingCartProduct } from "../../redux/slices/shoppingCartSlice";
+import { fetchShoppingCart, updateCartProduct, removeShoppingCartProduct } from "../../redux/actions/shoppingCartAction";
 
 function ShoppingCartContainer() {
   const shoppingCartState = useSelector(state => state.shoppingCart);

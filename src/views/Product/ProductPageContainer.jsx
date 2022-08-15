@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ProductPageComponent from "./ProductPageComponent";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchProductById } from "../../redux/slices/productSlice";
-import { updateCartProduct } from "../../redux/slices/shoppingCartSlice";
-import { fetchShoppingCart } from "../../redux/slices/shoppingCartSlice";
+import { fetchProductById } from "../../redux/actions/productAction";
+import { updateCartProduct, fetchShoppingCart } from "../../redux/actions/shoppingCartAction";
 
 function ProductPageContainer() {
     const [quantity, setQuantity] = useState(1);

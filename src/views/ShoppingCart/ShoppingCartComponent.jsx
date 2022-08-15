@@ -4,7 +4,7 @@ import {
   Card,
   Button
 } from 'react-bootstrap';
-import CartProduct from './ShoppingCartProduct';
+import CartProduct from '../../components/ShoppingCartProduct';
 
 function ShoppingCartComponent(props) {
   const {

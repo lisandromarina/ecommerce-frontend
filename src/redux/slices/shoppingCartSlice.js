@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAxios } from "../../api/axios";
 
 const initialState = {
     idShoppingCart: "",
@@ -17,48 +16,6 @@ export const shoppingCartSlice = createSlice({
         cleanShoppingCartState: (state) => state = { ...state, ...initialState }
     }
 })
-
-export const fetchShoppingCart = (userId) => async (dispatch) => {
-    try {
-
-        const response = await getAxios().get(
-            `${process.env.PUBLIC_URL}/shoppingCart/findByUserId/${userId}`
-        );
-
-        dispatch(setShoppingCart({
-            id: response.data.id,
-            dateCreated: response.data.dateCreated,
-            cartProducts: response.data.shoppingCartProductsDTO
-        }))
-
-    } catch (err) {
-        console.log(err);
-    }
-};
-
-export const updateCartProduct = (cartProduct) => async (dispatch) => {
-    try {
-        await getAxios().post(
-            `${process.env.PUBLIC_URL}/shoppingCartProduct/create`,
-            cartProduct
-        )
-
-    } catch (err) {
-        console.log(err);
-    }
-};
-
-export const removeShoppingCartProduct = (shoppingCartId, productId) => async (dispatch) => {
-    try {
-
-        await getAxios().delete(
-            `${process.env.PUBLIC_URL}/shoppingCartProduct/delete/${shoppingCartId}/${productId}`
-        );
-
-    } catch (err) {
-        console.log(err);
-    }
-};
 
 export const { setShoppingCart, cleanShoppingCartState } = shoppingCartSlice.actions
 export default shoppingCartSlice.reducer;

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import HomePageComponent from "./HomePageComponent";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchAllProducts } from "../../redux/slices/productSlice";
+import { fetchAllProducts } from "../../redux/actions/productAction";
 import { useNavigate } from "react-router-dom";
 
 function HomePageContainer() {
@@ -16,7 +16,6 @@ function HomePageContainer() {
   useEffect(() => {
     dispatch(fetchAllProducts())
   }, []);
-
 
   return (
     <HomePageComponent
