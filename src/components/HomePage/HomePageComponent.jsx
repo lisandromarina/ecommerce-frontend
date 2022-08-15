@@ -20,20 +20,23 @@ function HomePageComponent(props) {
       />
       <Container>
         <div className='d-flex justify-content-center'>
-          <Row md={3} xs={1} className='d-flex align-item-around' >
+          <Row md={3} xs={2} className='d-flex align-item-around' >
             <Image
+              role="button"
               className='pt-5'
               fluid={true}
               width={"100%"}
               src={`${process.env.PUBLIC_URL}/assets/category1.png`}
             />
             <Image
+              role="button"
               className='pt-5'
               fluid={true}
               width={"100%"}
               src={`${process.env.PUBLIC_URL}/assets/category2.png`}
             />
             <Image
+              role="button"
               className='pt-5'
               fluid={true}
               width={"100%"}
@@ -54,8 +57,8 @@ function HomePageComponent(props) {
             }
           </Row>
         </div>
-        <SocialMedia />
       </Container>
+      <SocialMedia />
     </div>
   )
 };
