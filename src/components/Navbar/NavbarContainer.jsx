@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { logOut } from "../../redux/slices/userSlice";
-import { cleanShoppingCartState } from "../../redux/slices/shoppingCartSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from 'react-router-dom';
+import { cleanShoppingCartState } from "../../redux/slices/shoppingCartSlice";
+import { logOut } from "../../redux/slices/userSlice";
+import { fetchAllCategory } from '../../redux/actions/categoryAction';
 import NavbarComponent from "./NavbarComponent";
-import { fetchAllCategory, fetchCategoryByName } from '../../redux/actions/categoryAction';
 
 function NavbarContainer() {
-    const [allCategory, setAllCategory] = useState([]);
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
     const [search, setSearch] = useState("");
+    const [allCategory, setAllCategory] = useState([]);
     const userState = useSelector(state => state.user.user);
-    const location = useLocation();
     const cartProductQuantity = useSelector(state => state.shoppingCart.cartProducts);
     const allCategoryState = useSelector(state => state.category.allCategory);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     function handleOnChange(text) {
         setSearch(text);
@@ -27,7 +27,6 @@ function NavbarContainer() {
     function handleOnNavigateRegister() {
         navigate("/register", { state: { prevPath: location.pathname } });
     }
-
 
     function handleOnNavigateLogin() {
         navigate("/login", { state: { prevPath: location.pathname } });
@@ -42,9 +41,8 @@ function NavbarContainer() {
     }
 
     async function handleOnClickCategory(event) {
-        //NOT IMPLEMENTED YET
-        //event.target.outerText
-        //navigate("/abmProducts", { state: { prevPath: location.pathname } })
+        let categorySelected = allCategory.find(oneCategory => oneCategory.name === event.target.outerText);
+        navigate(`/product/${categorySelected.name}/${categorySelected.id}` , { state: { prevPath: location.pathname } })
     }
 
     function handleOnLogout() {

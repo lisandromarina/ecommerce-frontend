@@ -5,9 +5,10 @@ import Register from "../../views/Register";
 import LogIn from "../../views/LogIn";
 import AbmProducts from "../../views/AbmProducts"
 import ShoppingCart from '../../views/ShoppingCart';
-import ProductPage from '../../views/Product';
+import ProductPage from '../../views/ProductDetails';
 import PrivateRoute from "./PrivateRoute"
 import PublicRoute from './PublicRoute';
+import ProductListContainer from '../../views/ProductList';
 
 function RouterContainer() {
     return (
@@ -26,6 +27,7 @@ function RouterContainer() {
             </Route>
 
             <Route path='/product/:idProduct' element={<ProductPage />} />
+            <Route path='/product/:categoryName/:idCategory' element={<ProductListContainer />} />
 
         </Routes>
     );

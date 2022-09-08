@@ -6,10 +6,9 @@ import Carousel from "../../components/Carouseles";
 
 function HomePageComponent(props) {
 
-  const { arrayProducts, handleOnClick } = props;
+  const { arrayProducts, handleOnClick, handleOnClickCategory } = props;
 
   return (
-    //Div Padre
     <div>
       <Carousel />
       <Image
@@ -23,13 +22,16 @@ function HomePageComponent(props) {
           <Row md={3} xs={2} className='d-flex align-item-around' >
             <Image
               role="button"
+              onClick={handleOnClickCategory}
               className='pt-5'
               fluid={true}
+              value="Technologia"
               width={"100%"}
               src={`${process.env.PUBLIC_URL}/assets/category1.png`}
             />
             <Image
               role="button"
+              onClick={()=> console.log("Hogar y Muebles")}
               className='pt-5'
               fluid={true}
               width={"100%"}
@@ -37,6 +39,7 @@ function HomePageComponent(props) {
             />
             <Image
               role="button"
+              onClick={()=> console.log("Ropa y Accesorios")}
               className='pt-5'
               fluid={true}
               width={"100%"}

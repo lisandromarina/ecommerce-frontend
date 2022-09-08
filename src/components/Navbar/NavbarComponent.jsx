@@ -90,7 +90,13 @@ function NavbarComponent(props) {
 							<div className="mt-1">
 								<div onClick={handleOnClickCategory} role="button" className='m-auto d-none d-lg-block'>{oneCategory.name}</div>
 								{
-									oneCategory.name !== "Entretenimiento" && <span onClick={handleOnClickCategory} className='d-block d-sm-block d-md-block d-lg-none'>{oneCategory.name}</span>
+									oneCategory.name !== "Entretenimiento" && 
+									<span onClick={handleOnClickCategory} 
+										className='d-block d-sm-block d-md-block d-lg-none' 
+										value={oneCategory.id}
+									>
+										{oneCategory.name}
+									</span>
 								}
 
 							</div>

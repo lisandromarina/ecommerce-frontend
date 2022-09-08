@@ -4,7 +4,7 @@ import CardComponent from "./CardComponent";
 function CardContainer(props){
 
     const{
-       product,
+        product,
         handleOnClick
     } = props;
     
