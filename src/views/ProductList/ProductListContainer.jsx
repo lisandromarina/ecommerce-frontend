@@ -21,7 +21,7 @@ function ProductListContainer() {
 
     useEffect(() => {
         fetchProduct();
-    }, [idCategory])
+    }, [idCategory, categoryName])
 
 
     return (
