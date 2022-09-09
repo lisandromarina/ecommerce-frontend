@@ -8,7 +8,7 @@ import ShoppingCart from '../../views/ShoppingCart';
 import ProductPage from '../../views/ProductDetails';
 import PrivateRoute from "./PrivateRoute"
 import PublicRoute from './PublicRoute';
-import ProductListContainer from '../../views/ProductList';
+import ProductCategory from '../../views/ProductCategory';
 
 function RouterContainer() {
     return (
@@ -27,7 +27,7 @@ function RouterContainer() {
             </Route>
 
             <Route path='/product/:idProduct' element={<ProductPage />} />
-            <Route path='/product/:categoryName/:idCategory' element={<ProductListContainer />} />
+            <Route path='/product/:categoryName/:idCategory' element={<ProductCategory />} />
 
         </Routes>
     );

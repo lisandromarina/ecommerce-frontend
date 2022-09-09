@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import ProductListComponent from './ProductListComponent';
+import React, { useEffect } from 'react';
 import { fetchAllProductsByCategory } from "../../redux/actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate, useLocation, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import ListProducts from "../../components/ListProducts"
 
 function ProductListContainer() {
     let { categoryName, idCategory } = useParams();
@@ -23,10 +23,9 @@ function ProductListContainer() {
         fetchProduct();
     }, [idCategory, categoryName])
 
-
     return (
-        <ProductListComponent
-            categoryName={categoryName}
+        <ListProducts
+            title={categoryName}
             arrayProducts={allProducts}
             handleOnClick={handleOnClick}
         />

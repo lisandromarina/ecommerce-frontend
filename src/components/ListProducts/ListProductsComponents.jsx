@@ -2,18 +2,19 @@ import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import CardHomePage from "../../components/CardHomePage"
 
-function ProductListComponent(props) {
+
+function ListProductsContainer(props) {
     const {
         arrayProducts,
         handleOnClick,
-        categoryName
+        title
     } = props;
 
     return (
-        <Container>
-            <div className='pt-5 pb-5'>
+        <Container className='pt-5 pb-5'>
+            <div>
                 <h2 className='text-center' style={{ color: "#e77800", fontFamily: "cursive" }}>
-                    {categoryName}
+                    {title}
                 </h2>
                 <Row md={4} xs={2} className='d-flex align-item-around' >
                     {
@@ -30,4 +31,4 @@ function ProductListComponent(props) {
     )
 };
 
-export default ProductListComponent;
+export default ListProductsContainer;
