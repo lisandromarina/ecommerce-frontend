@@ -22,16 +22,16 @@ function HomePageComponent(props) {
           <Row md={3} xs={2} className='d-flex align-item-around' >
             <Image
               role="button"
-              onClick={handleOnClickCategory}
+              onClick={()=> handleOnClickCategory("Technologia")}
               className='pt-5'
               fluid={true}
-              value="Technologia"
+              itemID="Technologia"
               width={"100%"}
               src={`${process.env.PUBLIC_URL}/assets/category1.png`}
             />
             <Image
               role="button"
-              onClick={() => console.log("Hogar y Muebles")}
+              onClick={()=> handleOnClickCategory("Hogar y Muebles")}
               className='pt-5'
               fluid={true}
               width={"100%"}
@@ -39,7 +39,7 @@ function HomePageComponent(props) {
             />
             <Image
               role="button"
-              onClick={() => console.log("Ropa y Accesorios")}
+              onClick={()=> handleOnClickCategory("Ropa y Accesorios")}
               className='pt-5'
               fluid={true}
               width={"100%"}
