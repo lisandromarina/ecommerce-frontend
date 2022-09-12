@@ -15,7 +15,7 @@ function ProductPageComponent(props) {
             <Card className="d-flex w-100">
                 <Card.Body>
                     <Row md={2} sm={1} xs={1} className='d-flex w-100 justify-content-around'>
-                        <Col md={8} className="text-center">
+                        <Col md={4} className="text-center">
                             <Image
                                 height={250}
                                 fluid="true"
@@ -23,10 +23,15 @@ function ProductPageComponent(props) {
                                 src={`${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
                             />
                         </Col>
-                        <Col md={4}>
-                            <Card.Body className='d-flex flex-column align-items-center border rounded '>
+                        <Col md={6}>
+                            <Card.Body className='d-flex flex-column align-items-center '>
                                 <Card.Title>{productSelected.name}</Card.Title>
-                                <Card.Text >Price: ${productSelected.price}</Card.Text>
+                                <Card.Text >Price: ${productSelected.price?.toLocaleString(undefined,
+                                    {
+                                        minimumFractionDigits: 2,
+                                        maximumFractionDigits: 2
+                                    })}
+                                </Card.Text>
 
                                 <div className="d-flex justify-content-center align-items-center">
                                     <input type="button" onClick={handleOnClickCount} value="-" />
