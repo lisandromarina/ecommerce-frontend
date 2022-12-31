@@ -19,7 +19,7 @@ function App() {
       let tokenParsed = parseJwt(token);
       await dispatch(setUserState({ id: tokenParsed.userId, username: tokenParsed.sub }));
       await dispatch(fetchShoppingCart(tokenParsed.userId));
-      await dispatch(setIsAuth(true));
+      dispatch(setIsAuth(true));
     }
     setIsLoading(false);
   }
@@ -28,22 +28,23 @@ function App() {
     validateToken();
   }, []);
 
+  if (isLoading) {
+    return (
+      <div className='d-flex justify-content-center align-items-center vh-100'>
+        <Spinner
+          animation="grow"
+          variant="warning"
+        />
+      </div>
+    )
+  }
+
   return (
     <div className='bg-light bg-gradient min-vh-100'>
-      {
-        isLoading ?
-          <div className='d-flex justify-content-center align-items-center vh-100'>
-            <Spinner
-              animation="grow"
-              variant="warning"
-            />
-          </div>
-          :
-          <div>
-            <Navbar />
-            <Router />
-          </div>
-      }
+      <div>
+        <Navbar />
+        <Router />
+      </div>
     </div>
   )
 }
