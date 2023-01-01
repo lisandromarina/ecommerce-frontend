@@ -201,6 +201,8 @@ $laptop-max-width: 1024px;
     }
 }
 
+
+//TABLET
 @media screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
     .navbar {
         .navbar-over {
@@ -260,12 +262,13 @@ $laptop-max-width: 1024px;
 }
 
 
+//LAPTOP
 @media screen and (min-width: $laptop-min-width) and (max-width: $laptop-max-width) {
     .navbar {
         .navbar-over {
 
             .navbar-over-input {
-                width: 30%;
+                width: 50%;
             }
 
             .navbar-over-singin {
