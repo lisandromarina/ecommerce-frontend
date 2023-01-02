@@ -7,7 +7,6 @@ export const fetchAllCategory = () => async (dispatch) => {
         const response = await getAxios().get(
             `${process.env.PUBLIC_URL}/category/findAll`
         )
-        console.log(response.data)
         dispatch((setAllCategory(response.data)));
 
     } catch (err) {
@@ -17,11 +16,10 @@ export const fetchAllCategory = () => async (dispatch) => {
 
 export const fetchCategoryByName = () => async (dispatch) => {
     try {
-
+        
         const response = await getAxios().get(
             `${process.env.PUBLIC_URL}/category/findAll`
         )
-        console.log(response.data)
         dispatch((setAllCategory(response.data)));
 
     } catch (err) {

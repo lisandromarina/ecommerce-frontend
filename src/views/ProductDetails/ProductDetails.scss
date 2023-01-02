@@ -1,0 +1,197 @@
+$phone-min-width: 320px;
+$phone-max-width: 480px;
+
+$tablet-min-width: 481px;
+$tablet-max-width: 768px;
+
+$laptop-min-width: 769px;
+$laptop-max-width: 1024px;
+
+
+.container {
+    margin: 2%;
+    width: 100%;
+
+    .row {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+
+        .image {
+            width: 90%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0px 7px 30px 18px rgba(0, 0, 0, 0.34);
+        }
+    }
+
+
+    .product-details {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .product-details-title {
+            font-family: "Space Grotesk";
+        }
+
+        .product-details-price {
+            font-family: "Space Grotesk";
+            color: #e77800;
+        }
+
+        .buttons-wrapper {
+            display: flex;
+            width: 100%;
+            margin-top: 10px;
+
+            .increment-button {
+                display: flex;
+                width: 25%;
+                justify-content: space-between;
+                align-items: center;
+                border: 1px solid;
+                border-radius: 18px;
+                font-family: "Space Grotesk";
+
+                .increment-button-button {
+                    margin: auto;
+                    background: unset;
+                    border: unset;
+                }
+            }
+
+            .add-button {
+                margin-left: 20px;
+                width: 40%;
+                border: #e77800;
+                background-color: #e77800;
+                border-radius: 18px;
+                font-family: "Space Grotesk";
+                white-space: nowrap;
+            }
+
+        }
+
+        .description-title {
+            margin-top: 30px;
+            font-weight: 500;
+            color: #e77800;
+            margin-bottom: 0%;
+        }
+    }
+}
+
+@media screen and (min-width: $phone-min-width) and (max-width: $phone-max-width) {
+    .container {
+        .row {
+            .image {
+                margin-top: 20px;
+                width: 70%;
+            }
+        }
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 40px;
+
+            .buttons-wrapper {
+                margin-top: 3px;
+             
+                .increment-button {
+                    width: 50%;         
+                }
+
+                .add-button{
+                    width: 70%;
+                }
+            }
+
+            .description-wrapper{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
+    .container {
+        .row {
+            .image {
+                margin-top: 20px;
+                width: 70%;
+            }
+        }
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 40px;
+
+            .buttons-wrapper {
+                margin-top: 3px;
+             
+                .increment-button {
+                    width: 50%;         
+                }
+
+                .add-button{
+                    width: 70%;
+                }
+            }
+
+            .description-wrapper{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $laptop-min-width) and (max-width: $laptop-max-width) {
+    .container {
+        .row {
+            .image {
+                margin-top: 20px;
+                width: 100%;
+            }
+        }
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 40px;
+
+            .buttons-wrapper {
+                margin-top: 3px;
+             
+                .increment-button {
+                    width: 50%;         
+                }
+
+                .add-button{
+                    width: 70%;
+                }
+            }
+
+            .description-wrapper{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+
+            }
+        }
+    }
+}

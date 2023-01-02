@@ -21,13 +21,9 @@ function HomePageContainer() {
     navigate(`/product/${categorySelected.name}/${categorySelected.id}`, { state: { prevPath: location.pathname } })
 }
 
-  function handleOnClick(productId) {
-    navigate(`/product/${productId}`)
-  }
-
   useEffect(() => {
     dispatch(fetchAllProducts())
-  }, []);
+  }, [dispatch]);
 
   return (
     <HomePageComponent
