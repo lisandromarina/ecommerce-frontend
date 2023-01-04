@@ -44,6 +44,10 @@ $laptop-max-width: 1024px;
             color: #FFFFFF;
 
             .navbar-over-icons-profile {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
                 cursor: pointer;
                 margin-right: 6%;
                 font-family: "Space Grotesk";
