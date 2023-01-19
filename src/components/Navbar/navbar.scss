@@ -111,6 +111,10 @@ $laptop-max-width: 1024px;
                 &:hover {
                     color: #e77800;
                 }
+
+                &:focus{
+                    color: #FFFFFF;
+                }
             }
 
             .navbar-text {

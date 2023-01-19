@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Router from "./components/Router";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import { parseJwt } from './utils/tokenUtils';
 import { useDispatch } from "react-redux";
 import { setUserState, setIsAuth } from "./redux/slices/userSlice";
@@ -30,7 +31,7 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className='d-flex justify-content-center align-items-center vh-100'>
+      <div className='d-flex justify-content-center align-items-center min-vh-100'>
         <Spinner
           animation="grow"
           variant="warning"
@@ -40,11 +41,10 @@ function App() {
   }
 
   return (
-    <div className='bg-light bg-gradient min-vh-100'>
-      <div>
-        <Navbar />
-        <Router />
-      </div>
+    <div className='bg-light bg-gradient' style={{ position:"relative", minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent:"space-between"}}>
+      <Navbar />
+      <Router />
+      <Footer />
     </div>
   )
 }
