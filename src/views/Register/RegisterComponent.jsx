@@ -4,6 +4,7 @@ import {
     Button,
     Container
 } from 'react-bootstrap';
+import "./register.scss";
 
 function RegisterComponent(props) {
     const {
@@ -12,31 +13,37 @@ function RegisterComponent(props) {
     } = props;
     return (
         <Container>
-            <h1 className="text-center text-white fw-semibold">Registration</h1>
-            <div className="d-flex justify-content-center">
-                <Form className="row w-50">
-                    <label className="text-white mt-2">First Name</label>
-                    <input onChange={HandleOnChange} name="firstName" type="text" class="form-control" placeholder="First name" />
-                    <label className="text-white mt-2">Last Name</label>
-                    <input onChange={HandleOnChange} name="lastName" type="text" class="form-control" placeholder="Last name" />
-                    <label className="text-white mt-2">Username</label>
-                    <input onChange={HandleOnChange} name="username" type="text" class="form-control" placeholder="Username" />
-                    <label className="text-white mt-2">Email address</label>
-                    <input onChange={HandleOnChange} name="email" type="email" class="form-control" placeholder="example@hotmail.com" />
-                    <label className="text-white mt-2" >Password</label>
-                    <input onChange={HandleOnChange} name="password" type="password" class="form-control" placeholder="password" />
-                    <div className="row">
-                        <div className="d-flex justify-content-center">
-                            <Button
-                                onClick={() => handleOnSubmit()}
-                                className="d-flex justify-content-center w-50" style={{ marginTop: "30px" }}>Create Account</Button>
-                        </div>
-                        < p className="d-flex justify-content-center text-white">
-                            Do you already have an account?<a href='login'>Log in</a>
+            <div className="div-wrapper-register">
+                <div className="div-wrapper-form-register">
+                    <div required className="div-form-register">
+                        <h2 className="div-title-register">Create your account</h2>
+                        {/* NAME  */}
+                        <label className="label-register" for="name">Name
+                            <input onChange={HandleOnChange} name="name" type="text" className="input-register" placeholder="First and last name" /></label>
+                        {/* USERNAME  */}
+                        <label className="label-register" for="username">Username
+                            <input onChange={HandleOnChange} name="username" type="text" class="input-register" placeholder="MercadoLicha" /></label>
+                        {/* EMAIL  */}
+                        <label className="label-register" for="email">Email address
+                            <input onChange={HandleOnChange} name="email" type="email" class="input-register" placeholder="example@hotmail.com" /></label>
+                        {/* PASSWORD  */}
+                        <label className="label-register" for="password" >Password
+                            <input onChange={HandleOnChange} name="password" type="password" class="input-register" placeholder="*******" /></label>
+                        {/* CONFIRM PASSWORD  */}
+                        <label className="label-register" for="password" >Confirm Password
+                            <input onChange={HandleOnChange} name="password" type="password" class="input-register" placeholder="*******" /></label>
+                        {/* TERMS AND CONDITIONS  */}
+                        <label class="label-register" for="termsConditions">Accept terms and conditions
+                            <input required type="checkbox" name="termsConditions" /></label>
+                        {/* SUBMIT BUTTON  */}
+                        <input type="submit" onClick={() => handleOnSubmit()} className="input-register-submit" value="Submit" />
+                        {/* HAVE ACCOUNT  */}
+                        <p className="p-register">
+                            Do you already have an account?
+                            <a href="login" className="a-register">Log in</a>
                         </p>
                     </div>
-
-                </Form>
+                </div>
             </div>
         </Container>
     )
