@@ -7,68 +7,177 @@ $tablet-max-width: 768px;
 $laptop-min-width: 769px;
 $laptop-max-width: 1024px;
 
-.div-wrapper-register {
-    display: block;
+.register-wrapper {
+    display: flex;
+    justify-content: center;
     text-align: center;
     font-family: "Space Grotesk";
 
-        .div-wrapper-form-register {
-                display: flex;
-                justify-content: center;
+    .register-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        width: 30%;
+        gap: 15px;
+        background: white;
+        border: 1px solid #ced4da;
+        border-width: 1px;
+        border-radius: 0.5rem;
+        border-color: rgba(20, 20, 20, 1);
+        font-weight: 430;
+        box-shadow: 0px 148px 59px rgba(0, 0, 0, 0.01), 0px 83px 50px rgba(0, 0, 0, 0.05), 0px 37px 37px rgba(0, 0, 0, 0.09), 0px 9px 20px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
 
-                .div-form-register {
-                    display: block;
-                    margin-top: 10px;
-                    padding: 10px;
-                    width: 30%;
-                    background: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1), rgba(0,0,0,0.1));
-                    border-radius: 10px;
-                    font-weight: 430;
-                    box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
-                    
-                    .div-title-register{
-                        display: inline;
-                        text-align: center;
-                        font-weight: 600;
-                    }
+        .register-title {
+            display: inline;
+            text-align: center;
+            font-weight: 600;
+            white-space: nowrap;
 
-                    .label-register {
-                        display: block;
-                        margin-top: 10px;
-                        margin-bottom: 10px;
-                    }
-                    
-                    .input-register {
-                        display: block;
-                        padding: 0.375rem 0.75rem;
-                        font-size: 1rem;
-                        font-weight: 400;
-                        margin-right: auto;
-                        margin-left: auto;
-                        border: 1px solid #ced4da;
-                        border-width: 2px;
-                        border-radius: 0.25rem;
-                        border-color: #f7af75 ;
-                        width: 100%;
-                    }
-                    
-                    .input-register-submit {
-                        width: 75%;
-                        margin-bottom: 10px;
-                        border-color: #f7af75
-                    }
-                    
-                    .a-register {
-                        color: #ee8128;
-                    
-                         &:hover{
-                            color: red
-                         }
-                    }
-
-                    .p-register {
-                        display: block;
-                    }
-                }
         }
+
+        .register-label {
+            display: block;
+            
+        }
+
+        .register-terms{
+            display: flex;
+            flex-direction: column;
+            white-space: nowrap;
+        }
+
+        .register-input {
+            display: block;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-right: auto;
+            margin-left: auto;
+            border: 1px solid #ced4da;
+            border-width: 2px;
+            border-radius: 8px;
+            border-color: rgba(20, 20, 20, 0.5);
+            width: 100%;
+
+            &:hover {
+                border-color: #2e2d2c;
+            }
+
+            &:active {
+                border-color: #e77800;
+            }
+        }
+
+        .register-submit {
+            width: 70%;
+            color: white;
+            border: #e77800;
+            background-color: #e77800;
+            border-radius: 18px;
+            padding: 10px;
+            height: 100%;
+
+            &:hover {
+                background-color: #b86001;
+            }
+        }
+
+        .a-register {
+            color: #e77800;
+        
+            &:hover {
+                color: #b86001;
+            }
+        }
+
+        .p-register {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+//PHONE
+@media screen and (min-width: $phone-min-width) and (max-width: $phone-max-width) {
+    .register-wrapper{
+
+        .register-form{
+            width: 75%;
+            gap: 20px;
+
+
+            .register-title{
+
+            }
+
+            .register-label{
+
+            }
+
+            .register-terms{
+                display: flex;
+                flex-direction: column;
+            }
+
+            .register-input{
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .register-submit{
+
+            }
+
+            .a-register{
+                margin-left: 5px;
+            }
+
+            .p-register{
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+//TABLET
+@media screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
+    .register-wrapper{
+
+        .register-form{
+            width: 50%;
+            gap: 30px;
+            
+            .register-title{
+                
+            }
+
+            .register-label{
+
+            }
+
+            .register-terms{
+                display: flex;
+                flex-direction: column;
+
+            }
+
+            .register-input{
+
+            }
+
+            .register-submit{
+
+            }
+
+            .a-register{
+                margin-left: 5px;
+            }
+
+            .p-register{
+                white-space: nowrap;
+            }
+        }
+    }
 }
