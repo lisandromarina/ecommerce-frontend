@@ -4,7 +4,6 @@ import "./LoginStyles.scss";
 
 function RegisterComponent(props) {
     const {
-        HandleOnChange,
         onChangeUserState,
         handleOnSubmit
     } = props
@@ -13,10 +12,10 @@ function RegisterComponent(props) {
             <div required className="login-form">
                 <h1 className="login-title" id="title">Inicia Sesión</h1>
                 <label className="login-label" >Usuario
-                    <input onChange={HandleOnChange} name="username" type="text" className="login-input" placeholder="MercadoLicha" />
+                    <input onChange={onChangeUserState} name="username" type="text" className="login-input" placeholder="MercadoLicha" />
                 </label>
                 <label className="login-label" >Contraseña
-                    <input onChange={HandleOnChange} name="password" type="password" className="login-input" placeholder="*******" />
+                    <input onChange={onChangeUserState} name="password" type="password" className="login-input" placeholder="*******" />
                 </label>
                 <input type="submit" onClick={() => handleOnSubmit()} className="login-submit" value="Ingresar" />
                 <p className="p-login">
