@@ -34,15 +34,13 @@ $laptop-max-width: 1024px;
             text-align: center;
             font-weight: 600;
             white-space: nowrap;
-
         }
 
         .register-label {
             display: block;
-            
         }
 
-        .register-terms{
+        .register-terms {
             display: flex;
             flex-direction: column;
             white-space: nowrap;
@@ -86,7 +84,7 @@ $laptop-max-width: 1024px;
 
         .a-register {
             color: #e77800;
-        
+
             &:hover {
                 color: #b86001;
             }
@@ -101,40 +99,27 @@ $laptop-max-width: 1024px;
 
 //PHONE
 @media screen and (min-width: $phone-min-width) and (max-width: $phone-max-width) {
-    .register-wrapper{
+    .register-wrapper {
 
-        .register-form{
+        .register-form {
             width: 75%;
             gap: 20px;
 
-
-            .register-title{
-
-            }
-
-            .register-label{
-
-            }
-
-            .register-terms{
+            .register-terms {
                 display: flex;
                 flex-direction: column;
             }
 
-            .register-input{
+            .register-input {
                 margin-left: auto;
                 margin-right: auto;
             }
 
-            .register-submit{
-
-            }
-
-            .a-register{
+            .a-register {
                 margin-left: 5px;
             }
 
-            .p-register{
+            .p-register {
                 white-space: nowrap;
             }
         }
@@ -143,39 +128,22 @@ $laptop-max-width: 1024px;
 
 //TABLET
 @media screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
-    .register-wrapper{
+    .register-wrapper {
 
-        .register-form{
+        .register-form {
             width: 50%;
             gap: 30px;
-            
-            .register-title{
-                
-            }
 
-            .register-label{
-
-            }
-
-            .register-terms{
+            .register-terms {
                 display: flex;
                 flex-direction: column;
-
             }
 
-            .register-input{
-
-            }
-
-            .register-submit{
-
-            }
-
-            .a-register{
+            .a-register {
                 margin-left: 5px;
             }
 
-            .p-register{
+            .p-register {
                 white-space: nowrap;
             }
         }
