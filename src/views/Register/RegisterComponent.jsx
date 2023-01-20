@@ -1,10 +1,8 @@
 import React from 'react';
 import {
-    Form,
-    Button,
     Container
 } from 'react-bootstrap';
-import "./register.scss";
+import "./RegisterStyles.scss";
 
 function RegisterComponent(props) {
     const {
@@ -14,31 +12,29 @@ function RegisterComponent(props) {
     return (
         <Container className="register-wrapper">
             <div required className="register-form">
-                <h2 className="register-title">Crea tu cuenta</h2>
-                {/* NAME  */}
-                <label className="register-label" for="name">Nombre
-                    <input onChange={HandleOnChange} name="name" type="text" className="register-input" placeholder="Nombre y apellido" /></label>
-                {/* USERNAME  */}
-                <label className="register-label" for="username">Usuario
-                    <input onChange={HandleOnChange} name="username" type="text" class="register-input" placeholder="MercadoLicha" /></label>
-                {/* EMAIL  */}
-                <label className="register-label" for="email">Correo Electronico
-                    <input onChange={HandleOnChange} name="email" type="email" class="register-input" placeholder="ejemplo@hotmail.com" /></label>
-                {/* PASSWORD  */}
-                <label className="register-label" for="password" >Contraseña
-                    <input onChange={HandleOnChange} name="password" type="password" class="register-input" placeholder="*******" /></label>
-                {/* CONFIRM PASSWORD  */}
-                <label className="register-label" for="password" >Confirmar Contraseña
-                    <input onChange={HandleOnChange} name="password" type="password" class="register-input" placeholder="*******" /></label>
-                {/* TERMS AND CONDITIONS  */}
-                <label class="register-terms" for="termsConditions">Aceptar terminos y condiciones
-                    <input required type="checkbox" name="termsConditions" /></label>
-                {/* SUBMIT BUTTON  */}
+                <h1 className="register-title" id="title">Crea tu cuenta</h1>
+                <label className="register-label" >Nombre
+                    <input onChange={HandleOnChange} name="name" type="text" className="register-input" placeholder="Nombre y apellido" />
+                </label>
+                <label className="register-label" >Usuario
+                    <input onChange={HandleOnChange} name="username" type="text" className="register-input" placeholder="MercadoLicha" />
+                </label>
+                <label className="register-label" >Correo Electronico
+                    <input onChange={HandleOnChange} name="email" type="email" className="register-input" placeholder="ejemplo@hotmail.com" />
+                </label>
+                <label className="register-label" >Contraseña
+                    <input onChange={HandleOnChange} name="password" type="password" className="register-input" placeholder="*******" />
+                </label>
+                <label className="register-label" >Confirmar Contraseña
+                    <input onChange={HandleOnChange} name="password" type="password" className="register-input" placeholder="*******" />
+                </label>
+                <label className="register-terms" >Aceptar terminos y condiciones
+                    <input required type="checkbox" name="termsConditions" />
+                </label>
                 <input type="submit" onClick={() => handleOnSubmit()} className="register-submit" value="Enviar" />
-                {/* HAVE ACCOUNT  */}
                 <p className="p-register">
                     Ya estas registrado?
-                    <a href="login" className="a-register">Log in</a>
+                    <a href="login" className="a-register">Iniciar sesión</a>
                 </p>
             </div>
         </Container>
