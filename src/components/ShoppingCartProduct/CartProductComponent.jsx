@@ -1,5 +1,7 @@
 import React from 'react';
-import { Image, Container, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import "./CartProductStyles.scss";
+import { BsTrash } from "react-icons/bs";
 
 function CartProductComponent(props) {
   const {
@@ -12,38 +14,29 @@ function CartProductComponent(props) {
   } = props;
 
   return (
-    <Container className='d-flex mt-3 w-100'>
-      <Image
-        className='col-4 col-md-3'
-        width={"100%"}
-        fluid={true}
-        src={`${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
-      />
-      <div className='w-100 d-flex flex-column justify-content-around'>
-        <div className='d-flex'>
-          <div className='col-4 d-flex flex-column align-items-center text-center'>
-            <h6>{nameProduct}</h6>
-            <p>Price: ${sellPrice}</p>
-          </div>
-          <div className="d-flex justify-content-center col-4 m-auto">
-            <input type="button" onClick={handleOnClickCount} value="-" />
-            <input readonly value={quantityProduct} className="border-0 text-center w-25" />
-            <input type="button" value="+" onClick={handleOnClickCount} />
-          </div>
-          <div className="d-flex col-4 justify-content-center align-items-center">
-            <h5>${totalPrice}</h5>
+    <Container className="cart-wrapper">
+      <div className="cart-form">
+        <img
+          className="cart-image"
+          width={"100%"}
+          fluid={true}
+          src={`${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
+        />
+        <div className="cart-details">
+          <h5 className="cart-productName">{nameProduct}</h5>
+          <div className="cart-button">
+            <div className="cart-increment">
+              <input className='cart-increment-button' type="button" onClick={handleOnClickCount} value="-" />
+              <input readonly value={quantityProduct} className="border-0 text-center w-25" />
+              <input className='cart-increment-button' type="button" onClick={handleOnClickCount} value="+" />
+            </div>
           </div>
         </div>
-        <div className='d-flex text-center text-primary'>
-          <div className='col-4 text-center' role="button" onClick={handleOnClickRemove}>
-            Remove
+        <div className="cart-wrapper-price">
+          <div className="cart-wrapper-remove">
+            <BsTrash className="cart-remove" onClick={handleOnClickRemove} />
           </div>
-          {/* <div className='col-4'>
-            remove
-          </div>
-          <div className='col-4'>
-            remove
-          </div> */}
+          <p className="cart-price">${totalPrice}</p>
         </div>
       </div>
     </Container >
