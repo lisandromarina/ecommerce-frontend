@@ -1,12 +1,16 @@
+$phone-min-width: 320px;
+$phone-max-width: 480px;
+
+$tablet-min-width: 481px;
+$tablet-max-width: 768px;
+
+$laptop-min-width: 769px;
+$laptop-max-width: 1024px;
+
 .cart-wrapper {
     display: flex;
     flex-direction: column;
-    border-bottom: solid 1px black;
     font-family: "Space Grotesk";
-
-    &:last-child {
-        border-bottom: none;
-    }
 
     .cart-form {
         display: flex;
@@ -26,7 +30,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-end;
             gap: 10px;
         }
 
@@ -48,7 +52,8 @@
         .cart-productName {
             display: flex;
             text-align: center;
-            font-weight: 600;
+            font-weight: 1000;
+            font-size: x-large;
             white-space: nowrap;
         }
 
@@ -56,11 +61,13 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end;
             height: 30px;
+            width: 30px;
 
 
             &:hover {
+                align-items: flex-end;
                 background-color: rgb(128, 128, 128, 0.1);
                 border-radius: 8px;
                 width: 30px;
@@ -78,7 +85,7 @@
 
         .cart-button {
             display: flex;
-            width: 15%;
+            width: 100px;
             margin-top: 10px;
             margin-bottom: 10px;
             justify-content: center;
@@ -97,7 +104,33 @@
                     border: unset;
                 }
             }
-
         }
     }
+}
+
+//PHONE
+@media screen and (min-width: $phone-min-width) and (max-width: $phone-max-width) {
+    .cart-wrapper {
+        width: 100%;
+        padding: 10px;
+
+        .cart-form {
+
+            .cart-image {
+                width: 30%;
+            }
+
+            .cart-details {
+                align-items: center;
+            }
+        }
+    }
+}
+
+//TABLET
+@media screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
+}
+
+//LAPTOP
+@media screen and (min-width: $laptop-min-width) and (max-width: $laptop-max-width) {
 }

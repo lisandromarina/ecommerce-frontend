@@ -18,8 +18,6 @@ function CartProductComponent(props) {
       <div className="cart-form">
         <img
           className="cart-image"
-          width={"100%"}
-          fluid={true}
           src={`${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
         />
         <div className="cart-details">

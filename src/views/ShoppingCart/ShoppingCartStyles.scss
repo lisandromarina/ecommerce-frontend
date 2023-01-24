@@ -1,0 +1,114 @@
+$phone-min-width: 320px;
+$phone-max-width: 480px;
+
+$tablet-min-width: 481px;
+$tablet-max-width: 768px;
+
+$laptop-min-width: 769px;
+$laptop-max-width: 1024px;
+
+.shopping-cart-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: "Space Grotesk";
+
+    .shopping-cart-title {
+        display: inline;
+        text-align: left;
+        font-weight: 500;
+        font-size: x-large;
+        white-space: nowrap;
+        color: #e77800;
+    }
+
+    .shopping-cart-wrapper-subtotal {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 0.5px black;
+        width: 100%;
+        margin-top: 30px;
+        gap: 50px;
+
+        .shopping-cart-title-subtotal {
+            display: flex;
+            font-weight: 800;
+            font-size: larger;
+        }
+
+        .shopping-cart-price-subtotal {
+            display: flex;
+            justify-content: center;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-size: x-large;
+        }
+    }
+
+    .shopping-cart-wrapper-total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 30px;
+        gap: 50px;
+
+        .shopping-cart-title-total {
+            display: flex;
+            color: #e77800;
+            font-weight: 800;
+            font-size: x-large;
+        }
+
+        .shopping-cart-price-total {
+            display: flex;
+            justify-content: center;
+            font-weight: 1000;
+            color: #e77800;
+            letter-spacing: 1px;
+            font-size: xx-large;
+        }
+    }
+
+
+    .shopping-cart-submit {
+        width: 15%;
+        color: white;
+        border: #e77800;
+        background-color: #e77800;
+        border-radius: 18px;
+        padding: 10px;
+        height: 100%;
+        font-weight: 500;
+        align-self: flex-end;
+        margin-top: 50px;
+
+        &:hover {
+            background-color: #b86001;
+        }
+    }
+}
+
+//PHONE
+@media screen and (min-width: $phone-min-width) and (max-width: $phone-max-width) {
+    .shopping-cart-wrapper {
+        width: 100%;
+        padding-top: 20px;
+        margin: auto;
+
+        .shopping-cart-submit {
+            width: 50%;
+            align-self: center;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+//TABLET
+@media screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
+}
+
+//LAPTOP
+@media screen and (min-width: $laptop-min-width) and (max-width: $laptop-max-width) {
+}
