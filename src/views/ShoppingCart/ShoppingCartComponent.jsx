@@ -1,10 +1,9 @@
 import React from 'react';
 import {
   Container,
-  Card,
-  Button
 } from 'react-bootstrap';
 import CartProduct from '../../components/ShoppingCartProduct';
+import "./ShoppingCartStyles.scss";
 
 function ShoppingCartComponent(props) {
   const {
@@ -15,36 +14,37 @@ function ShoppingCartComponent(props) {
   } = props;
 
   return (
-    <Container>
-      <Card className='mt-5'>
-        <Card.Body className='m-2'>
-          <Card.Title>Shopping Cart</Card.Title>
-          <hr />
-          {
-            shoppingCartState.cartProducts?.map(oneCartProduct => (
-              <div>
-                <CartProduct
-                  key={oneCartProduct.idProduct}
-                  handleOnChange={handleOnChange}
-                  handleOnRemove={handleOnRemove}
-                  {...oneCartProduct}
-                />
-                <hr />
+    <Container classname="cart-wrapper">
+      <div className="shopping-cart-wrapper">
+        <h2 className="shopping-cart-title">CARRITO DE COMPRAS</h2>
+        {
+          shoppingCartState.cartProducts?.map(oneCartProduct => (
+            <div>
+              <CartProduct
+                key={oneCartProduct.idProduct}
+                handleOnChange={handleOnChange}
+                handleOnRemove={handleOnRemove}
+                {...oneCartProduct}
+              />
+            </div>
+          ))
+        }
+        {
+          shoppingCartState.cartProducts?.length ?
+            <div>
+              <div className="shopping-cart-wrapper-subtotal">
+                <h5 className="shopping-cart-title-subtotal">Subtotal</h5>
+                <p className="shopping-cart-price-subtotal">$15000 </p>
               </div>
-            ))
-          }
-          {
-            shoppingCartState.cartProducts?.length ?
-              <div>
-                <div className='d-flex justify-content-end m-5'>
-                  <h5>Total of your purchase: </h5>
-                </div>
-                <Button onClick={handleOnCheck}>Continue purchase</Button>
+              <div className="shopping-cart-wrapper-total">
+                <h5 className="shopping-cart-title-total">TOTAL: </h5>
+                <p className="shopping-cart-price-total">$15000 </p>
               </div>
-              : null
-          }
-        </Card.Body>
-      </Card>
+            </div>
+            : null
+        }
+        <input className="shopping-cart-submit" type="button" name="buy" value="Comprar" />
+      </div>
     </Container>
   )
 };
