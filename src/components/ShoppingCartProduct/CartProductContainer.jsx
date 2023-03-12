@@ -8,6 +8,7 @@ function CartProductContainer(props) {
     idProduct,
     nameProduct,
     sellPrice,
+    imageUrl,
     quantity,
     handleOnChange,
     handleOnRemove
@@ -49,6 +50,7 @@ function CartProductContainer(props) {
   return (
     <CartProductComponent
       nameProduct={nameProduct}
+      imageUrl={imageUrl}
       sellPrice={sellPrice}
       quantityProduct={quantityProduct}
       totalPrice={totalPrice}

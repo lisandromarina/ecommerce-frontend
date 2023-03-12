@@ -8,6 +8,7 @@ function AbmProductsContainer() {
     userId: -1,
     name: "",
     price: 0,
+    file: undefined,
     description: "",
     categoryDTO: { id: 0 }
   });
@@ -27,17 +28,29 @@ function AbmProductsContainer() {
 
   function handleOnSelect(event) {
     const { value } = event.target;
+    console.log(value)
     setProduct({ ...product, categoryDTO: { id: parseInt(value) } });
   }
 
+  function onFileChangeHandler(event){
+    console.log(event.target.files[0])
+    setProduct({ ...product, file: event.target.files[0] });;
+  }
+
   function handleOnSubmit() {
-    let productWithUserId = { ... product, userId: userIdState}
-    dispatch(saveProduct(productWithUserId));
+    let formData = new FormData()
+    formData.append('userId', userIdState)
+    formData.append('name', product.name)
+    formData.append('price', product.price)
+    formData.append('description', product.description)
+    formData.append('file', product.file)
+    dispatch(saveProduct(formData));
   }
 
   return (
     <AbmProductsComponent
       handleOnChangeCategory={handleOnChangeCategory}
+      onFileChangeHandler={onFileChangeHandler}
       categoryState={categoryState}
       handleOnSelect={handleOnSelect}
       handleOnSubmit={handleOnSubmit}

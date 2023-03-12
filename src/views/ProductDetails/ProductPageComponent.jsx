@@ -20,7 +20,7 @@ function ProductPageComponent(props) {
                         fluid="true"
                         variant="top"
                         className='image'
-                        src={`${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
+                        src={productSelected.imageUrl ? productSelected.imageUrl : `${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
                     />
                 </Col>
                 <Col md={6}>

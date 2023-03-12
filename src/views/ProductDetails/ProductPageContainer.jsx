@@ -32,6 +32,7 @@ function ProductPageContainer() {
     }, [])
 
     async function handleOnSubmit() {
+    /* //console.log(productSelected) */
         if (localStorage.getItem("token")) {
             await dispatch(updateCartProduct({
                 userId: userState.id,

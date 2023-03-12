@@ -14,7 +14,10 @@ function RegisterComponent(props) {
             <div required className="register-form">
                 <h1 className="register-title" id="title">Crea tu cuenta</h1>
                 <label className="register-label" >Nombre
-                    <input onChange={HandleOnChange} name="name" type="text" className="register-input" placeholder="Nombre y apellido" />
+                    <input onChange={HandleOnChange} name="firstName" type="text" className="register-input" placeholder="Nombre y apellido" />
+                </label>
+                <label className="register-label" >Apellido
+                    <input onChange={HandleOnChange} name="lastName" type="text" className="register-input" placeholder="Nombre y apellido" />
                 </label>
                 <label className="register-label" >Usuario
                     <input onChange={HandleOnChange} name="username" type="text" className="register-input" placeholder="MercadoLicha" />

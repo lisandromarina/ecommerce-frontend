@@ -4,6 +4,7 @@ import { setIsAuth, setUserState } from "../slices/userSlice";
 
 //this is an asyncrhonos action, but it doesn`t modify the satate, but it calls loggedIn to modify the state
 export const login = (user) => async (dispatch) => {
+    console.log(user)
     try {
         const response = await getAxios().post(
             `${process.env.PUBLIC_URL}/authentication/login`,

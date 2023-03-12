@@ -8,6 +8,7 @@ function CartProductComponent(props) {
     nameProduct,
     sellPrice,
     totalPrice,
+    imageUrl,
     handleOnClickCount,
     quantityProduct,
     handleOnClickRemove
@@ -16,10 +17,13 @@ function CartProductComponent(props) {
   return (
     <Container className="cart-wrapper">
       <div className="cart-form">
-        <img
-          className="cart-image"
-          src={`${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
-        />
+        <div className='image-wrapper'>
+          <img
+            className="cart-image"
+            alt='product'
+            src={imageUrl ? imageUrl : `${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
+          />
+        </div>
         <div className="cart-details">
           <h5 className="cart-productName">{nameProduct}</h5>
           <div className="cart-button">

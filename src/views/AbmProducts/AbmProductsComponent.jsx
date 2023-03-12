@@ -12,7 +12,8 @@ function AbmProductsComponent(props) {
         product,
         handleOnSelect,
         handleOnSubmit,
-        handleOnChangeCategory
+        handleOnChangeCategory,
+        onFileChangeHandler
     } = props;
     return (
         <Container>
@@ -55,6 +56,17 @@ function AbmProductsComponent(props) {
                             name="description"
                             value={product.description}
                             onChange={handleOnChangeCategory}
+                            placeholder="Disabled input" />
+                    </Form.Group>
+                    <Form.Group className="mb-3 text-white">
+                        <Form.Label>
+                            Image
+                        </Form.Label>
+                        <Form.Control
+                            type="file"
+                            name="file"
+                           /*  */
+                            onChange={onFileChangeHandler}
                             placeholder="Disabled input" />
                     </Form.Group>
                     <InputGroup className="mb-3">
