@@ -28,7 +28,6 @@ function AbmProductsContainer() {
 
   function handleOnSelect(event) {
     const { value } = event.target;
-    console.log(value)
     setProduct({ ...product, categoryDTO: { id: parseInt(value) } });
   }
 
@@ -44,6 +43,7 @@ function AbmProductsContainer() {
     formData.append('price', product.price)
     formData.append('description', product.description)
     formData.append('file', product.file)
+    formData.append('categoryId', product.categoryDTO.id)
     dispatch(saveProduct(formData));
   }
 
