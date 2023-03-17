@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { cleanShoppingCartState } from "../../redux/slices/shoppingCartSlice";
 import { logOut } from "../../redux/slices/userSlice";
-import { fetchAllCategory } from '../../redux/actions/categoryAction';
 import NavbarComponent from "./NavbarComponent";
 
 function NavbarContainer() {
@@ -54,10 +53,6 @@ function NavbarContainer() {
     useEffect(() => {
         setAllCategory(allCategoryState);
     }, [allCategoryState]);
-
-    useEffect(() => {
-        dispatch(fetchAllCategory());
-    }, []);
 
     return (
         <NavbarComponent

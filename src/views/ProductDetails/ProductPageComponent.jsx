@@ -15,13 +15,20 @@ function ProductPageComponent(props) {
         <Container className='container'>
             <Row md={2} sm={1} xs={1} className="row">
                 <Col md={4} className="text-center">
-                    <Image
+                    <div className='image-detail-wrapper'>
+                        <img
+                            className="cart-image"
+                            alt='product'
+                            src={productSelected.imageUrl ? productSelected.imageUrl : `${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
+                        />
+                    </div>
+                    {/* <Image
                         height={250}
                         fluid="true"
                         variant="top"
                         className='image'
                         src={productSelected.imageUrl ? productSelected.imageUrl : `${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
-                    />
+                    /> */}
                 </Col>
                 <Col md={6}>
                     <div className='product-details'>
