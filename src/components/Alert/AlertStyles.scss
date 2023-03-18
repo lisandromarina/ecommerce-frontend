@@ -1,3 +1,12 @@
+$phone-min-width: 320px;
+$phone-max-width: 480px;
+
+$tablet-min-width: 481px;
+$tablet-max-width: 768px;
+
+$laptop-min-width: 769px;
+$laptop-max-width: 1024px;
+
 .notification-container {
     position: fixed;
     background-color: red;
@@ -61,5 +70,23 @@
         display: flex;
         align-items: center;
         gap: 8px;
+    }
+}
+
+@media screen and (min-width: $phone-min-width) and (max-width: $phone-max-width) {
+    .notification-container {
+        position: fixed;
+        background-color: red;
+        z-index: 1000;
+        top: -60px;
+        animation: enter-leave 3s ease-in-out;
+        left: calc(50% - 200px);
+        width: 400px;
+        height: 60px;
+        border-radius: 6px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem 1.75rem;
     }
 }
