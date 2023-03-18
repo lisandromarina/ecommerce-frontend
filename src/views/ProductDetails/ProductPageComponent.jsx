@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Image, Button, Row, Col } from "react-bootstrap";
+import { Container, Button, Row, Col } from "react-bootstrap";
 import "./ProductDetails.scss";
 
 
@@ -22,13 +22,6 @@ function ProductPageComponent(props) {
                             src={productSelected.imageUrl ? productSelected.imageUrl : `${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
                         />
                     </div>
-                    {/* <Image
-                        height={250}
-                        fluid="true"
-                        variant="top"
-                        className='image'
-                        src={productSelected.imageUrl ? productSelected.imageUrl : `${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
-                    /> */}
                 </Col>
                 <Col md={6}>
                     <div className='product-details'>

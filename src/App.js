@@ -7,6 +7,7 @@ import { fetchAllCategory } from './redux/actions/categoryAction';
 import Router from "./components/Router";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Alert from "./components/Alert";
 import Spinner from './components/Spinner/Spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -39,6 +40,7 @@ function App() {
 
   return (
     <Suspense fallback={<Spinner />}>
+      <Alert />
       <div className='bg-light bg-gradient' style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
         <Navbar />
         <Router />

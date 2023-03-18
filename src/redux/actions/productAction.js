@@ -1,5 +1,6 @@
 import { getAxios } from "../../api/axios";
 import { setAllProducts, setProductSelected } from "../slices/productSlice";
+import { createAlert } from "../slices/alertSlice"
 
 export const fetchAllProducts = () => async (dispatch) => {
     try {
@@ -13,7 +14,12 @@ export const fetchAllProducts = () => async (dispatch) => {
         }))
 
     } catch (err) {
-        console.log(err);
+        dispatch(
+            createAlert({
+                message: `Upss, algo salio mal!`,
+                type: "error"
+            })
+        );
     }
 };
 
@@ -29,7 +35,12 @@ export const fetchAllProductsByCategory = (categoryId) => async (dispatch) => {
         }))
 
     } catch (err) {
-        console.log(err);
+        dispatch(
+            createAlert({
+                message: `Upss, algo salio mal!`,
+                type: "error"
+            })
+        );
     }
 };
 
@@ -46,13 +57,17 @@ export const fetchProductById = (idProduct) => async (dispatch) => {
 
 
     } catch (err) {
-        console.log(err);
+        dispatch(
+            createAlert({
+                message: `Upss, algo salio mal!`,
+                type: "error"
+            })
+        );
     }
 };
 
 export const saveProduct = (product) => async (dispatch) => {
     try {
-        console.log("guardando")
         const response = await getAxios().post(
             `${process.env.PUBLIC_URL}/product/save`, product
         );
@@ -60,9 +75,19 @@ export const saveProduct = (product) => async (dispatch) => {
         // dispatch(setProductSelected({
         //     productSelected: response.data
         // }))
-
+        dispatch(
+            createAlert({
+                message: `Genial! Ya guardamos tu producto!`,
+                type: "success"
+            })
+        );
 
     } catch (err) {
-        console.log(err);
+        dispatch(
+            createAlert({
+                message: `Upss, algo salio mal!`,
+                type: "error"
+            })
+        );
     }
 };

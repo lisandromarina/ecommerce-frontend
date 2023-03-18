@@ -1,5 +1,6 @@
 import { getAxios } from "../../api/axios";
 import { setAllCategory } from "../slices/categorySlice";
+import { createAlert } from "../slices/alertSlice"
 
 export const fetchAllCategory = () => async (dispatch) => {
     try {
@@ -10,7 +11,12 @@ export const fetchAllCategory = () => async (dispatch) => {
         dispatch((setAllCategory(response.data)));
 
     } catch (err) {
-        console.log(err);
+        dispatch(
+            createAlert({
+                message: `Upss, algo salio mal!`,
+                type: "error"
+            })
+        );
     }
 };
 
@@ -23,6 +29,11 @@ export const fetchCategoryByName = () => async (dispatch) => {
         dispatch((setAllCategory(response.data)));
 
     } catch (err) {
-        console.log(err);
+        dispatch(
+            createAlert({
+                message: `Upss, algo salio mal!`,
+                type: "error"
+            })
+        );
     }
 };

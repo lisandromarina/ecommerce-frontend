@@ -3,7 +3,7 @@ import ProductPageComponent from "./ProductPageComponent";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProductById } from "../../redux/actions/productAction";
-import { updateCartProduct, fetchShoppingCart } from "../../redux/actions/shoppingCartAction";
+import { addCartProduct, fetchShoppingCart } from "../../redux/actions/shoppingCartAction";
 
 function ProductPageContainer() {
     const [quantity, setQuantity] = useState(1);
@@ -34,7 +34,7 @@ function ProductPageContainer() {
     async function handleOnSubmit() {
     /* //console.log(productSelected) */
         if (localStorage.getItem("token")) {
-            await dispatch(updateCartProduct({
+            await dispatch(addCartProduct({
                 userId: userState.id,
                 quantity: quantity,
                 idProduct: idProduct

@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { cleanShoppingCartState } from "../../redux/slices/shoppingCartSlice";
 import { logOut } from "../../redux/slices/userSlice";
 import NavbarComponent from "./NavbarComponent";
+import { createAlert } from "../../redux/slices/alertSlice"
 
 function NavbarContainer() {
     const [search, setSearch] = useState("");
@@ -47,6 +48,12 @@ function NavbarContainer() {
     function handleOnLogout() {
         localStorage.clear();
         dispatch(cleanShoppingCartState());
+        dispatch(
+            createAlert({
+                message: `Hasta la proxima! que tengas lindo dia  🤗`,
+                type: "success"
+            })
+        );
         dispatch(logOut());
     };
 
