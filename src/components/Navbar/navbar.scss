@@ -38,7 +38,7 @@ $laptop-max-width: 1024px;
 
         .navbar-over-icons {
             display: flex;
-            width: 10%;
+            width: 12%;
             align-items: center;
             justify-content: space-around;
             color: #FFFFFF;
@@ -112,7 +112,7 @@ $laptop-max-width: 1024px;
                     color: #e77800;
                 }
 
-                &:focus{
+                &:focus {
                     color: #FFFFFF;
                 }
             }
@@ -274,9 +274,17 @@ $laptop-max-width: 1024px;
 @media screen and (min-width: $laptop-min-width) and (max-width: $laptop-max-width) {
     .navbar {
         .navbar-over {
-
             .navbar-over-input {
                 width: 50%;
+            }
+
+            .navbar-over-logo {
+                max-width: 20%;
+                height: auto;
+            }
+
+            .navbar-over-icons {
+                width: 15%;
             }
 
             .navbar-over-singin {

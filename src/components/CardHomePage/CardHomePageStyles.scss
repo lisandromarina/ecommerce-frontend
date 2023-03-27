@@ -16,6 +16,7 @@ $laptop-max-width: 1024px;
     &:hover {
         transform: scale(1,01);
         box-shadow: 0 10px 20px rgba(0, 0, 0, .4), 0 4px 8px rgba(0, 0, 0, .06);
+
         .image-wrapper {
             border-bottom: 4px solid orange;
             border-radius: 5%;
@@ -27,6 +28,7 @@ $laptop-max-width: 1024px;
         height: 250px;
         display: flex;
         justify-content: center;
+        border-bottom: 4px solid white;
 
         .cart-image {
             object-fit: contain;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
-import CardHomePage from "../../components/CardHomePage"
+import CardHomePage from "../../components/CardHomePage";
 
 function ListProductsContainer(props) {
     const {
@@ -15,7 +15,7 @@ function ListProductsContainer(props) {
                 <h2 className='text-center' style={{ color: "#e77800", fontFamily: "Space Grotesk" }}>
                     {title}
                 </h2>
-                <Row md={4} xs={2} className='d-flex align-item-around justify-content-center' >
+                <Row md={4} xs={2} className='d-flex align-item-around justify-content-start' >
                     {
                         arrayProducts.map(product => (
                             <CardHomePage
