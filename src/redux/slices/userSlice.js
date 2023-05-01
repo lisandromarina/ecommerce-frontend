@@ -17,7 +17,11 @@ export const userSlice = createSlice({
                 ...state.user, ...actions.payload
             }
         },
-        logOut: (state) => { state.user = {}; state.isAuth = false },
+        logOut: (state) => state = {
+            ...state,
+            user: {}, 
+            isAuth: false
+        },
         setIsAuth: (state, actions) => { state.isAuth = actions.payload }
     }
 })

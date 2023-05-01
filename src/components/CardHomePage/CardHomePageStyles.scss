@@ -11,10 +11,10 @@ $laptop-max-width: 1024px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 
     &:hover {
-        transform: scale(1,01);
+        transform: scale(1, 01);
         box-shadow: 0 10px 20px rgba(0, 0, 0, .4), 0 4px 8px rgba(0, 0, 0, .06);
 
         .image-wrapper {
@@ -34,6 +34,25 @@ $laptop-max-width: 1024px;
             object-fit: contain;
             width: 100%;
             height: auto;
+        }
+
+    }
+
+    .card-body-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .card-body-title{
+            line-height: 1.5em;
+            height: 3em;
+            overflow: hidden;
+        }
+        
+        .card-body-text {
+            line-height: 1.5em;
+            height: 3em;
+            overflow: hidden;
         }
     }
 }

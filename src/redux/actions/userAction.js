@@ -1,11 +1,10 @@
 import { getAxios } from "../../api/axios";
 import { parseJwt } from "../../utils/tokenUtils";
 import { setIsAuth, setUserState } from "../slices/userSlice";
-import { createAlert } from "../slices/alertSlice"
+import { validateTokenFromError } from "../../utils/tokenUtils";
+import { createAlert } from "../slices/alertSlice";
 
-//this is an asyncrhonos action, but it doesn`t modify the satate, but it calls loggedIn to modify the state
 export const login = (user) => async (dispatch) => {
-    console.log(user)
     try {
         const response = await getAxios().post(
             `${process.env.PUBLIC_URL}/authentication/login`,
@@ -54,6 +53,31 @@ export const register = (user) => async (dispatch) => {
         );
         return response;
     } catch (err) {
+        dispatch(
+            createAlert({
+                message: `Algo salio mal! intentalo de nuevo`,
+                type: "error"
+            })
+        );
+    }
+};
+
+
+export const validateToken = (token) => async (dispatch) => {
+    try {
+
+        console.log('validate')
+        const response = await getAxios().post(
+            `${process.env.PUBLIC_URL}/authentication/validate`,
+            token.toString()
+        );
+        return response;
+
+    } catch (err) {
+        console.log(err)
+        console.log('error')
+        validateTokenFromError(err, dispatch)
+
         dispatch(
             createAlert({
                 message: `Algo salio mal! intentalo de nuevo`,

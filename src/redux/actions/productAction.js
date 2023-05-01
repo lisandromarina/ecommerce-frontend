@@ -1,5 +1,5 @@
 import { getAxios } from "../../api/axios";
-import { setAllProducts, setProductSelected } from "../slices/productSlice";
+import { setAllProducts, setProductSelected, setCommentToProductSelected } from "../slices/productSlice";
 import { createAlert } from "../slices/alertSlice"
 
 export const fetchAllProducts = () => async (dispatch) => {
@@ -78,6 +78,30 @@ export const saveProduct = (product) => async (dispatch) => {
         dispatch(
             createAlert({
                 message: `Genial! Ya guardamos tu producto!`,
+                type: "success"
+            })
+        );
+
+    } catch (err) {
+        dispatch(
+            createAlert({
+                message: `Upss, algo salio mal!`,
+                type: "error"
+            })
+        );
+    }
+};
+
+export const saveComment = (comment) => async (dispatch) => {
+    try {
+        const response = await getAxios().post(
+            `${process.env.PUBLIC_URL}/comment/save`, comment
+        );
+        console.log(response)
+      
+        dispatch(
+            createAlert({
+                message: `Genial! Ya guardamos tu Comentario!!`,
                 type: "success"
             })
         );

@@ -16,7 +16,7 @@ function AbmProductsComponent(props) {
         onFileChangeHandler
     } = props;
     return (
-        <Container>
+        <Container style={{ margin: '2%' }}>
             <h1 className="text-center text-white fw-semibold">Agregar Tu Producto</h1>
             <div className="d-flex justify-content-center">
                 <Form className="row w-50">
@@ -65,7 +65,7 @@ function AbmProductsComponent(props) {
                         <Form.Control
                             type="file"
                             name="file"
-                           /*  */
+                            /*  */
                             onChange={onFileChangeHandler}
                             placeholder="Disabled input" />
                     </Form.Group>

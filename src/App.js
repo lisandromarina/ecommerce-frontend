@@ -1,35 +1,40 @@
 import React, { Suspense, useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { parseJwt } from './utils/tokenUtils';
-import { setUserState, setIsAuth } from "./redux/slices/userSlice";
+import { setUserState, setIsAuth, logOut } from "./redux/slices/userSlice";
+import { validateToken } from "./redux/actions/userAction";
 import { fetchShoppingCart } from "./redux/actions/shoppingCartAction";
 import { fetchAllCategory } from './redux/actions/categoryAction';
+import "./AppStyles.scss";
 import Router from "./components/Router";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Alert from "./components/Alert";
 import Spinner from './components/Spinner/Spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ScrollToTop from './utils/ScrollToTop';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
 
-  async function validateToken() {
+  async function verifyToken() {
     let token = localStorage.getItem("token");
     if (token) {
-      //validate expireToken
-      let tokenParsed = parseJwt(token);
-      await dispatch(setUserState({ id: tokenParsed.userId, username: tokenParsed.sub }));
-      await dispatch(fetchShoppingCart(tokenParsed.userId));
-      dispatch(setIsAuth(true));
+      if (dispatch(validateToken(token))) {
+        let tokenParsed = parseJwt(token);
+        await dispatch(setUserState({ id: tokenParsed.userId, username: tokenParsed.sub }));
+        await dispatch(fetchShoppingCart(tokenParsed.userId));
+        dispatch(setIsAuth(true));
+      }
     }
     setIsLoading(false);
   }
 
+
   useEffect(() => {
     dispatch(fetchAllCategory());
-    validateToken();
+    verifyToken();
   }, []);
 
   if (isLoading) {
@@ -41,7 +46,8 @@ function App() {
   return (
     <Suspense fallback={<Spinner />}>
       <Alert />
-      <div className='bg-light bg-gradient' style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+      <div className='app-contaier'>
+        <ScrollToTop />
         <Navbar />
         <Router />
         <Footer />

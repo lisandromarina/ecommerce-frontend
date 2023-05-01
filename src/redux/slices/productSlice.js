@@ -15,8 +15,14 @@ export const productSlice = createSlice({
         setProductSelected: (state, actions) => state = {
             ...state, ...actions.payload
         },
+        setCommentToProductSelected: (state, actions) => state = {
+            ...state,
+            productSelected: {
+                ...state.productSelected, comments: actions.payload.comment
+            } 
+        }
     }
 })
 
-export const { setAllProducts, setProductSelected } = productSlice.actions
+export const { setAllProducts, setProductSelected, setCommentToProductSelected } = productSlice.actions
 export default productSlice.reducer;

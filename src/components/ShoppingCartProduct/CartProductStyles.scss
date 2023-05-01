@@ -8,6 +8,7 @@ $laptop-min-width: 769px;
 $laptop-max-width: 1024px;
 
 .cart-wrapper {
+    margin: 1%;
     display: flex;
     flex-direction: column;
     font-family: "Space Grotesk";
@@ -49,7 +50,7 @@ $laptop-max-width: 1024px;
             display: flex;
             border: solid 1px rgba(128, 128, 128, 0.356);
             border-radius: 8px;
-            
+
             .cart-image {
                 object-fit: contain;
                 width: 100%;
@@ -130,6 +131,11 @@ $laptop-max-width: 1024px;
 
             .cart-details {
                 align-items: center;
+
+                .cart-productName {
+                    white-space: unset;
+                    text-overflow: ellipsis;
+                }
             }
         }
     }

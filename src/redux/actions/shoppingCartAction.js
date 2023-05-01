@@ -1,6 +1,7 @@
 import { getAxios } from "../../api/axios";
 import { setShoppingCart } from "../slices/shoppingCartSlice";
-import { createAlert } from "../slices/alertSlice"
+import { createAlert } from "../slices/alertSlice";
+import { validateTokenFromError } from "../../utils/tokenUtils";
 
 export const fetchShoppingCart = (userId) => async (dispatch) => {
     try {
@@ -8,14 +9,14 @@ export const fetchShoppingCart = (userId) => async (dispatch) => {
         const response = await getAxios().get(
             `${process.env.PUBLIC_URL}/shoppingCart/findByUserId/${userId}`
         );
-
         dispatch(setShoppingCart({
             id: response.data.id,
             dateCreated: response.data.dateCreated,
             cartProducts: response.data.shoppingCartProductsDTO
         }))
-
+        
     } catch (err) {
+        validateTokenFromError(err, dispatch)
         dispatch(
             createAlert({
                 message: `Upss, algo salio mal!`,
@@ -41,6 +42,7 @@ export const addCartProduct = (cartProduct) => async (dispatch) => {
         );
 
     } catch (err) {
+        validateTokenFromError(err, dispatch)
         dispatch(
             createAlert({
                 message: `Upss, algo salio mal!`,
@@ -59,6 +61,7 @@ export const updateCartProduct = (cartProduct) => async (dispatch) => {
         )
 
     } catch (err) {
+        validateTokenFromError(err, dispatch)
         dispatch(
             createAlert({
                 message: `Upss, algo salio mal!`,
@@ -83,6 +86,7 @@ export const removeShoppingCartProduct = (shoppingCartId, productId) => async (d
         );
 
     } catch (err) {
+        validateTokenFromError(err, dispatch)
         dispatch(
             createAlert({
                 message: `Upss, algo salio mal!`,

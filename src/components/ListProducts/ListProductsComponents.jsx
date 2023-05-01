@@ -15,7 +15,7 @@ function ListProductsContainer(props) {
                 <h2 className='text-center' style={{ color: "#e77800", fontFamily: "Space Grotesk" }}>
                     {title}
                 </h2>
-                <Row md={4} xs={2} className='d-flex align-item-around justify-content-start' >
+                <Row lg={4} md={3} xs={2} className='d-flex align-item-around justify-content-start' >
                     {
                         arrayProducts.map(product => (
                             <CardHomePage
