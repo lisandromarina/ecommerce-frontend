@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import ProductPageComponent from "./ProductPageComponent";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchProductById } from "../../redux/actions/productAction";
-import { updateCartProduct, fetchShoppingCart } from "../../redux/actions/shoppingCartAction";
+import { fetchProductById, saveComment } from "../../redux/actions/productAction";
+import { addCartProduct, fetchShoppingCart } from "../../redux/actions/shoppingCartAction";
 
 function ProductPageContainer() {
+    const isAuth = useSelector(state => state.user.isAuth)
     const [quantity, setQuantity] = useState(1);
+    const [newComment, setNewComment] = useState('')
     const productSelected = useSelector(state => state.products.productSelected);
     const userState = useSelector(state => state.user.user);
     const dispatch = useDispatch();
@@ -16,7 +18,11 @@ function ProductPageContainer() {
     let { idProduct } = useParams();
 
     function fetchProduct() {
-        dispatch(fetchProductById(idProduct))
+        dispatch(fetchProductById(idProduct));
+    }
+
+    function handleOnChangeComment(e) {
+        setNewComment(e.target.value)
     }
 
     function handleOnClickCount(event) {
@@ -27,14 +33,23 @@ function ProductPageContainer() {
         }
     }
 
+    function handleOnSaveComment() {
+        const comment = {
+            user: { id: userState.id },
+            product: { id: idProduct },
+            description: newComment
+        }
+        dispatch(saveComment(comment))
+    }
+
     useEffect(() => {
         fetchProduct();
     }, [])
 
     async function handleOnSubmit() {
-    /* //console.log(productSelected) */
+        /* //console.log(productSelected) */
         if (localStorage.getItem("token")) {
-            await dispatch(updateCartProduct({
+            await dispatch(addCartProduct({
                 userId: userState.id,
                 quantity: quantity,
                 idProduct: idProduct
@@ -48,10 +63,14 @@ function ProductPageContainer() {
 
     return (
         <ProductPageComponent
+            isAuth={isAuth}
             productSelected={productSelected}
             handleOnSubmit={handleOnSubmit}
             quantity={quantity}
             handleOnClickCount={handleOnClickCount}
+            handleOnSaveComment={handleOnSaveComment}
+            newComment={newComment}
+            handleOnChangeComment={handleOnChangeComment}
         />
     )
 };

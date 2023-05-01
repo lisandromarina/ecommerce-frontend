@@ -1,18 +1,21 @@
 import React from 'react';
-import { Container, Image, Button, Row, Col } from "react-bootstrap";
+import { Container, Button, Row, Col } from "react-bootstrap";
 import "./ProductDetails.scss";
-
 
 function ProductPageComponent(props) {
     const {
         productSelected,
         handleOnSubmit,
         quantity,
-        handleOnClickCount
+        handleOnClickCount,
+        isAuth,
+        handleOnSaveComment,
+        newComment,
+        handleOnChangeComment
     } = props;
 
     return (
-        <Container className='container'>
+        <Container className='container-product-details'>
             <Row md={2} sm={1} xs={1} className="row">
                 <Col md={4} className="text-center">
                     <div className='image-detail-wrapper'>
@@ -22,13 +25,6 @@ function ProductPageComponent(props) {
                             src={productSelected.imageUrl ? productSelected.imageUrl : `${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
                         />
                     </div>
-                    {/* <Image
-                        height={250}
-                        fluid="true"
-                        variant="top"
-                        className='image'
-                        src={productSelected.imageUrl ? productSelected.imageUrl : `${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
-                    /> */}
                 </Col>
                 <Col md={6}>
                     <div className='product-details'>
@@ -57,6 +53,43 @@ function ProductPageComponent(props) {
                     </div>
                 </Col>
             </Row>
+            <div className='comments-wrapper'>
+                <p className='comments-title'> {productSelected?.comments?.length === 1 ? '1 Comentario' : `${productSelected?.comments?.length} Comentarios`}</p>
+                <div className='comment-list'>
+                    {
+                        productSelected?.comments?.map(oneComment => (
+                            <div className='comment'>
+                                <div className='image-wrapper'>
+                                    <img src={`${process.env.PUBLIC_URL}/assets/commentImage.png`} alt='comment-icon' />
+                                </div>
+                                <div className='comment-details'>
+                                    <p>{oneComment.description}</p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+                {
+                    isAuth &&
+                    <div className='add-comment'>
+                        <div className='single-comment-wrapper'>
+                            <div className='image-wrapper'>
+                                <img src={`${process.env.PUBLIC_URL}/assets/commentImage.png`} alt='comment-icon' />
+                            </div>
+                            <textarea
+                                value={newComment}
+                                type='text-area'
+                                className='add-input-comment'
+                                placeholder='Agregar un comentario...'
+                                onChange={handleOnChangeComment}
+                            />
+                        </div>
+                        <Button className="add-button" onClick={handleOnSaveComment}>
+                            Agregar Comentario
+                        </Button>
+                    </div>
+                }
+            </div>
         </Container >
     )
 };

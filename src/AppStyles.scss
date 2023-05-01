@@ -1,0 +1,7 @@
+.app-contaier {
+    display: flex; 
+    position: relative;
+    min-height: 100vh; 
+    flex-direction: column;
+    justify-content: space-between;
+}

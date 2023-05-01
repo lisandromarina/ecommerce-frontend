@@ -11,7 +11,6 @@ function ShoppingCartContainer() {
   const [cartProduct, setCartProduct] = useState({});
 
   async function handleOnChange(cartProduct) {
-    console.log(shoppingCartState)
     cartProduct = { ...cartProduct, userId: userState.id };
     await dispatch(updateCartProduct(cartProduct));
     await dispatch(fetchShoppingCart(userState.id));
