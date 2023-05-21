@@ -1,12 +1,13 @@
 import React from 'react';
 import { Carousel, Image } from 'react-bootstrap';
+import "./CarouselStyles.scss";
 
 function CarouselComponent() {
     let INTERVAL_TIME = 10000;
     let IMAGE_HEIGHT = 350;
 
     return (
-        <div className='fluid'>
+        <div className='fluid carousel-container'>
             <Carousel>
                 <Carousel.Item
                     interval={INTERVAL_TIME}

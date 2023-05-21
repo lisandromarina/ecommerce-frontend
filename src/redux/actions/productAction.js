@@ -1,5 +1,5 @@
 import { getAxios } from "../../api/axios";
-import { setAllProducts, setProductSelected, setCommentToProductSelected } from "../slices/productSlice";
+import { setAllProducts, setProductSelected } from "../slices/productSlice";
 import { createAlert } from "../slices/alertSlice"
 
 export const fetchAllProducts = () => async (dispatch) => {
@@ -105,6 +105,26 @@ export const saveComment = (comment) => async (dispatch) => {
                 type: "success"
             })
         );
+
+    } catch (err) {
+        dispatch(
+            createAlert({
+                message: `Upss, algo salio mal!`,
+                type: "error"
+            })
+        );
+    }
+};
+
+
+export const fetchOptionsForSearchTool = (searchToolText) => async (dispatch) => {
+    console.log(searchToolText)
+    try {
+        const response = await getAxios().post(
+            `${process.env.PUBLIC_URL}/product/findProductListBySearchTool`, searchToolText,
+            { headers: { 'Content-Type': 'text/plain' } }  
+        );
+        return response;
 
     } catch (err) {
         dispatch(

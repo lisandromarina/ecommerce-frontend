@@ -4,6 +4,7 @@ import shoppingCartSlice from "./slices/shoppingCartSlice";
 import productSlice from './slices/productSlice';
 import categorySlice from './slices/categorySlice';
 import alertSlice from './slices/alertSlice';
+import addressSlice from './slices/addressSlice';
 
 export default configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export default configureStore({
     shoppingCart: shoppingCartSlice,
     products: productSlice,
     category: categorySlice,
-    notification: alertSlice
+    notification: alertSlice,
+    address: addressSlice
   }
 })

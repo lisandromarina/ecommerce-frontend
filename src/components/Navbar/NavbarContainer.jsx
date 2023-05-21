@@ -7,7 +7,6 @@ import NavbarComponent from "./NavbarComponent";
 import { createAlert } from "../../redux/slices/alertSlice"
 
 function NavbarContainer() {
-    const [search, setSearch] = useState("");
     const [allCategory, setAllCategory] = useState([]);
     const userState = useSelector(state => state.user.user);
     const cartProductQuantity = useSelector(state => state.shoppingCart.cartProducts);
@@ -15,10 +14,6 @@ function NavbarContainer() {
     const location = useLocation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-    function handleOnChange(text) {
-        setSearch(text);
-    };
 
     function handleOnClickShoppingCart() {
         navigate("/shoppingCart");
@@ -42,7 +37,7 @@ function NavbarContainer() {
 
     async function handleOnClickCategory(event) {
         let categorySelected = allCategory.find(oneCategory => oneCategory.name === event.target.outerText);
-        navigate(`/product/${categorySelected.name}/${categorySelected.id}` , { state: { prevPath: location.pathname } })
+        navigate(`/product/${categorySelected.name}/${categorySelected.id}`, { state: { prevPath: location.pathname } })
     }
 
     function handleOnLogout() {
@@ -63,10 +58,10 @@ function NavbarContainer() {
 
     return (
         <NavbarComponent
+
             userState={userState}
             allCategory={allCategory}
             handleOnLogout={handleOnLogout}
-            handleOnChange={handleOnChange}
             handleOnClickShoppingCart={handleOnClickShoppingCart}
             handleOnNavigateLogin={handleOnNavigateLogin}
             handleOnNavigateHomePage={handleOnNavigateHomePage}

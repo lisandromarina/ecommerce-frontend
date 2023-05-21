@@ -12,7 +12,8 @@ export const fetchShoppingCart = (userId) => async (dispatch) => {
         dispatch(setShoppingCart({
             id: response.data.id,
             dateCreated: response.data.dateCreated,
-            cartProducts: response.data.shoppingCartProductsDTO
+            cartProducts: response.data.shoppingCartProductsDTO,
+            totalPrice: response.data.totalPrice
         }))
         
     } catch (err) {
