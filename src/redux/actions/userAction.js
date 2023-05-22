@@ -67,8 +67,6 @@ export const validateToken = (token) => async (dispatch) => {
         return response;
 
     } catch (err) {
-        console.log(err)
-        console.log('error')
         validateTokenFromError(err, dispatch)
 
         dispatch(

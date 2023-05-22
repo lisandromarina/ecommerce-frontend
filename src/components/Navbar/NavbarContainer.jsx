@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { cleanShoppingCartState } from "../../redux/slices/shoppingCartSlice";
+import { clearAddresses } from "../../redux/slices/addressSlice";
 import { logOut } from "../../redux/slices/userSlice";
 import NavbarComponent from "./NavbarComponent";
 import { createAlert } from "../../redux/slices/alertSlice"
@@ -43,6 +44,7 @@ function NavbarContainer() {
     function handleOnLogout() {
         localStorage.clear();
         dispatch(cleanShoppingCartState());
+        dispatch(clearAddresses());
         dispatch(
             createAlert({
                 message: `Hasta la proxima! que tengas lindo dia  🤗`,
