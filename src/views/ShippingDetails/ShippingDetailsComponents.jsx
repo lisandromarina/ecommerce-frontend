@@ -3,6 +3,7 @@ import { Container, Button, Card, ListGroup, Badge, ButtonGroup, Form, Col, Row,
 import './shippingDetailsStyles.scss';
 import { FiMapPin } from "react-icons/fi";
 import { priceFormatter } from '../../utils/priceFormatter';
+import Input from '../../components/Input'
 
 function ShippingDetailsComponents(props) {
     const {
@@ -75,7 +76,7 @@ function ShippingDetailsComponents(props) {
                                                 !oneAddress.active &&
                                                 <Card.Link onClick={() => handleOnSelectAddress(oneAddress.id)}>Seleccionar</Card.Link>
                                             }
-                                            <Card.Link onClick={()=> handleOnEdit(oneAddress)}>Editar</Card.Link>
+                                            <Card.Link onClick={() => handleOnEdit(oneAddress)}>Editar</Card.Link>
                                         </Card.Body>
                                     </Card.Body>
                                 </Card>
@@ -96,98 +97,85 @@ function ShippingDetailsComponents(props) {
                                 <Form /* onSubmit={handleSubmit} */ className="add-checkout-form">
                                     <Row>
                                         <Col>
-                                            <FloatingLabel
-                                                controlId="fullName"
+                                            <Input
+                                                value={formData.fullName}
+                                                type="text"
+                                                name="fullName"
                                                 label="Nombre y Apellido"
-                                            >
-                                                <Form.Control
-                                                    value={formData.fullName}
-                                                    type="text"
-                                                    name="fullName"
-                                                    onChange={handleChange}
-                                                    required
-                                                />
-                                            </FloatingLabel>
+                                                onChange={handleChange}
+                                                required
+                                            />
                                         </Col>
                                     </Row>
 
 
                                     <Row>
                                         <Col>
-                                            <FloatingLabel controlId="postalCode" label="Código Postal">
-                                                <Form.Control
-                                                    value={formData.postalCode}
-                                                    type="text"
-                                                    name="postalCode"
-                                                    required
-                                                    onChange={handleChange}
-                                                />
-                                            </FloatingLabel>
+                                            <Input
+                                                value={formData.postalCode}
+                                                type="text"
+                                                name="postalCode"
+                                                label="Codigo Postal"
+                                                required
+                                                onChange={handleChange}
+                                            />
                                         </Col>
                                     </Row>
                                     <Row>
                                         <Col>
-                                            <FloatingLabel controlId="province" label="Provincia">
-                                                <Form.Control
-                                                    type="text"
-                                                    name="province"
-                                                    required
-                                                    onChange={handleChange}
-                                                    value={formData.province}
-                                                />
-                                            </FloatingLabel>
+                                            <Input
+                                                type="text"
+                                                name="province"
+                                                label="Provincia"
+                                                required
+                                                onChange={handleChange}
+                                                value={formData.province}
+                                            />
                                         </Col>
                                         <Col>
-                                            <FloatingLabel controlId="location" label="Localidad">
-                                                <Form.Control
-                                                    type="text"
-                                                    name="location"
-                                                    required
-                                                    onChange={handleChange}
-                                                    value={formData.location}
-                                                />
-                                            </FloatingLabel>
+                                            <Input
+                                                label="Localidad"
+                                                type="text"
+                                                name="location"
+                                                required
+                                                onChange={handleChange}
+                                                value={formData.location}
+                                            />
                                         </Col>
                                     </Row>
 
                                     <Row>
                                         <Col>
-                                            <FloatingLabel controlId="street" label="Calle">
-                                                <Form.Control
-                                                    type="text"
-                                                    name="street"
-                                                    required
-                                                    onChange={handleChange}
-                                                    value={formData.street}
-                                                />
-                                            </FloatingLabel>
+                                            <Input
+                                                label="Calle"
+                                                type="text"
+                                                name="street"
+                                                required
+                                                onChange={handleChange}
+                                                value={formData.street}
+                                            />
                                         </Col>
                                         <Col>
-                                            <FloatingLabel controlId="streetNumber" label="Número">
-                                                <Form.Control
-                                                    type="text"
-                                                    name="streetNumber"
-                                                    required
-                                                    onChange={handleChange}
-                                                    value={formData.streetNumber}
-                                                />
-                                            </FloatingLabel>
+                                            <Input
+                                                label="Número"
+                                                type="text"
+                                                name="streetNumber"
+                                                required
+                                                onChange={handleChange}
+                                                value={formData.streetNumber}
+                                            />
                                         </Col>
                                     </Row>
 
                                     <Row>
                                         <Col>
-                                            <FloatingLabel
-                                                controlId="department"
+                                            <Input
                                                 label="Piso/Departamento"
-                                            >
-                                                <Form.Control
-                                                    value={formData.department}
-                                                    type="text"
-                                                    name="department"
-                                                    onChange={handleChange}
-                                                />
-                                            </FloatingLabel>
+                                                value={formData.department}
+                                                type="text"
+                                                name="department"
+                                                onChange={handleChange}
+                                            />
                                         </Col>
                                     </Row>
                                 </Form>
@@ -196,7 +184,7 @@ function ShippingDetailsComponents(props) {
                         <Button
                             className='shipping-button'
                             disabled={isLoading}
-                            onClick={()=> handleOnSubmit()}
+                            onClick={() => handleOnSubmit()}
                         >
                             Continuar
                         </Button>
