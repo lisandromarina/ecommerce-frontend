@@ -5,6 +5,7 @@ import {
     Container,
     InputGroup
 } from 'react-bootstrap';
+import "./AbmProducts.scss";
 
 function AbmProductsComponent(props) {
     const {
@@ -16,63 +17,77 @@ function AbmProductsComponent(props) {
         onFileChangeHandler
     } = props;
     return (
-        <Container style={{ margin: '2%' }}>
-            <h1 className="text-center text-white fw-semibold">Agregar Tu Producto</h1>
-            <div className="d-flex justify-content-center">
-                <Form className="row w-50">
-                    <Form.Group className="mb-3 text-white">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control
-                            name="name"
-                            value={product.name}
-                            onChange={handleOnChangeCategory}
-                            placeholder="Disabled input"
+        <Container className="container-abmproducts">
+            <h1> Agregar Tu Producto</h1>
+            <Form className="abmproducts-form">
+                <Form.Label className="abmproducts-label">Nombre
+                    <Form.Control
+                        className="abmproducts-input"
+                        name="name"
+                        value={product.name}
+                        onChange={handleOnChangeCategory}
+                        placeholder="Nombre del producto..."
+                    /></Form.Label>
+                <Form.Label className="abmproducts-label">Marca
+                    <Form.Control
+                        className="abmproducts-input"
+                        name="marca"
+                        onChange={handleOnChangeCategory}
+                        placeholder="Marca del producto..."
+                    /></Form.Label>
+                <Form.Label className="abmproducts-label">Categoría
+                    <Form.Select
+                        className="abmproducts-input"
+                        as="select"
+                        value={product.categoryDTO.id}
+                        onChange={handleOnSelect}
+                    >
+                        <option value={0}>Seleccionar categoría...</option>
+                        {
+                            categoryState.map(category => (
+                                <option value={category.id}
+                                >
+                                    {category.name}
+                                </option>
+                            ))
+                        }
+                    </Form.Select>
+                </Form.Label>
+                <Form.Label className="abmproducts-label">
+                    Descripción
+                    <Form.Control
+                        className="abmproducts-input"
+                        as="textarea"
+                        name="description"
+                        value={product.description}
+                        onChange={handleOnChangeCategory}
+                        placeholder="Ingresa una descripción..." />
+                </Form.Label>
+
+                <Form.Label className="abmproducts-label">
+                    Imagen
+                    <div className="abm-image-wrapper">
+                        {product.file && (
+                        <img
+                            className="abm-image"
+                            src={product.file}
                         />
-                    </Form.Group>
-                    <Form.Group className="mb-3 text-white">
-                        <Form.Label>Category</Form.Label>
-                        <Form.Select
-                            as="select"
-                            value={product.categoryDTO.id}
-                            onChange={handleOnSelect}
-                        >
-                            <option value={0}>Select category...</option>
-                            {
-                                categoryState.map(category => (
-                                    <option value={category.id}
-                                    >
-                                        {category.name}
-                                    </option>
-                                ))
-                            }
-                        </Form.Select>
-                    </Form.Group>
-                    <Form.Group className="mb-3 text-white">
-                        <Form.Label>
-                            Description
-                        </Form.Label>
+                        )}
+                    </div>
+                    <Form.Control
+                        className="abmproducts-input"
+                        type="file"
+                        name="file"
+                        /*  */
+                        onChange={onFileChangeHandler}
+                        placeholder="Disabled input" />
+                </Form.Label>
+                <Form.Label className="abmproducts-label">
+                    Precio
+                    <InputGroup className="abmproducts-inputgroup">
+                        <InputGroup.Text >$</InputGroup.Text>
                         <Form.Control
-                            as="textarea"
-                            name="description"
-                            value={product.description}
-                            onChange={handleOnChangeCategory}
-                            placeholder="Disabled input" />
-                    </Form.Group>
-                    <Form.Group className="mb-3 text-white">
-                        <Form.Label>
-                            Image
-                        </Form.Label>
-                        <Form.Control
-                            type="file"
-                            name="file"
-                            /*  */
-                            onChange={onFileChangeHandler}
-                            placeholder="Disabled input" />
-                    </Form.Group>
-                    <InputGroup className="mb-3">
-                        <InputGroup.Text>$</InputGroup.Text>
-                        <InputGroup.Text>0.00</InputGroup.Text>
-                        <Form.Control
+                            className='abmproducts-input'
                             name="price"
                             type="number"
                             value={product.price}
@@ -82,16 +97,12 @@ function AbmProductsComponent(props) {
                             aria-label="Dollar amount (with dot and two decimal places)"
                         />
                     </InputGroup>
-                    <div className="row">
-                        <div className="d-flex justify-content-center">
-                            <Button onClick={handleOnSubmit} className="d-flex justify-content-center w-50" style={{ marginTop: "30px" }}>
-                                Add product
-                            </Button>
-                        </div>
-                    </div>
-                </Form>
-            </div>
-        </Container>
+                </Form.Label>
+                <Button onClick={handleOnSubmit} className="button-add">
+                    Añadir producto
+                </Button>
+            </Form>
+        </Container >
     )
 };
 

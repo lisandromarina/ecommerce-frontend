@@ -16,6 +16,7 @@ function AbmProductsContainer() {
   const userIdState = useSelector(state => state.user.user.id);
   const dispatch = useDispatch();
 
+
   const handleOnChangeCategory = (e) => {
     const { name, value } = e.target;
     let valueToSave = value;
@@ -33,8 +34,9 @@ function AbmProductsContainer() {
 
   function onFileChangeHandler(event){
     console.log(event.target.files[0])
-    setProduct({ ...product, file: event.target.files[0] });;
+    setProduct({ ...product, file: URL.createObjectURL(event.target.files[0]) });;
   }
+
 
   function handleOnSubmit() {
     let formData = new FormData()
