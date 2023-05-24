@@ -32,9 +32,11 @@ $laptop-max-width: 1024px;
 
         .navbar-over-icons {
             display: flex;
+            gap: 4px;
             width: 12%;
             align-items: center;
-            justify-content: space-around;
+            padding-right: 14px;
+            justify-content: flex-end;
             color: #FFFFFF;
 
             .navbar-over-icons-profile {
@@ -151,7 +153,8 @@ $laptop-max-width: 1024px;
                 display: flex;
                 width: 30%;
                 align-items: center;
-                justify-content: space-around;
+                padding-right: unset;
+                justify-content: flex-end;
                 color: #FFFFFF;
             }
 
@@ -205,7 +208,8 @@ $laptop-max-width: 1024px;
                 display: flex;
                 width: 20%;
                 align-items: center;
-                justify-content: space-around;
+                padding-right: unset;
+                justify-content: flex-end;
                 color: #FFFFFF;
             }
 
@@ -258,6 +262,7 @@ $laptop-max-width: 1024px;
 
             .navbar-over-icons {
                 width: 15%;
+                padding-right: unset;
             }
 
             .navbar-over-singin {
