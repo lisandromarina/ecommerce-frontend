@@ -1,0 +1,193 @@
+$phone-min-width: 320px;
+$phone-max-width: 480px;
+
+$tablet-min-width: 481px;
+$tablet-max-width: 768px;
+
+$laptop-min-width: 769px;
+$laptop-max-width: 1024px;
+
+.shipping-container {
+    display: flex;
+    min-height: 50vh;
+
+    .title {
+        font-family: "Space Grotesk";
+    }
+
+    .total-price {
+        text-align: end;
+    }
+
+    .shipping-button {
+        width: 30%;
+        border: #e77800;
+        background-color: #e77800 !important;
+        border-radius: 18px;
+        padding: 8px;
+        font-family: "Space Grotesk";
+        white-space: nowrap;
+        color: white;
+
+        &:hover {
+            background-color: #b86001 !important;
+        }
+    }
+
+    .shipping-address {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        gap: 25px;
+        padding: 4%;
+        background-color: #e3e5e8;
+
+        .card {
+            &:hover {
+                box-shadow: 0 10px 20px rgba(0, 0, 0, .4), 0 4px 8px rgba(0, 0, 0, .06);
+            }
+
+            .address-selected-header {
+                background-color: orange;
+            }
+
+            .card-body {
+                .add-checkout-form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+            }
+
+            .card-body-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .card-pin {
+                    margin: 15px;
+                }
+
+                .card-link {
+                    color: #6c757d !important;
+                    text-decoration: unset !important;
+
+                    &:hover {
+                        text-decoration: underline !important;
+                    }
+                }
+
+                .card-body-links {
+                    width: 100%;
+                    padding: 0%;
+                    flex: 0;
+                    white-space: nowrap;
+                }
+            }
+        }
+
+        .btn-group {
+            .btn {
+                background-color: #e77800;
+                border: unset;
+
+                &:hover {
+                    background-color: #b86001 !important;
+                }
+            }
+        }
+
+    }
+
+    .shipping-items-wrapper {
+        flex-direction: column;
+        width: 100%;
+        display: flex;
+        padding: 4%;
+        gap: 25px;
+
+        .total-price {
+            text-align: end;
+            white-space: nowrap;
+            font-family: "Space Grotesk";
+        }
+
+        h4 {
+            white-space: nowrap;
+            font-family: "Space Grotesk";
+        }
+
+        .items-list {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            white-space: nowrap;
+            font-family: "Space Grotesk";
+
+            .badge {
+                background-color: #e77800 !important;
+            }
+        }
+
+    }
+}
+
+//PHONE
+@media screen and (min-width: $phone-min-width) and (max-width: $phone-max-width) {
+    .shipping-container {
+        display: flex !important;
+        flex-direction: column-reverse;
+        margin-left: unset !important;
+        margin-right: unset !important;
+
+        .shipping-address {
+            padding: 5%;
+
+            .card {
+                .card-body-wrapper {
+                    padding: 1rem 4px !important;
+
+                    .card-body-links {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 10px;
+                        padding: 0 10px 0 0;
+                        white-space: unset;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//TABLET
+@media screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
+    .shipping-container {
+        display: flex !important;
+        max-width: 768px !important;
+        flex-direction: column-reverse;
+        margin-left: unset !important;
+        margin-right: unset !important;
+        align-items: center;
+        justify-content: center;
+
+        .shipping-address {
+            padding: 5%;
+
+            .card {
+                .card-body-wrapper {
+                    padding: 1rem 4px !important;
+
+                    .card-body-links {
+                        padding: 0 10px 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//LAPTOP
+@media screen and (min-width: $laptop-min-width) and (max-width: $laptop-max-width) {}

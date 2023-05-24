@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Container,
-} from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import CartProduct from '../../components/ShoppingCartProduct';
 import "./ShoppingCartStyles.scss";
 
@@ -10,7 +8,8 @@ function ShoppingCartComponent(props) {
     shoppingCartState,
     handleOnChange,
     handleOnCheck,
-    handleOnRemove
+    handleOnRemove,
+    handleOnNavigateShippingDetails
   } = props;
 
   return (
@@ -34,16 +33,16 @@ function ShoppingCartComponent(props) {
             <div>
               <div className="shopping-cart-wrapper-subtotal">
                 <h5 className="shopping-cart-title-subtotal">Subtotal</h5>
-                <p className="shopping-cart-price-subtotal">$15000 </p>
+                <p className="shopping-cart-price-subtotal">${shoppingCartState.totalPrice} </p>
               </div>
               <div className="shopping-cart-wrapper-total">
                 <h5 className="shopping-cart-title-total">TOTAL: </h5>
-                <p className="shopping-cart-price-total">$15000 </p>
+                <p className="shopping-cart-price-total">${shoppingCartState.totalPrice} </p>
               </div>
             </div>
             : null
         }
-        <input className="shopping-cart-submit" type="button" name="buy" value="Comprar" />
+        <input onClick={(handleOnNavigateShippingDetails)} className="shopping-cart-submit" type="button" name="buy" value="Comprar" />
       </div>
     </Container>
   )

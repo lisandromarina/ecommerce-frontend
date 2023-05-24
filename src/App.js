@@ -2,7 +2,7 @@ import React, { Suspense, useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { parseJwt } from './utils/tokenUtils';
 import { setUserState, setIsAuth, logOut } from "./redux/slices/userSlice";
-import { validateToken } from "./redux/actions/userAction";
+import { validateToken, findUserById } from "./redux/actions/userAction";
 import { fetchShoppingCart } from "./redux/actions/shoppingCartAction";
 import { fetchAllCategory } from './redux/actions/categoryAction';
 import "./AppStyles.scss";
@@ -23,7 +23,7 @@ function App() {
     if (token) {
       if (dispatch(validateToken(token))) {
         let tokenParsed = parseJwt(token);
-        await dispatch(setUserState({ id: tokenParsed.userId, username: tokenParsed.sub }));
+        await dispatch(findUserById(tokenParsed.userId))
         await dispatch(fetchShoppingCart(tokenParsed.userId));
         dispatch(setIsAuth(true));
       }

@@ -1,5 +1,6 @@
 import { logOut } from "../redux/slices/userSlice";
 import { cleanShoppingCartState } from "../redux/slices/shoppingCartSlice";
+import { clearAddresses } from "../redux/slices/addressSlice";
 
 export function parseJwt(token) {
     var base64Url = token.split('.')[1];
@@ -15,6 +16,7 @@ export const validateTokenFromError = (err, dispatch) => {
     if(err.response.status === 403){
         localStorage.clear();
         dispatch(cleanShoppingCartState());
+        dispatch(clearAddresses());
         dispatch(logOut());
     }
 }

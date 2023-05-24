@@ -1,0 +1,90 @@
+$phone-min-width: 320px;
+$phone-max-width: 480px;
+
+$tablet-min-width: 481px;
+$tablet-max-width: 768px;
+
+$laptop-min-width: 769px;
+$laptop-max-width: 1024px;
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+
+.search-tool {
+    z-index: 2;
+    margin: auto;
+    width: 50%;
+    border-radius: 10px;
+    font-family: "Space Grotesk";
+
+    &.search-tool-down {
+        display: none;
+    }
+
+    .list-group-search-tool {
+        position: absolute;
+        z-index: 1;
+        width: 50% !important;
+
+        .list-group-item {
+            &:hover {
+                background-color: #eee;
+            }
+        }
+    }
+
+    .form-control {
+        &:focus {
+            border-color: rgb(231, 120, 0);
+            box-shadow: 0 0 0.25rem 0.25rem rgb(231, 120, 0);
+        }
+    }
+
+}
+
+//phone
+@media screen and (min-width: $phone-min-width) and (max-width: $phone-max-width) {
+    .search-tool {
+        width: 90%;
+
+        &.search-tool-over {
+            display: none;
+        }
+
+
+        &.search-tool-down {
+            display: unset;
+        }
+
+        .list-group-search-tool {
+            width: 90% !important;
+        }
+    }
+}
+
+//TABLET
+@media screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
+    .search-tool {
+        width: 40%;
+
+        .list-group-search-tool {
+            width: 40% !important;
+        }
+    }
+}
+
+
+//LAPTOP
+@media screen and (min-width: $laptop-min-width) and (max-width: $laptop-max-width) {
+    .search-tool {
+        width: 50%;
+
+        .list-group-search-tool {
+            width: 46% !important;
+        }
+    }
+}

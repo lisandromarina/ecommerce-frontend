@@ -23,7 +23,7 @@ function RegisterContainer() {
 
     function handleOnSubmit() {
         const prevPath = location.state.prevPath;
-        dispatch(register(user)).then(() => navigate(prevPath));
+        dispatch(register(user));
     }
 
     return (

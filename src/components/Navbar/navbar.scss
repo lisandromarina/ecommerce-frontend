@@ -29,18 +29,14 @@ $laptop-max-width: 1024px;
             height: auto;
         }
 
-        .navbar-over-input {
-            margin: auto;
-            width: 50%;
-            border-radius: 10px;
-            font-family: "Space Grotesk";
-        }
 
         .navbar-over-icons {
             display: flex;
+            gap: 4px;
             width: 12%;
             align-items: center;
-            justify-content: space-around;
+            padding-right: 14px;
+            justify-content: flex-end;
             color: #FFFFFF;
 
             .navbar-over-icons-profile {
@@ -148,12 +144,8 @@ $laptop-max-width: 1024px;
 @media screen and (min-width: $phone-min-width) and (max-width: $phone-max-width) {
     .navbar {
         .navbar-over {
-            .navbar-over-input {
-                width: 25%;
-            }
-
             .navbar-over-logo {
-                width: 30%;
+                width: 50%;
                 height: auto;
             }
 
@@ -161,7 +153,8 @@ $laptop-max-width: 1024px;
                 display: flex;
                 width: 30%;
                 align-items: center;
-                justify-content: space-around;
+                padding-right: unset;
+                justify-content: flex-end;
                 color: #FFFFFF;
             }
 
@@ -194,16 +187,7 @@ $laptop-max-width: 1024px;
             padding-bottom: 2px;
 
             .navbar-down-category {
-                text-align: center;
-                margin-right: unset;
-
-                &:first-child {
-                    display: none;
-                }
-
-                &:last-child {
-                    display: none;
-                }
+                display: none;
             }
         }
     }
@@ -214,12 +198,8 @@ $laptop-max-width: 1024px;
 @media screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
     .navbar {
         .navbar-over {
-            .navbar-over-input {
-                width: 40%;
-            }
-
             .navbar-over-logo {
-                width: 30%;
+                width: 25%;
                 height: auto;
 
             }
@@ -228,7 +208,8 @@ $laptop-max-width: 1024px;
                 display: flex;
                 width: 20%;
                 align-items: center;
-                justify-content: space-around;
+                padding-right: unset;
+                justify-content: flex-end;
                 color: #FFFFFF;
             }
 
@@ -274,10 +255,6 @@ $laptop-max-width: 1024px;
 @media screen and (min-width: $laptop-min-width) and (max-width: $laptop-max-width) {
     .navbar {
         .navbar-over {
-            .navbar-over-input {
-                width: 50%;
-            }
-
             .navbar-over-logo {
                 max-width: 20%;
                 height: auto;
@@ -285,6 +262,7 @@ $laptop-max-width: 1024px;
 
             .navbar-over-icons {
                 width: 15%;
+                padding-right: unset;
             }
 
             .navbar-over-singin {

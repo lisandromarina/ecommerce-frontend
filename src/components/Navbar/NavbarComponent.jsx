@@ -3,10 +3,11 @@ import {
 	Navbar,
 	Nav,
 	Image,
-	FormControl,
+
 	NavDropdown,
 } from 'react-bootstrap';
 import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
+import SearchTool from '../SearchTool'
 import { BsFillCircleFill } from "react-icons/bs";
 import "./navbar.scss";
 
@@ -33,12 +34,9 @@ function NavbarComponent(props) {
 					src={`${process.env.PUBLIC_URL}/assets/mercadoLichaLogo.jpeg`}
 					onClick={handleOnNavigateHomePage}>
 				</Image>
-				<FormControl
-					type="search"
-					placeholder="Buscar producto..."
-					aria-label="Search"
-					className='navbar-over-input'
-				/>
+
+				<SearchTool className='search-tool-over' />
+
 				{
 					userState.username ?
 						<div className='navbar-over-icons'>
@@ -84,13 +82,14 @@ function NavbarComponent(props) {
 				}
 			</div>
 			<div className='navbar-down'>
+				<SearchTool className='search-tool-down' />
 				{
 					allCategory.map(oneCategory => (
 						<div className='navbar-down-category' onClick={handleOnClickCategory}>{oneCategory.name}</div>
 					))
 				}
 			</div>
-		</Navbar>
+		</Navbar >
 	)
 }
 

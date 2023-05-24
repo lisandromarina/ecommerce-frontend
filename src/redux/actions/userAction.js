@@ -12,10 +12,8 @@ export const login = (user) => async (dispatch) => {
         );
         window.localStorage.setItem("token", response.data.token);
         let tokenDecoded = parseJwt(response.data.token);
-        console.log(response.data.token)
-        console.log(tokenDecoded)
         dispatch(setIsAuth(true))
-        dispatch(setUserState({ id: tokenDecoded.userId, username: tokenDecoded.sub }));
+        dispatch(findUserById(tokenDecoded.userId))
         dispatch(
             createAlert({
                 message: `Te damos la bienvenida ${tokenDecoded.sub} 🤗`,
@@ -40,14 +38,10 @@ export const register = (user) => async (dispatch) => {
             `${process.env.PUBLIC_URL}/authentication/register`,
             user
         );
-        window.localStorage.setItem("token", response.data.token);
 
-        let tokenDecoded = parseJwt(response.data.token);
-        dispatch(setUserState({ id: tokenDecoded.userId }));
-        dispatch(setIsAuth(true));
         dispatch(
             createAlert({
-                message: `Te damos la bienvenida ${tokenDecoded.sub} 🤗`,
+                message: `Tu cuenta se creo correctamente! Revise su email para activar la cuenta`,
                 type: "success"
             })
         );
@@ -62,7 +56,6 @@ export const register = (user) => async (dispatch) => {
     }
 };
 
-
 export const validateToken = (token) => async (dispatch) => {
     try {
 
@@ -74,10 +67,26 @@ export const validateToken = (token) => async (dispatch) => {
         return response;
 
     } catch (err) {
-        console.log(err)
-        console.log('error')
         validateTokenFromError(err, dispatch)
 
+        dispatch(
+            createAlert({
+                message: `Algo salio mal! intentalo de nuevo`,
+                type: "error"
+            })
+        );
+    }
+};
+
+export const findUserById = (id) => async (dispatch) => {
+    console.log(id)
+    try {
+        const response = await getAxios().get(
+            `${process.env.PUBLIC_URL}/user/findById/${id}`
+        );
+        dispatch(setUserState(response.data));
+        return response;
+    } catch (err) {
         dispatch(
             createAlert({
                 message: `Algo salio mal! intentalo de nuevo`,
