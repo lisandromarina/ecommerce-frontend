@@ -15,13 +15,13 @@ function ShippingDetailsComponents(props) {
         allAddresses,
         stateCart,
         handleOnEdit,
-        handleOnContinue,
         handleOnSelectAddress,
         handleOnMyAddress,
         handleOnCancel,
         handleOnCreate,
         handleOnSubmit,
-        isLoading
+        isLoading,
+        handleOnCheckout
     } = props;
 
     return (
@@ -48,7 +48,7 @@ function ShippingDetailsComponents(props) {
                         <Button
                             className='shipping-button'
                             disabled={isLoading}
-                            onClick={() => handleOnContinue()}
+                            onClick={() => handleOnCheckout()}
                         >
                             Continuar
                         </Button>
@@ -59,7 +59,7 @@ function ShippingDetailsComponents(props) {
                     <>
                         <h3 className='title'>Mis Domicilios</h3>
                         {
-                            allAddresses.map(oneAddress => (
+                            allAddresses?.map(oneAddress => (
                                 <Card>
                                     {
                                         oneAddress.active &&
@@ -191,20 +191,23 @@ function ShippingDetailsComponents(props) {
                     </>
                 }
             </div >
-            <div className='shipping-items-wrapper'>
-                <h3 className='title'>Mi Compra</h3>
-                <ListGroup>
-                    {
-                        shoppingCartState.cartProducts.map(oneProduct => (
-                            <ListGroup.Item className="items-list">
-                                {oneProduct.nameProduct}
-                                <Badge> {oneProduct.quantity} </Badge>
-                            </ListGroup.Item>
-                        ))
-                    }
-                </ListGroup>
-                <h4 className='title total-price'>Total: ${priceFormatter(shoppingCartState.totalPrice)}</h4>
-            </div>
+            {
+                shoppingCartState?.cartProducts?.length &&
+                <div className='shipping-items-wrapper'>
+                    <h3 className='title'>Mi Compra</h3>
+                    <ListGroup>
+                        {
+                            shoppingCartState?.cartProducts?.map(oneProduct => (
+                                <ListGroup.Item className="items-list">
+                                    {oneProduct.nameProduct}
+                                    <Badge> {oneProduct.quantity} </Badge>
+                                </ListGroup.Item>
+                            ))
+                        }
+                    </ListGroup>
+                    <h4 className='title total-price'>Total: ${priceFormatter(shoppingCartState?.totalPrice)}</h4>
+                </div>
+            }
         </Container >
     )
 }

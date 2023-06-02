@@ -10,7 +10,6 @@ const Input = ({ label, type, value, onChange, comment, name, extra }) => {
           value={value}
           onChange={onChange}
           name={name}
-          placeholder="Enter your input"
           {...extra}
         />
       </FloatingLabel>

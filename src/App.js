@@ -31,7 +31,6 @@ function App() {
     setIsLoading(false);
   }
 
-
   useEffect(() => {
     dispatch(fetchAllCategory());
     verifyToken();

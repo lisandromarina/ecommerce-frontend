@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { fetchAllAddressByUserId, selectAddress, saveAddress, editAddress } from '../../redux/actions/addressAction'
+import { checkout } from '../../redux/actions/shoppingCartAction'
 import { useSelector, useDispatch } from "react-redux";
 import ShippingDetailsComponents from './ShippingDetailsComponents';
 import useFormState from '../../hook/useFormState';
+import { useNavigate } from 'react-router-dom';
 
 function ShippingDetailsContainer() {
     //['readyToPay', 'myAddresses', 'edit', 'add] == STATES CARTS
@@ -10,7 +12,8 @@ function ShippingDetailsContainer() {
     const shoppingCartState = useSelector(state => state.shoppingCart);
     const userState = useSelector(state => state.user.user);
     const addressState = useSelector(state => state.address.addresses);
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
 
     const initialState = {
         fullName: '',
@@ -26,7 +29,6 @@ function ShippingDetailsContainer() {
     const dispatch = useDispatch();
 
     async function fetchAddress() {
-        console.log('here')
         setIsLoading(true)
         const response = await dispatch(fetchAllAddressByUserId(userState.id));
         if(response.data.length === 0) setStateCart('add')
@@ -53,10 +55,13 @@ function ShippingDetailsContainer() {
         setStateCart('add')
     }
 
-    function handleOnContinue() {
-       console.log('create everything')
-    }
-    
+    async function handleOnCheckout(){
+        const response = await dispatch(checkout(userState.id));
+        if(response.status === 200){
+            navigate('/')
+        }
+      }
+
     function handleOnCancel() {
         setStateCart('readyToPay')
     }
@@ -94,11 +99,11 @@ function ShippingDetailsContainer() {
             handleOnCreate={handleOnCreate}
             handleOnMyAddress={handleOnMyAddress}
             handleOnEdit={handleOnEdit}
-            handleOnContinue={handleOnContinue}
             handleOnSelectAddress={handleOnSelectAddress}
             handleOnCancel={handleOnCancel}
             handleOnSubmit={handleOnSubmit}
             isLoading={isLoading}
+            handleOnCheckout={handleOnCheckout}
         />
     )
 }

@@ -55,7 +55,6 @@ export const addCartProduct = (cartProduct) => async (dispatch) => {
 
 export const updateCartProduct = (cartProduct) => async (dispatch) => {
     try {
-        console.log(cartProduct)
         await getAxios().post(
             `${process.env.PUBLIC_URL}/shoppingCartProduct/create`,
             cartProduct
@@ -85,6 +84,36 @@ export const removeShoppingCartProduct = (shoppingCartId, productId) => async (d
                 type: "success"
             })
         );
+
+    } catch (err) {
+        validateTokenFromError(err, dispatch)
+        dispatch(
+            createAlert({
+                message: `Upss, algo salio mal!`,
+                type: "error"
+            })
+        );
+    }
+};
+
+export const checkout = (userId) => async (dispatch) => {
+    try {
+        const response =  await getAxios().get(
+            `${process.env.PUBLIC_URL}/shoppingCart/checkout`
+        );
+        if(response.status === 200){
+            dispatch(fetchShoppingCart(userId))
+        }
+        
+
+        dispatch(
+            createAlert({
+                message: `Producto Comprado exitosamente!`,
+                type: "success"
+            })
+        );
+
+        return response;
 
     } catch (err) {
         validateTokenFromError(err, dispatch)

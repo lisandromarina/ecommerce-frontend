@@ -25,6 +25,7 @@ function ProductListContainer() {
 
     return (
         <ListProducts
+            itemsQuantity={32}
             title={categoryName}
             arrayProducts={allProducts}
             handleOnClick={handleOnClick}

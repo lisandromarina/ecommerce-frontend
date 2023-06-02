@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import "./CartProductStyles.scss";
 import { BsTrash } from "react-icons/bs";
+import { priceFormatter } from '../../utils/priceFormatter'
 
 function CartProductComponent(props) {
   const {
@@ -38,7 +39,7 @@ function CartProductComponent(props) {
           <div className="cart-wrapper-remove">
             <BsTrash className="cart-remove" onClick={handleOnClickRemove} />
           </div>
-          <p className="cart-price">${totalPrice}</p>
+          <p className="cart-price">${priceFormatter(totalPrice)}</p>
         </div>
       </div>
     </Container >

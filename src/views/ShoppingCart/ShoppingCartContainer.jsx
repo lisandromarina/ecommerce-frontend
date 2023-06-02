@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ShoppingCartComponent from "./ShoppingCartComponent";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchShoppingCart, updateCartProduct, removeShoppingCartProduct } from "../../redux/actions/shoppingCartAction";
+import { fetchShoppingCart, updateCartProduct, removeShoppingCartProduct, checkout } from "../../redux/actions/shoppingCartAction";
 import { useNavigate, useLocation } from 'react-router-dom';
 
 function ShoppingCartContainer() {

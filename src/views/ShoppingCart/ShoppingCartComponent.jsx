@@ -2,6 +2,8 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import CartProduct from '../../components/ShoppingCartProduct';
 import "./ShoppingCartStyles.scss";
+import { priceFormatter } from '../../utils/priceFormatter'
+
 
 function ShoppingCartComponent(props) {
   const {
@@ -33,11 +35,11 @@ function ShoppingCartComponent(props) {
             <div>
               <div className="shopping-cart-wrapper-subtotal">
                 <h5 className="shopping-cart-title-subtotal">Subtotal</h5>
-                <p className="shopping-cart-price-subtotal">${shoppingCartState.totalPrice} </p>
+                <p className="shopping-cart-price-subtotal">${priceFormatter(shoppingCartState.totalPrice)} </p>
               </div>
               <div className="shopping-cart-wrapper-total">
                 <h5 className="shopping-cart-title-total">TOTAL: </h5>
-                <p className="shopping-cart-price-total">${shoppingCartState.totalPrice} </p>
+                <p className="shopping-cart-price-total">${priceFormatter(shoppingCartState.totalPrice)} </p>
               </div>
             </div>
             : null
