@@ -7,7 +7,6 @@ import { priceFormatter } from '../../utils/priceFormatter'
 function CartProductComponent(props) {
   const {
     nameProduct,
-    sellPrice,
     totalPrice,
     imageUrl,
     handleOnClickCount,

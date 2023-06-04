@@ -12,7 +12,7 @@ $laptop-max-width: 1024px;
         width: 100%;
         background-color: rgb(230, 230, 230);
         display: flex;
-        //justify-content: space-evenly;
+        justify-content: space-evenly;
         margin-top: 50px;
         padding: 15px;
     }
@@ -33,7 +33,7 @@ $laptop-max-width: 1024px;
 @media screen and (min-width: $phone-min-width) and (max-width: $phone-max-width) {
     .home-page-main-container {
         .details-wrapper {
-            //justify-content: center;
+            justify-content: unset;
             overflow-x: auto;
             white-space: nowrap;
             align-items: center;
@@ -61,7 +61,7 @@ $laptop-max-width: 1024px;
 @media screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
     .home-page-main-container {
         .details-wrapper {
-            //justify-content: center;
+            justify-content: unset;
             overflow-x: auto;
             white-space: nowrap;
             align-items: center;
