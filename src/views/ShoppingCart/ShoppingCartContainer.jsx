@@ -31,11 +31,6 @@ function ShoppingCartContainer() {
     navigate("/shipping-details", { state: { prevPath: location.pathname } });
   }
 
-/*   useEffect(() => {
-    console.log('entre2')
-    dispatch(fetchShoppingCart(userState.id));
-  }, [userState]); */
-
   useEffect(() => {
     if (shoppingCartState) {
       setCartProduct(shoppingCartState)
