@@ -31,9 +31,10 @@ function ShoppingCartContainer() {
     navigate("/shipping-details", { state: { prevPath: location.pathname } });
   }
 
-  useEffect(() => {
+/*   useEffect(() => {
+    console.log('entre2')
     dispatch(fetchShoppingCart(userState.id));
-  }, [userState]);
+  }, [userState]); */
 
   useEffect(() => {
     if (shoppingCartState) {

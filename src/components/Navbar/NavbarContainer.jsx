@@ -17,7 +17,7 @@ function NavbarContainer() {
     const dispatch = useDispatch();
 
     function handleOnClickShoppingCart() {
-        navigate("/shoppingCart");
+        navigate("/shoppingCart", { state: { prevPath: location.pathname } });
     };
 
     function handleOnNavigateRegister() {
@@ -60,7 +60,6 @@ function NavbarContainer() {
 
     return (
         <NavbarComponent
-
             userState={userState}
             allCategory={allCategory}
             handleOnLogout={handleOnLogout}
