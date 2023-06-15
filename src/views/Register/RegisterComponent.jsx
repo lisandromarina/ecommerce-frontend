@@ -1,45 +1,76 @@
 import React from 'react';
-import {
-    Container
-} from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import "./RegisterStyles.scss";
+import Input from '../../components/Input'
 
 function RegisterComponent(props) {
     const {
+        user,
         HandleOnChange,
         handleOnSubmit
     } = props;
     return (
         <Container className="register-wrapper">
-            <div required className="register-form">
-                <h1 className="register-title" id="title">Crea tu cuenta</h1>
-                <label className="register-label" >Nombre
-                    <input onChange={HandleOnChange} name="firstName" type="text" className="register-input" placeholder="Nombre y apellido" />
-                </label>
-                <label className="register-label" >Apellido
-                    <input onChange={HandleOnChange} name="lastName" type="text" className="register-input" placeholder="Nombre y apellido" />
-                </label>
-                <label className="register-label" >Usuario
-                    <input onChange={HandleOnChange} name="username" type="text" className="register-input" placeholder="MercadoLicha" />
-                </label>
-                <label className="register-label" >Correo Electronico
-                    <input onChange={HandleOnChange} name="email" type="email" className="register-input" placeholder="ejemplo@hotmail.com" />
-                </label>
-                <label className="register-label" >Contraseña
-                    <input onChange={HandleOnChange} name="password" type="password" className="register-input" placeholder="*******" />
-                </label>
-                <label className="register-label" >Confirmar Contraseña
-                    <input onChange={HandleOnChange} name="password" type="password" className="register-input" placeholder="*******" />
-                </label>
-                <label className="register-terms" >Aceptar terminos y condiciones
-                    <input required type="checkbox" name="termsConditions" />
-                </label>
-                <input type="submit" onClick={() => handleOnSubmit()} className="register-submit" value="Enviar" />
-                <p className="p-register">
-                    Ya estas registrado?
-                    <a href="login" className="a-register">Iniciar sesión</a>
-                </p>
-            </div>
+            <h1 className="register-title" id="title">Crea tu cuenta</h1>
+            <Input
+                value={user.firstName}
+                className='register-input'
+                type="text"
+                name="firstName"
+                label="Nombre"
+                onChange={HandleOnChange}
+                required
+            />
+            <Input
+                value={user.lastName}
+                className='register-input'
+                type="text"
+                name="lastName"
+                label="Appellido"
+                onChange={HandleOnChange}
+                required
+            />
+            <Input
+                value={user.username}
+                className='register-input'
+                type="text"
+                name="username"
+                label="Usuario"
+                onChange={HandleOnChange}
+                required
+            />
+            <Input
+                value={user.email}
+                className='register-input'
+                type="text"
+                name="email"
+                label="Email"
+                onChange={HandleOnChange}
+                required
+            />
+            <Input
+                value={user.password}
+                className='register-input'
+                type="text"
+                name="password"
+                label="Contraseña"
+                onChange={HandleOnChange}
+                required
+            />
+            <Input
+                value={user.repeatPassword}
+                className='register-input'
+                type="text"
+                name="repeatPassword"
+                label="Repetir Contraseña"
+                onChange={HandleOnChange}
+                required
+            />
+            <input type="submit" onClick={() => handleOnSubmit()} className="register-submit" value="Enviar" />
+            <p className="p-register">
+                Ya estas registrado?
+                <a href="login" className="a-register">Iniciar sesión</a>
+            </p>
         </Container>
     )
 };
