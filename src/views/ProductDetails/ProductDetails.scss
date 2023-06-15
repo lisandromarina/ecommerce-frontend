@@ -158,22 +158,6 @@ $laptop-max-width: 1024px;
             width: 100%;
             margin-top: 10px;
 
-            .increment-button {
-                display: flex;
-                width: 25%;
-                justify-content: space-between;
-                align-items: center;
-                border: 1px solid;
-                border-radius: 18px;
-                font-family: "Space Grotesk";
-
-                .increment-button-button {
-                    margin: auto;
-                    background: unset;
-                    border: unset;
-                }
-            }
-
             .add-button {
                 margin-left: 20px;
                 width: 40%;
@@ -209,7 +193,6 @@ $laptop-max-width: 1024px;
         }
 
         .comments-wrapper {
-
             .add-comment {
                 display: flex;
                 flex-direction: column;

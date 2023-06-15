@@ -4,33 +4,27 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProductById, saveComment } from "../../redux/actions/productAction";
 import { addCartProduct, fetchShoppingCart } from "../../redux/actions/shoppingCartAction";
+import useCounter from '../../hook/useCounter';
 
 function ProductPageContainer() {
-    const isAuth = useSelector(state => state.user.isAuth)
-    const [quantity, setQuantity] = useState(1);
     const [newComment, setNewComment] = useState('')
+
+    const isAuth = useSelector(state => state.user.isAuth)
     const productSelected = useSelector(state => state.products.productSelected);
     const userState = useSelector(state => state.user.user);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
-
+    const { value: quantity, increment, decrement } = useCounter(1);
     let { idProduct } = useParams();
-
+    
     function fetchProduct() {
         dispatch(fetchProductById(idProduct));
     }
 
     function handleOnChangeComment(e) {
         setNewComment(e.target.value)
-    }
-
-    function handleOnClickCount(event) {
-        if (event.target.value === "+") {
-            setQuantity(quantity + 1);
-        } else if (quantity > 1) {
-            setQuantity(quantity - 1)
-        }
     }
 
     function handleOnSaveComment() {
@@ -47,7 +41,6 @@ function ProductPageContainer() {
     }, [])
 
     async function handleOnSubmit() {
-        /* //console.log(productSelected) */
         if (localStorage.getItem("token")) {
             await dispatch(addCartProduct({
                 userId: userState.id,
@@ -67,7 +60,8 @@ function ProductPageContainer() {
             productSelected={productSelected}
             handleOnSubmit={handleOnSubmit}
             quantity={quantity}
-            handleOnClickCount={handleOnClickCount}
+            increment={increment}
+            decrement={decrement}
             handleOnSaveComment={handleOnSaveComment}
             newComment={newComment}
             handleOnChangeComment={handleOnChangeComment}
