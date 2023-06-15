@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { fetchAllAddressByUserId, selectAddress, saveAddress, editAddress } from '../../redux/actions/addressAction'
 import { checkout } from '../../redux/actions/shoppingCartAction'
 import { useSelector, useDispatch } from "react-redux";
-import ShippingDetailsComponents from './ShippingDetailsComponents';
+import ShippingDetailsComponents from './CheckoutComponent';
 import useFormState from '../../hook/useFormState';
 import { useNavigate } from 'react-router-dom';
 
-function ShippingDetailsContainer() {
+function CheckoutContainer() {
     //['readyToPay', 'myAddresses', 'edit', 'add] == STATES CARTS
     const [stateCart, setStateCart] = useState('readyToPay');
     const shoppingCartState = useSelector(state => state.shoppingCart);
@@ -108,4 +108,4 @@ function ShippingDetailsContainer() {
     )
 }
 
-export default ShippingDetailsContainer
+export default CheckoutContainer

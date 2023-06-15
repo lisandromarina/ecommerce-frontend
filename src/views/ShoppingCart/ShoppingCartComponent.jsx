@@ -20,14 +20,12 @@ function ShoppingCartComponent(props) {
         <h2 className="shopping-cart-title">CARRITO DE COMPRAS</h2>
         {
           shoppingCartState.cartProducts?.map(oneCartProduct => (
-            <div>
               <CartProduct
                 key={oneCartProduct.idProduct}
                 handleOnChange={handleOnChange}
                 handleOnRemove={handleOnRemove}
                 {...oneCartProduct}
               />
-            </div>
           ))
         }
         {
