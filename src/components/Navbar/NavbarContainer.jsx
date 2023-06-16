@@ -36,6 +36,10 @@ function NavbarContainer() {
         navigate("/");
     }
 
+    function handleOnNavigateMySells(){
+        navigate("/center-sell", { state: { prevPath: location.pathname } });
+    }
+
     async function handleOnClickCategory(event) {
         let categorySelected = allCategory.find(oneCategory => oneCategory.name === event.target.outerText);
         navigate(`/product/${categorySelected.name}/${categorySelected.id}`, { state: { prevPath: location.pathname } })
@@ -70,6 +74,7 @@ function NavbarContainer() {
             handleOnNavigateCreateProduct={handleOnNavigateCreateProduct}
             cartProductQuantity={cartProductQuantity}
             handleOnClickCategory={handleOnClickCategory}
+            handleOnNavigateMySells={handleOnNavigateMySells}
         />
     );
 }

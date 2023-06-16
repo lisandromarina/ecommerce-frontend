@@ -10,7 +10,8 @@ import PublicRoute from './PublicRoute';
 import PrivateRoute from "./PrivateRoute"
 import CheckoutRoute from './CheckoutRoute'
 import ProductCategory from '../../views/ProductCategory';
-import ShippingDetails from '../../views/ShippingDetails';
+import Checkout from '../../views/Checkout';
+import MySells from '../../views/SellCenter';
 
 function RouterContainer() {
     return (
@@ -26,11 +27,11 @@ function RouterContainer() {
             <Route path="/" element={<PrivateRoute />}>
                 <Route path='/abmProducts' element={<AbmProducts />} />
                 <Route path="/shoppingCart" element={<ShoppingCart />} />
-               {/*  <Route path="/shipping-details" element={<ShippingDetails />} /> */}
+                <Route path="/center-sell" element={<MySells />} />
             </Route>
 
             <Route path="/" element={<CheckoutRoute />}>
-                <Route path='/shipping-details' element={<ShippingDetails />} />
+                <Route path='/checkout' element={<Checkout />} />
             </Route>
 
             <Route path='/product/:idProduct' element={<ProductPage />} />
