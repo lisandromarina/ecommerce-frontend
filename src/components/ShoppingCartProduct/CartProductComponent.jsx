@@ -3,15 +3,17 @@ import { Container } from 'react-bootstrap';
 import "./CartProductStyles.scss";
 import { BsTrash } from "react-icons/bs";
 import { priceFormatter } from '../../utils/priceFormatter'
+import Counter from '../Counter/Counter';
 
 function CartProductComponent(props) {
   const {
     nameProduct,
     totalPrice,
     imageUrl,
-    handleOnClickCount,
     quantityProduct,
-    handleOnClickRemove
+    handleOnClickRemove,
+    increment,
+    decrement
   } = props;
 
   return (
@@ -26,13 +28,11 @@ function CartProductComponent(props) {
         </div>
         <div className="cart-details">
           <h5 className="cart-productName">{nameProduct}</h5>
-          <div className="cart-button">
-            <div className="cart-increment">
-              <input className='cart-increment-button' type="button" onClick={handleOnClickCount} value="-" />
-              <input readonly value={quantityProduct} className="border-0 text-center w-25" />
-              <input className='cart-increment-button' type="button" onClick={handleOnClickCount} value="+" />
-            </div>
-          </div>
+          <Counter
+            increment={increment}
+            decrement={decrement}
+            quantity={quantityProduct}
+          />
         </div>
         <div className="cart-wrapper-price">
           <div className="cart-wrapper-remove">

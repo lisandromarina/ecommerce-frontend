@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import CartProductComponent from "./CartProductComponent";
+import useCounter from '../../hook/useCounter';
 
 function CartProductContainer(props) {
   const [totalPrice, setTotalPrice] = useState(-1);
-  const [quantityProduct, setQuantityProduct] = useState(-1);
   const {
     idProduct,
     nameProduct,
@@ -13,37 +13,21 @@ function CartProductContainer(props) {
     handleOnChange,
     handleOnRemove
   } = props;
+  const { value: quantityProduct, increment, decrement } = useCounter(quantity);
 
   function calculateTotal() {
     setTotalPrice(quantityProduct * sellPrice);
   }
 
-  function handleOnClickCount(event) {
-    if (event.target.value === "+") {
-      handleOnChange({
-        idProduct: idProduct,
-        quantity: quantity + 1
-      });
-    } else {
-      handleOnChange({
-        idProduct: idProduct,
-        quantity: quantity - 1
-      });
-    }
-  }
-
-  function handleOnClickRemove(){
+  function handleOnClickRemove() {
     handleOnRemove(idProduct)
   }
 
-
   useEffect(() => {
-    if (quantityProduct === -1 || quantityProduct != quantity) {
-      setQuantityProduct(quantity);
-    }
-  }, [quantity]);
-
-  useEffect(() => {
+    handleOnChange({
+      idProduct: idProduct,
+      quantity: quantityProduct
+    });
     calculateTotal()
   }, [quantityProduct]);
 
@@ -55,8 +39,9 @@ function CartProductContainer(props) {
       quantityProduct={quantityProduct}
       totalPrice={totalPrice}
       calculateTotal={calculateTotal}
-      handleOnClickCount={handleOnClickCount}
       handleOnClickRemove={handleOnClickRemove}
+      increment={increment}
+      decrement={decrement}
     />
   )
 };

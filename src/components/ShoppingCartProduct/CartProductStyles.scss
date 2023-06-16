@@ -92,27 +92,8 @@ $laptop-max-width: 1024px;
             }
         }
 
-        .cart-button {
-            display: flex;
-            width: 100px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            justify-content: center;
-
-            .cart-increment {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                border: 1px solid;
-                border-radius: 18px;
-                background-color: white;
-
-                .cart-increment-button {
-                    margin: auto;
-                    background: unset;
-                    border: unset;
-                }
-            }
+        .increment-button {
+            width: 15%;
         }
     }
 }
@@ -124,6 +105,9 @@ $laptop-max-width: 1024px;
         padding: 10px;
 
         .cart-form {
+            .increment-button {
+                width: 60%;
+            }
 
             .cart-image {
                 width: 30%;
@@ -142,7 +126,23 @@ $laptop-max-width: 1024px;
 }
 
 //TABLET
-@media screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {}
+@media screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
+    .cart-wrapper {
+        .cart-form {
+            .increment-button {
+                width: 40%;
+            }
+        }
+    }
+}
 
 //LAPTOP
-@media screen and (min-width: $laptop-min-width) and (max-width: $laptop-max-width) {}
+@media screen and (min-width: $laptop-min-width) and (max-width: $laptop-max-width) {
+    .cart-wrapper {
+        .cart-form {
+            .increment-button {
+                width: 20%;
+            }
+        }
+    }
+}
