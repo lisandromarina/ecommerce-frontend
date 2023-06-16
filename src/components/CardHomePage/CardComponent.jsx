@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import "./CardHomePageStyles.scss";
 import { priceFormatter } from '../../utils/priceFormatter'
@@ -9,14 +9,27 @@ function CardComponent(props) {
         handleOnClick,
     } = props;
 
+    const [isLoading, setIsLoading] = useState(true);
+
+    const handleImageLoad = () => {
+      setIsLoading(false);
+    };
+  
+    const handleImageError = () => {
+      setIsLoading(false);
+    };
+
     return (
         <div className='p-2' >
+             {isLoading && 'cargando'} 
             <Card className="cardHome" onClick={() => handleOnClick(product.id)}>
                 <div className='image-wrapper'>
                     <img
                         className="cart-image"
                         alt='product'
                         src={product.imageUrl ? product.imageUrl : `${process.env.PUBLIC_URL}/assets/cocacola.jpeg`}
+                        onLoad={handleImageLoad} // Set isLoading to false when the image is successfully loaded
+                        onError={handleImageError}
                     />
                 </div>
                 <Card.Body className='card-body-container'>

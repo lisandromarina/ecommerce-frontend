@@ -17,7 +17,7 @@ function NavbarContainer() {
     const dispatch = useDispatch();
 
     function handleOnClickShoppingCart() {
-        navigate("/shoppingCart");
+        navigate("/shoppingCart", { state: { prevPath: location.pathname } });
     };
 
     function handleOnNavigateRegister() {
@@ -34,6 +34,10 @@ function NavbarContainer() {
 
     function handleOnNavigateHomePage() {
         navigate("/");
+    }
+
+    function handleOnNavigateMySells(){
+        navigate("/center-sell", { state: { prevPath: location.pathname } });
     }
 
     async function handleOnClickCategory(event) {
@@ -60,7 +64,6 @@ function NavbarContainer() {
 
     return (
         <NavbarComponent
-
             userState={userState}
             allCategory={allCategory}
             handleOnLogout={handleOnLogout}
@@ -71,6 +74,7 @@ function NavbarContainer() {
             handleOnNavigateCreateProduct={handleOnNavigateCreateProduct}
             cartProductQuantity={cartProductQuantity}
             handleOnClickCategory={handleOnClickCategory}
+            handleOnNavigateMySells={handleOnNavigateMySells}
         />
     );
 }

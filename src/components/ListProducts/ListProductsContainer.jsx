@@ -16,19 +16,18 @@ function ListProductsContainer(props) {
     let currentItems = paginateItems(arrayProducts);
     const totalPages = Math.ceil(arrayProducts.length / itemQuantity);
 
-
     function handleOnClick(productId) {
         navigate(`/product/${productId}`)
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         resetPage()
     }, [arrayProducts,/*  window.innerWidth */])
 
-    useEffect(()=> {
+    useEffect(() => {
         const handleResize = () => {
             const screenWidth = window.innerWidth;
-      
+
             if (screenWidth < 480) {
                 setItemsQuantity(4)
             } else if (screenWidth > 481 & screenWidth < 768) {
@@ -38,16 +37,16 @@ function ListProductsContainer(props) {
             } else {
                 setItemsQuantity(8)
             }
-          };
-      
-          handleResize();
-      
-          window.addEventListener('resize', handleResize);
-      
-          return () => {
+        };
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
             window.removeEventListener('resize', handleResize);
-          };
-        }, []);
+        };
+    }, []);
 
     return (
         <ListProductsComponent

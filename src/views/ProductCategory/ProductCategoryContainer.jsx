@@ -7,7 +7,7 @@ import ListProducts from "../../components/ListProducts"
 function ProductListContainer() {
     let { categoryName, idCategory } = useParams();
     const allProducts = useSelector(state => state.products.allProducts);
-    //const allCategoryState = useSelector(state => state.category.allCategory);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 

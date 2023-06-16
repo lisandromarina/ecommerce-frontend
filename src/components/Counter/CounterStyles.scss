@@ -1,0 +1,15 @@
+.increment-button {
+    display: flex;
+    width: 25%;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 18px;
+    font-family: "Space Grotesk";
+
+    .increment-button-button {
+        margin: auto;
+        background: unset;
+        border: unset;
+    }
+}

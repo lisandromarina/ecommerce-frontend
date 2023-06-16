@@ -96,7 +96,6 @@ function HomePageComponent(props) {
         </div>
         <ListProducts
           title={"DESTACADOS"}
-          itemsQuantity={4}
           arrayProducts={arrayProducts}
           handleOnClick={handleOnClick}
         />
