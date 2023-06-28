@@ -79,7 +79,7 @@ function HomePageComponent(props) {
             <Image
               role="button"
               onClick={() => handleOnClickCategory("Hogar y Muebles")}
-              className='pt-5'
+              className='pt-5 category-hogar'
               fluid={true}
               width={"100%"}
               src={`${process.env.PUBLIC_URL}/assets/category2.png`}

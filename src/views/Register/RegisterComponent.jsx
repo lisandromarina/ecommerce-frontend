@@ -26,7 +26,7 @@ function RegisterComponent(props) {
                 className='register-input'
                 type="text"
                 name="lastName"
-                label="Appellido"
+                label="Apellido"
                 onChange={HandleOnChange}
                 required
             />
