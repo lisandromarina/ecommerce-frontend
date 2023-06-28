@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fetchAllProductsByCategory } from "../../redux/actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from 'react-router-dom';
 import ListProducts from "../../components/ListProducts"
+import { Container, Spinner} from "react-bootstrap";
+
 
 function ProductListContainer() {
     let { categoryName, idCategory } = useParams();
     const allProducts = useSelector(state => state.products.allProducts);
+    const [isLoading, setIsLoading] = useState(true)
+
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -15,13 +19,23 @@ function ProductListContainer() {
         navigate(`/product/${productId}`)
     }
 
-    function fetchProduct() {
-        dispatch(fetchAllProductsByCategory(idCategory))
+    async function fetchProduct() {
+        setIsLoading(true)
+        await dispatch(fetchAllProductsByCategory(idCategory))
+        setIsLoading(false)
     }
 
     useEffect(() => {
         fetchProduct();
     }, [idCategory, categoryName])
+
+    if(isLoading){
+        return(
+            <Container className='container-loading'>
+                <Spinner animation="border" variant="warning"/>
+            </Container>
+        ) 
+    }
 
     return (
         <ListProducts

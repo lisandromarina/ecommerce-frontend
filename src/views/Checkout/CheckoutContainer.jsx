@@ -38,7 +38,7 @@ function CheckoutContainer() {
     async function handleOnSelectAddress(addressId) {
         setIsLoading(true)
         await dispatch(selectAddress(addressId, userState.id))
-        fetchAddress();
+        await fetchAddress();
         setIsLoading(false)
     }
 

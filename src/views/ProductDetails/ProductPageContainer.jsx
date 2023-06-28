@@ -5,9 +5,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchProductById, saveComment } from "../../redux/actions/productAction";
 import { addCartProduct, fetchShoppingCart } from "../../redux/actions/shoppingCartAction";
 import useCounter from '../../hook/useCounter';
+import useFormState from '../../hook/useFormState';
 
 function ProductPageContainer() {
-    const [newComment, setNewComment] = useState('')
+    const [isLoading, setIsLoading] = useState(true);
+    const initialState = {
+        newComment: '',
+    };
+    const { formData: newComment, handleChange } = useFormState(initialState);
 
     const isAuth = useSelector(state => state.user.isAuth)
     const productSelected = useSelector(state => state.products.productSelected);
@@ -18,13 +23,11 @@ function ProductPageContainer() {
     const location = useLocation();
     const { value: quantity, increment, decrement } = useCounter(1);
     let { idProduct } = useParams();
-    
-    function fetchProduct() {
-        dispatch(fetchProductById(idProduct));
-    }
 
-    function handleOnChangeComment(e) {
-        setNewComment(e.target.value)
+    async function fetchProduct() {
+        setIsLoading(true)
+        await dispatch(fetchProductById(idProduct));
+        setIsLoading(false)
     }
 
     function handleOnSaveComment() {
@@ -56,7 +59,9 @@ function ProductPageContainer() {
 
     return (
         <ProductPageComponent
+            handleChange={handleChange}
             isAuth={isAuth}
+            isLoading={isLoading}
             productSelected={productSelected}
             handleOnSubmit={handleOnSubmit}
             quantity={quantity}
@@ -64,7 +69,6 @@ function ProductPageContainer() {
             decrement={decrement}
             handleOnSaveComment={handleOnSaveComment}
             newComment={newComment}
-            handleOnChangeComment={handleOnChangeComment}
         />
     )
 };
