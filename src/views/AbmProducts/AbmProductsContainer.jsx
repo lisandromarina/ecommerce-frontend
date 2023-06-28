@@ -32,9 +32,9 @@ function AbmProductsContainer() {
     setProduct({ ...product, categoryDTO: { id: parseInt(value) } });
   }
 
-  function onFileChangeHandler(event){
-    console.log(event.target.files[0])
-    setProduct({ ...product, file: URL.createObjectURL(event.target.files[0]) });;
+  function onFileChangeHandler(event) {
+    //console.log(URL.createObjectURL(event.target.files[0]))
+    setProduct({ ...product, file: event.target.files[0] });;
   }
 
 

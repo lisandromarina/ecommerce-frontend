@@ -68,19 +68,19 @@ function AbmProductsComponent(props) {
                     Imagen
                     <div className="abm-image-wrapper">
                         {product.file && (
-                        <img
-                            className="abm-image"
-                            src={product.file}
-                        />
+                            <img
+                                className="abm-image"
+                                src={product.file}
+                            />
                         )}
                     </div>
                     <Form.Control
                         className="abmproducts-input"
                         type="file"
                         name="file"
-                        /*  */
                         onChange={onFileChangeHandler}
-                        placeholder="Disabled input" />
+                        placeholder="Disabled input"
+                    />
                 </Form.Label>
                 <Form.Label className="abmproducts-label">
                     Precio
