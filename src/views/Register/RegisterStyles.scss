@@ -81,7 +81,7 @@ $laptop-max-width: 1024px;
 //PHONE
 @media screen and (min-width: $phone-min-width) and (max-width: $phone-max-width) {
     .register-wrapper {
-        width: 75% !important;
+        width: 90% !important;
 
         .register-terms {
             display: flex;
