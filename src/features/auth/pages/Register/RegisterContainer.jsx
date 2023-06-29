@@ -1,8 +1,8 @@
 import React from 'react';
 import RegisterComponent from "./RegisterComponent";
 import { useDispatch } from "react-redux";
-import { register } from "../../redux/actions/userAction"
-import useFormState from '../../hook/useFormState';
+import { register } from "../../../../redux/actions/userAction"
+import useFormState from '../../../../hook/useFormState';
 
 function RegisterContainer() {
     const dispatch = useDispatch();

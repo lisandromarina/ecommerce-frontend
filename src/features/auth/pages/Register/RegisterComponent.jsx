@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import "./RegisterStyles.scss";
-import Input from '../../components/Input'
+import Input from '../../../../components/Input'
 
 function RegisterComponent(props) {
     const {

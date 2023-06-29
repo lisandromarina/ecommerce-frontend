@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from "../../views/HomePage";
-import Register from "../../views/Register";
-import LogIn from "../../views/LogIn";
+import Register from "../../features/auth/pages/Register";
+import LogIn from "../../features/auth/pages/LogIn";
 import AbmProducts from "../../views/AbmProducts"
 import ShoppingCart from '../../views/ShoppingCart';
 import ProductPage from '../../views/ProductDetails';
