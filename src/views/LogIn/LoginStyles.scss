@@ -52,12 +52,16 @@ $laptop-max-width: 1024px;
         width: 70%;
         color: white;
         border: #e77800;
-        background-color: #e77800;
+        background-color: #e77800 !important;
         border-radius: 18px;
         padding: 10px;
         height: 100%;
 
         &:hover {
+            background-color: #b86001;
+        }
+
+        &:disabled{
             background-color: #b86001;
         }
     }

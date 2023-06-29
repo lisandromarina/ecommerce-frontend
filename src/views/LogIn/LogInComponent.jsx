@@ -2,9 +2,11 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import Input from '../../components/Input'
 import "./LoginStyles.scss";
+import Button from '../../components/Button';
 
 function RegisterComponent(props) {
     const {
+        isLoading,
         handleChange,
         formData,
         handleOnSubmit
@@ -30,7 +32,12 @@ function RegisterComponent(props) {
                 onChange={handleChange}
                 required
             />
-            <input type="submit" onClick={() => handleOnSubmit()} className="login-submit" value="Ingresar" />
+            <Button 
+                handleOnClick={handleOnSubmit}
+                className="login-submit"
+                label="Ingresar"
+                isLoading={isLoading}
+            />
             <p className="p-login">
                 No estas registrado?
                 <a href="register" className="a-login">Registrarse</a>

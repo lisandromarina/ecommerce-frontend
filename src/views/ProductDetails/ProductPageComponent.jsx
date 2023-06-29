@@ -1,9 +1,10 @@
 import React from 'react';
-import { Container, Button, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import "./ProductDetails.scss";
 import Counter from '../../components/Counter/Counter';
 import { priceFormatter } from '../../utils/priceFormatter';
 import Spinner from 'react-bootstrap/Spinner';
+import Button from '../../components/Button';
 
 function ProductPageComponent(props) {
     const {
@@ -17,10 +18,10 @@ function ProductPageComponent(props) {
         isAuth,
         handleOnSaveComment,
         newComment,
-        handleOnChangeComment
+        isInitialized
     } = props;
 
-    if (isLoading) {
+    if (!isInitialized) {
         return (
             <Container className='container-loading'>
                 <Spinner animation="border" variant="warning" />
@@ -38,6 +39,7 @@ function ProductPageComponent(props) {
                     increment={increment}
                     decrement={decrement}
                     handleOnSubmit={handleOnSubmit}
+                    isLoading={isLoading}
                 />
             </Row>
             <div className='comments-wrapper'>
@@ -55,6 +57,7 @@ function ProductPageComponent(props) {
                         newComment={newComment}
                         handleChange={handleChange}
                         handleOnSaveComment={handleOnSaveComment}
+                        //isLoading={isLoading}
                     />
                 }
             </div>
@@ -65,7 +68,7 @@ function ProductPageComponent(props) {
 export default ProductPageComponent;
 
 //I should create a new component but first I must restructure the folder architecture for features
-function AddComment({ newComment, handleChange, handleOnSaveComment }) {
+function AddComment({ newComment, handleChange, handleOnSaveComment, isLoading }) {
     return (
         <div className='add-comment'>
             <div className='single-comment-wrapper'>
@@ -75,14 +78,17 @@ function AddComment({ newComment, handleChange, handleOnSaveComment }) {
                 <textarea
                     value={newComment.newComment}
                     name='newComment'
-                    /*  className="add-input-comment" */
+                     className="add-input-comment"
                     placeholder="Agregar un comentario..."
                     onChange={handleChange}
                 />
             </div>
-            <Button className="add-button" onClick={handleOnSaveComment}>
-                Agregar Comentario
-            </Button>
+            <Button
+                className="add-button"
+                handleOnClick={handleOnSaveComment}
+                isLoading={isLoading}
+                label='Agregar Comentario'
+            />
         </div>
     );
 }
@@ -113,7 +119,7 @@ function Comment({ comment }) {
 }
 
 //I should create a new component but first I must restructure the folder architecture for features
-function ProductDetails({ productSelected, quantity, increment, decrement, handleOnSubmit }) {
+function ProductDetails({ productSelected, quantity, increment, decrement, handleOnSubmit, isLoading }) {
     return (
         <Col md={6}>
             <div className='product-details'>
@@ -125,9 +131,12 @@ function ProductDetails({ productSelected, quantity, increment, decrement, handl
                         increment={increment}
                         decrement={decrement}
                     />
-                    <Button className="add-button" onClick={handleOnSubmit}>
-                        Agregar al Carrito
-                    </Button>
+                    <Button
+                        className="add-button"
+                        handleOnClick={handleOnSubmit}
+                        label='Agregar al Carrito'
+                        isLoading={isLoading}
+                    />
                 </div>
                 <div className='description-wrapper'>
                     <p className='description-title'>Descripcion</p>

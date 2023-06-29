@@ -8,7 +8,8 @@ import useCounter from '../../hook/useCounter';
 import useFormState from '../../hook/useFormState';
 
 function ProductPageContainer() {
-    const [isLoading, setIsLoading] = useState(true);
+    const [isInitialized, setIsInitialized] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const initialState = {
         newComment: '',
     };
@@ -25,18 +26,19 @@ function ProductPageContainer() {
     let { idProduct } = useParams();
 
     async function fetchProduct() {
-        setIsLoading(true)
         await dispatch(fetchProductById(idProduct));
-        setIsLoading(false)
+        setIsInitialized(true)
     }
 
-    function handleOnSaveComment() {
+    async function handleOnSaveComment() {
+        setIsLoading(true)
         const comment = {
             user: { id: userState.id },
             product: { id: idProduct },
             description: newComment
         }
-        dispatch(saveComment(comment))
+        await dispatch(saveComment(comment))
+        setIsLoading(false)
     }
 
     useEffect(() => {
@@ -44,6 +46,7 @@ function ProductPageContainer() {
     }, [])
 
     async function handleOnSubmit() {
+        setIsLoading(true)
         if (localStorage.getItem("token")) {
             await dispatch(addCartProduct({
                 userId: userState.id,
@@ -55,6 +58,7 @@ function ProductPageContainer() {
             const prevPath = location.pathname;
             navigate("/login", { state: { prevPath: prevPath } })
         }
+        setIsLoading(false)
     }
 
     return (
@@ -62,6 +66,7 @@ function ProductPageContainer() {
             handleChange={handleChange}
             isAuth={isAuth}
             isLoading={isLoading}
+            isInitialized={isInitialized}
             productSelected={productSelected}
             handleOnSubmit={handleOnSubmit}
             quantity={quantity}

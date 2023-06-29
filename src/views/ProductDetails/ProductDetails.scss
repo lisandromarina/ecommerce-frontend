@@ -133,8 +133,8 @@ $laptop-max-width: 1024px;
 
             button {
                 margin: auto;
-                border: #e77800;
-                background-color: #e77800;
+                border: #e77800 !important;
+                background-color: #e77800 !important;
                 border-radius: 18px;
                 font-family: "Space Grotesk";
                 white-space: nowrap;
@@ -143,6 +143,9 @@ $laptop-max-width: 1024px;
                     background-color: #b86001;
                 }
 
+                &:disabled{
+                    background-color: #b86001;
+                }
             }
         }
     }
