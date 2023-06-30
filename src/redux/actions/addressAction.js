@@ -70,6 +70,7 @@ export const editAddress = (address) => async (dispatch) => {
             `${process.env.PUBLIC_URL}/address/update/`, address
         );
         dispatch(clearAddresses())
+        console.log(address)
         dispatch(
             createAlert({
                 message: "Direccion editada correctamente!",

@@ -10,7 +10,7 @@ import PublicRoute from './PublicRoute';
 import PrivateRoute from "./PrivateRoute"
 import CheckoutRoute from './CheckoutRoute'
 import ProductCategory from '../../views/ProductCategory';
-import Checkout from '../../views/Checkout';
+import Checkout from '../../features/checkout/pages/Checkout';
 import MySells from '../../views/SellCenter';
 
 function RouterContainer() {
