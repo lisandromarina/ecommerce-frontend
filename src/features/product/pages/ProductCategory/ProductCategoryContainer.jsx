@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { fetchAllProductsByCategory } from "../../redux/actions/productAction";
+import { fetchAllProductsByCategory } from "../../../../redux/actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from 'react-router-dom';
-import ListProducts from "../../components/ListProducts"
 import { Container, Spinner} from "react-bootstrap";
-
+import ListProducts from "../../../../components/ListProducts"
 
 function ProductListContainer() {
     let { categoryName, idCategory } = useParams();

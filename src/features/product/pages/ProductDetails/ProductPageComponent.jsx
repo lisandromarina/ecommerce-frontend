@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container, Row, Col } from "react-bootstrap";
 import "./ProductDetails.scss";
-import Counter from '../../components/Counter/Counter';
-import { priceFormatter } from '../../utils/priceFormatter';
+import Counter from '../../../../components/Counter/Counter';
+import { priceFormatter } from '../../../../utils/priceFormatter';
 import Spinner from 'react-bootstrap/Spinner';
-import Button from '../../components/Button';
+import Button from '../../../../components/Button';
 
 function ProductPageComponent(props) {
     const {

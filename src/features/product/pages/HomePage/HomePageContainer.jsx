@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import HomePageComponent from "./HomePageComponent";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchAllProducts } from "../../redux/actions/productAction";
+import { fetchAllProducts } from "../../../../redux/actions/productAction";
 import { useNavigate, useLocation } from "react-router-dom";
-import useScrollSnap from '../../hook//useScrollSnap';
+import useScrollSnap from '../../../../hook/useScrollSnap';
 
 function HomePageContainer() {
   const allProducts = useSelector(state => state.products.allProducts);

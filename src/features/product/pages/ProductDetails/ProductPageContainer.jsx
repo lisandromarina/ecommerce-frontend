@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import ProductPageComponent from "./ProductPageComponent";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchProductById, saveComment } from "../../redux/actions/productAction";
-import { addCartProduct, fetchShoppingCart } from "../../redux/actions/shoppingCartAction";
-import useCounter from '../../hook/useCounter';
-import useFormState from '../../hook/useFormState';
+import { fetchProductById, saveComment } from "../../../../redux/actions/productAction";
+import { addCartProduct, fetchShoppingCart } from "../../../../redux/actions/shoppingCartAction";
+import useCounter from '../../../../hook/useCounter';
+import useFormState from '../../../../hook/useFormState';
 
 function ProductPageContainer() {
     const [isInitialized, setIsInitialized] = useState(false);

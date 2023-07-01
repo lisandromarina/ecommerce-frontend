@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Pagination } from 'react-bootstrap';
-import CardHomePage from "../../components/CardHomePage";
+import ProductCard from "../../features/product/components/ProductCard";
 import './ListProductStyles.scss';
 
 function ListProductsContainer(props) {
@@ -30,7 +30,7 @@ function ListProductsContainer(props) {
             <Row xl={4} lg={3} md={3} xs={2} className='d-flex align-item-around justify-content-start' >
                 {
                     currentItems.map(product => (
-                        <CardHomePage
+                        <ProductCard
                             product={product}
                             handleOnClick={handleOnClick}
                         />
