@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CartProductComponent from "./CartProductComponent";
-import useCounter from '../../hook/useCounter';
+import useCounter from '../../../../hook/useCounter';
 
 function CartProductContainer(props) {
   const [totalPrice, setTotalPrice] = useState(-1);

@@ -3,7 +3,7 @@ import { fetchAllProductsByCategory } from "../../../../redux/actions/productAct
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from 'react-router-dom';
 import { Container, Spinner} from "react-bootstrap";
-import ListProducts from "../../../../components/ListProducts"
+import ListProducts from "../../components/ListProducts"
 
 function ProductListContainer() {
     let { categoryName, idCategory } = useParams();

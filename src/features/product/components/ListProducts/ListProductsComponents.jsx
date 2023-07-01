@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Pagination } from 'react-bootstrap';
-import ProductCard from "../../features/product/components/ProductCard";
+import ProductCard from "../../components/ProductCard";
 import './ListProductStyles.scss';
 
 function ListProductsContainer(props) {

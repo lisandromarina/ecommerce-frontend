@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Row, Image } from 'react-bootstrap';
 import Carousel from "../../../../components/Carouseles";
-import ListProducts from '../../../../components/ListProducts';
-import DetailsHome from '../../../../components/DetailsHome';
+import ListProducts from '../../components/ListProducts';
+import DetailsHome from '../../components/DetailsHome';
 import './HomePageStyles.scss';
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 

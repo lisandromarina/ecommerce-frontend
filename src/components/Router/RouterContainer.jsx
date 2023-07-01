@@ -4,7 +4,7 @@ import HomePage from "../../features/product/pages/HomePage";
 import Register from "../../features/auth/pages/Register";
 import LogIn from "../../features/auth/pages/LogIn";
 import AbmProducts from "../../views/AbmProducts"
-import ShoppingCart from '../../views/ShoppingCart';
+import ShoppingCart from '../../features/checkout/pages/ShoppingCart';
 import ProductPage from '../../features/product/pages/ProductDetails';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from "./PrivateRoute"

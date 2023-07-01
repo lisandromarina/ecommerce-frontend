@@ -2,8 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import CartProduct from '../../components/ShoppingCartProduct';
 import "./ShoppingCartStyles.scss";
-import { priceFormatter } from '../../utils/priceFormatter'
-
+import { priceFormatter } from '../../../../utils/priceFormatter'
 
 function ShoppingCartComponent(props) {
   const {

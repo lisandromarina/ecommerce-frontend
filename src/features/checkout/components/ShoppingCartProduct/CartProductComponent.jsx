@@ -2,8 +2,8 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import "./CartProductStyles.scss";
 import { BsTrash } from "react-icons/bs";
-import { priceFormatter } from '../../utils/priceFormatter'
-import Counter from '../Counter/Counter';
+import { priceFormatter } from '../../../../utils/priceFormatter'
+import Counter from '../../../../components/Counter/Counter';
 
 function CartProductComponent(props) {
   const {

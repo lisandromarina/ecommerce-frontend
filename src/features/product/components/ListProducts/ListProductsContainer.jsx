@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ListProductsComponent from "./ListProductsComponents";
-import usePageable from '../../hook/usePageable';
+import usePageable from '../../../../hook/usePageable';
 
 function ListProductsContainer(props) {
     const {
