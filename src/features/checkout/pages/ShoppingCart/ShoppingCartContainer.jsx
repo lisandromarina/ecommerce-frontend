@@ -5,20 +5,25 @@ import { fetchShoppingCart, updateCartProduct, removeShoppingCartProduct } from 
 import { useNavigate, useLocation } from 'react-router-dom';
 
 function ShoppingCartContainer() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [cartProduct, setCartProduct] = useState({});
+
   const shoppingCartState = useSelector(state => state.shoppingCart);
   const userState = useSelector(state => state.user.user);
+
   const dispatch = useDispatch();
-  const [cartProduct, setCartProduct] = useState({});
   const navigate = useNavigate();
   const location = useLocation();
 
   async function handleOnChange(cartProduct) {
+    setIsLoading(true)
     cartProduct = { ...cartProduct, userId: userState.id };
     await dispatch(updateCartProduct(cartProduct));
     await dispatch(fetchShoppingCart(userState.id));
   }
 
   async function handleOnRemove(idProduct) {
+    setIsLoading(true)
     await dispatch(removeShoppingCartProduct(shoppingCartState.id, idProduct));
     await dispatch(fetchShoppingCart(userState.id));
   }
@@ -34,11 +39,13 @@ function ShoppingCartContainer() {
   useEffect(() => {
     if (shoppingCartState) {
       setCartProduct(shoppingCartState)
+      setIsLoading(false)
     }
   }, [shoppingCartState]);
 
   return (
     <ShoppingCartComponent
+      isLoading={isLoading}
       shoppingCartState={cartProduct}
       handleOnChange={handleOnChange}
       handleOnCheck={handleOnCheck}
