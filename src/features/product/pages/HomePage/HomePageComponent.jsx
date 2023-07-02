@@ -8,8 +8,8 @@ import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
 
 function HomePageComponent(props) {
-
-  const { arrayProducts,
+  const { 
+    arrayProducts,
     handleOnClick,
     handleOnClickCategory,
     handleTouchStartInfo,
