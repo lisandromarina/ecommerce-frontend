@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from "../../features/product/pages/HomePage";
 import Register from "../../features/auth/pages/Register";
 import LogIn from "../../features/auth/pages/LogIn";
-import AbmProducts from "../../views/AbmProducts"
+import AbmProducts from "../../features/seller/pages/AbmProducts"
 import ShoppingCart from '../../features/checkout/pages/ShoppingCart';
 import ProductPage from '../../features/product/pages/ProductDetails';
 import PublicRoute from './PublicRoute';
@@ -11,7 +11,7 @@ import PrivateRoute from "./PrivateRoute"
 import CheckoutRoute from './CheckoutRoute'
 import ProductCategory from '../../features/product/pages/ProductCategory';
 import Checkout from '../../features/checkout/pages/Checkout';
-import MySells from '../../views/SellCenter';
+import MySells from '../../features/seller/pages/SellCenter';
 
 function RouterContainer() {
     return (

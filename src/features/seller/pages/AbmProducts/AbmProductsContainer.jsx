@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import AbmProductsComponent from "./AbmProductsComponent";
 import { useSelector, useDispatch } from "react-redux";
-import { saveProduct } from "../../redux/actions/productAction";
+import { saveProduct } from "../../../../redux/actions/productAction";
 
 function AbmProductsContainer() {
   const [product, setProduct] = useState({
