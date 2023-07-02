@@ -77,7 +77,7 @@ $laptop-max-width: 1024px;
         width: 15%;
         color: white;
         border: #e77800;
-        background-color: #e77800;
+        background-color: #e77800 !important;
         border-radius: 18px;
         padding: 10px;
         height: 100%;
@@ -86,7 +86,11 @@ $laptop-max-width: 1024px;
         margin-top: 50px;
 
         &:hover {
-            background-color: #b86001;
+            background-color: #b86001 !important;
+        }
+
+        &:disabled{
+            background-color: #b86001 !important;
         }
     }
 }
