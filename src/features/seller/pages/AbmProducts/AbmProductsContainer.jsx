@@ -33,10 +33,9 @@ function AbmProductsContainer() {
   }
 
   function onFileChangeHandler(event) {
-    //console.log(URL.createObjectURL(event.target.files[0]))
+    console.log(event.target.files[0])
     setProduct({ ...product, file: event.target.files[0] });;
   }
-
 
   function handleOnSubmit() {
     let formData = new FormData()

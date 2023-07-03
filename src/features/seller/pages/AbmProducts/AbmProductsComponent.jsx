@@ -27,14 +27,16 @@ function AbmProductsComponent(props) {
                         value={product.name}
                         onChange={handleOnChangeCategory}
                         placeholder="Nombre del producto..."
-                    /></Form.Label>
+                    />
+                </Form.Label>
                 <Form.Label className="abmproducts-label">Marca
                     <Form.Control
                         className="abmproducts-input"
                         name="marca"
                         onChange={handleOnChangeCategory}
                         placeholder="Marca del producto..."
-                    /></Form.Label>
+                    />
+                </Form.Label>
                 <Form.Label className="abmproducts-label">Categoría
                     <Form.Select
                         className="abmproducts-input"
@@ -70,7 +72,7 @@ function AbmProductsComponent(props) {
                         {product.file && (
                             <img
                                 className="abm-image"
-                                src={product.file}
+                                src={URL.createObjectURL(product.file)}
                             />
                         )}
                     </div>
