@@ -7,7 +7,7 @@ $tablet-max-width: 768px;
 $laptop-min-width: 769px;
 $laptop-max-width: 1024px;
 
-.container-loading{
+.container-loading {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,12 +138,13 @@ $laptop-max-width: 1024px;
                 border-radius: 18px;
                 font-family: "Space Grotesk";
                 white-space: nowrap;
+                width: 20%;
 
                 &:hover {
                     background-color: #b86001;
                 }
 
-                &:disabled{
+                &:disabled {
                     background-color: #b86001;
                 }
             }
@@ -212,6 +213,10 @@ $laptop-max-width: 1024px;
                     display: flex;
                     width: 100%;
                 }
+
+                button {
+                    width: 70%;
+                }
             }
         }
 
@@ -262,6 +267,10 @@ $laptop-max-width: 1024px;
                     display: flex;
                     width: 100%;
                 }
+
+                button {
+                    width: 70%;
+                }
             }
         }
 
@@ -300,6 +309,14 @@ $laptop-max-width: 1024px;
             .image {
                 margin-top: 20px;
                 width: 100%;
+            }
+        }
+
+        .comments-wrapper {
+            .add-comment {
+                button {
+                    width: 30%;
+                }
             }
         }
 
