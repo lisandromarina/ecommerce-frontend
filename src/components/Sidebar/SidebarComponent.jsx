@@ -19,7 +19,7 @@ function SidebarComponent({ isOpen, children, handleClose, handleOnLogout, navig
                         {
                             isAuth ?
                                 <>
-                                    <Nav.Link onClick={() => navigateToPath("/abmProducts")}>Agregar Product</Nav.Link>
+                                    <Nav.Link onClick={() => navigateToPath("/abmProducts")}>Agregar Producto</Nav.Link>
                                     <Nav.Link onClick={() => navigateToPath("/center-sell")}>Mis ventas</Nav.Link>
                                     <Nav.Link onClick={handleOnLogout}>Cerrar Sesion</Nav.Link>
                                 </>
