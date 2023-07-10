@@ -159,23 +159,10 @@ $laptop-max-width: 1024px;
             }
 
             .navbar-over-singin {
-                display: flex;
-                width: 30%;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-
-                .nav-link {
-                    color: #FFFFFF;
-
-                    &:hover {
-                        color: #FFFFFF;
-                    }
-                }
-
-                .navbar-text {
-                    display: none;
-                }
+                display: none;
+            }
+            .navbar-toggler{
+                display: block;
             }
         }
 
@@ -214,20 +201,10 @@ $laptop-max-width: 1024px;
             }
 
             .navbar-over-singin {
-                display: flex;
-                flex-direction: row;
-                width: 10%;
-                justify-content: center;
-                align-items: center;
-                white-space: nowrap;
-
-                .nav-link {
-                    margin-right: 6px;
-                }
-
-                .navbar-text {
-                    display: none;
-                }
+                display: none;
+            }
+            .navbar-toggler{
+                display: block;
             }
         }
 
@@ -266,20 +243,12 @@ $laptop-max-width: 1024px;
             }
 
             .navbar-over-singin {
-                display: flex;
-                flex-direction: row;
-                width: 30%;
-                justify-content: center;
-                align-items: center;
-                white-space: nowrap;
+                display: none;
+            }
 
-                .nav-link {
-                    margin-right: 6px;
-                }
-
-                .navbar-text {
-                    display: none;
-                }
+            .navbar-toggler{
+                display: block;
+                border-color: none;
             }
         }
 

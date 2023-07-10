@@ -1,0 +1,19 @@
+.sidebar-container{
+    background-color: #2e2d2c !important;
+
+    .offcanvas-header{
+        color: #e77800;
+    }
+
+    .offcanvas-body{
+        .nav{
+            .nav-link{
+                color: white;
+
+                &:hover{
+                    color: #e77800
+                }
+            }
+        }
+    }
+}
