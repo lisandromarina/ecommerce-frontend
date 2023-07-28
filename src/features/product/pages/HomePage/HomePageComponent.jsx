@@ -69,7 +69,7 @@ function HomePageComponent(props) {
           <Row md={3} xs={2} className='d-flex align-item-around' >
             <Image
               role="button"
-              onClick={() => handleOnClickCategory("Technologia")}
+              onClick={() => handleOnClickCategory("Tecnologia")}
               className='pt-5'
               fluid={true}
               itemID="Technologia"
