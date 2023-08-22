@@ -23,12 +23,24 @@ function CartProductContainer(props) {
     handleOnRemove(idProduct)
   }
 
-  useEffect(() => {
+  const modifiedIncrement = () => {
+    increment();
     handleOnChange({
       idProduct: idProduct,
-      quantity: quantityProduct
+      quantity: quantityProduct + 1
+    })
+  };
+
+  const modifiedDecrement = () => {
+    decrement();
+    handleOnChange({
+      idProduct: idProduct,
+      quantity: quantityProduct - 1 
     });
-    calculateTotal()
+  };
+
+  useEffect(() => {
+    calculateTotal();
   }, [quantityProduct]);
 
   return (
@@ -40,8 +52,8 @@ function CartProductContainer(props) {
       totalPrice={totalPrice}
       calculateTotal={calculateTotal}
       handleOnClickRemove={handleOnClickRemove}
-      increment={increment}
-      decrement={decrement}
+      increment={modifiedIncrement}
+      decrement={modifiedDecrement}
     />
   )
 };

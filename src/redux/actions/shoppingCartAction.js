@@ -29,7 +29,6 @@ export const fetchShoppingCart = (userId) => async (dispatch) => {
 
 export const addCartProduct = (cartProduct) => async (dispatch) => {
     try {
-        console.log(cartProduct)
         await getAxios().post(
             `${process.env.PUBLIC_URL}/shoppingCartProduct/create`,
             cartProduct
@@ -53,13 +52,21 @@ export const addCartProduct = (cartProduct) => async (dispatch) => {
     }
 };
 
-export const updateCartProduct = (cartProduct) => async (dispatch) => {
+export const updateCartProduct = (cartProduct, displayNotification = false) => async (dispatch) => {
     try {
-        await getAxios().post(
-            `${process.env.PUBLIC_URL}/shoppingCartProduct/create`,
+        await getAxios().patch(
+            `${process.env.PUBLIC_URL}/shoppingCartProduct/update`,
             cartProduct
         )
 
+        if(displayNotification){
+            dispatch(
+                createAlert({
+                    message: `El producto ya esta en tu carrito!`,
+                    type: "success"
+                })
+            );
+        }
     } catch (err) {
         validateTokenFromError(err, dispatch)
         dispatch(
